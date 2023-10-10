@@ -372,8 +372,248 @@ console.log(nonFiction, fiction, mystery);
 // nested object destructuring
 const {
   libraryHours: {
-    mon: { open, close },
+    mon: { a, b },
   },
 } = library;
-console.log(open, close);
+console.log(a, b);
+/
+
+const arr = [7, 8, 9, 10, 11, 12, 13, 14];
+const oldWay = [1, 2, arr[0], arr[1], arr[2]];
+console.log(oldWay);
+console.log(arr);
+console.log(...arr);
+
+const newWay = [1, 2, ...arr];
+console.log(newWay);
+
+const library = {
+  name: "Book Haven Library",
+  location: "123 Main Street, Anytown, USA",
+  categories: ["fiction", "non-fiction", "mystery", "drama"],
+  fiction: ["FictionBook1", "FictionBook2", "FictionBook3"],
+  mystery: ["mysteryBook1", "mysteryBook2", "mysteryBook3"],
+  libraryHours: {
+    mon: {
+      open: 0,
+      close: 24,
+    },
+    wed: {
+      open: 10,
+      close: 22,
+    },
+    fri: {
+      open: 12,
+      close: 20,
+    },
+  },
+  // order will buy two books from fiction
+  order: function (fictionIdx1, fictionIdx2) {
+    return [this.fiction[fictionIdx1], this.fiction[fictionIdx2]];
+  },
+};
+
+
+const allBooks = [...library.fiction, ...library.mystery];
+console.log(allBooks);
+
+
+// deep copy and shallow copy
+const arr1 = [1, 2, 3, 4];
+const arr2 = arr1;
+const arr3 = [...arr1];
+
+arr1[0] = 5;
+console.log(arr1);
+console.log(arr2);
+console.log(arr3);
+
+
+// spread also works for strings
+const str = "Anurag";
+const letters = [...str];
+console.log(letters);
+console.log(...str);
+
+// spread also works with objects
+const library = {
+  name: "Book Haven Library",
+  location: "123 Main Street, Anytown, USA",
+  categories: ["fiction", "non-fiction", "mystery", "drama"],
+  fiction: ["FictionBook1", "FictionBook2", "FictionBook3"],
+  mystery: ["mysteryBook1", "mysteryBook2", "mysteryBook3"],
+  libraryHours: {
+    mon: {
+      open: 0,
+      close: 24,
+    },
+    wed: {
+      open: 10,
+      close: 22,
+    },
+    fri: {
+      open: 12,
+      close: 20,
+    },
+  },
+  // order will buy two books from fiction
+  order: function (fictionIdx1, fictionIdx2) {
+    return [this.fiction[fictionIdx1], this.fiction[fictionIdx2]];
+  },
+};
+
+/*
+const newLibrary = library;
+newLibrary.name = "Wells B Library";
+newLibrary.founder = "Herman B Wells";
+newLibrary.foundedIn = 1991;
+console.log(newLibrary);
+console.log(library);
+
+
+const newLibrary = { ...library, founder: "Herman B Wells", foundedIn: 1991 };
+newLibrary.name = "Wells B Library";
+console.log(library);
+console.log(newLibrary);
+
+const arr = [1, 2, 3, 4, 5];
+const [a, b, ...others] = arr;
+console.log(a, b, others);
+
+const library = {
+  name: "Book Haven Library",
+  location: "123 Main Street, Anytown, USA",
+  categories: ["fiction", "non-fiction", "mystery", "drama"],
+  fiction: ["FictionBook1", "FictionBook2", "FictionBook3"],
+  mystery: ["mysteryBook1", "mysteryBook2", "mysteryBook3"],
+  libraryHours: {
+    mon: {
+      open: 0,
+      close: 24,
+    },
+    wed: {
+      open: 10,
+      close: 22,
+    },
+    fri: {
+      open: 12,
+      close: 20,
+    },
+  },
+  // order will buy two books from fiction
+  order: function (fictionIdx1, fictionIdx2) {
+    return [this.fiction[fictionIdx1], this.fiction[fictionIdx2]];
+  },
+};
+
+const { fiction, mystery, ...otherProperties } = library;
+console.log(name, otherProperties);
+*/
+
+/*
+const add = function (...numbers) {
+  console.log(numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(2, 3, 4);
+add(2, 3, 4, 5, 6);
+
+
+// default parameters
+const allBookings = [];
+const createBooking = function (
+  flightNum,
+  numPassengers = 1,
+  price = numPassengers * 1199
+) {
+  const booking = {
+    flightNum: flightNum,
+    numPassengers: numPassengers,
+    price: price,
+  };
+  allBookings.push(booking);
+};
+
+createBooking("AY476", 2, 8949);
+createBooking("AY787", 1, 2300);
+createBooking("ED342", 3, 12348);
+
+createBooking("LH123");
+createBooking("PQ365", 4);
+
+console.log(allBookings);
+
+// Pass by value vs reference
+const flight = "AY786";
+const anurag = {
+  name: "Anurag",
+  passport: 874569,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = "AY734";
+  passenger.name = "Mr ." + passenger.name;
+  if (passenger.passport === 874569) {
+    console.log(
+      `Correct passport, hence ${passenger.name} checked In ${flightNum}`
+    );
+  } else {
+    console.log("Incorrect passport, checkIn declined");
+  }
+};
+
+checkIn(flight, anurag);
+
+// function is taking like this....
+// const flightNum = flight;
+// const passenger = anurag;
+
+console.log(flight);
+console.log(anurag);
+
+// function accepting fucntions
+const adder = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum = sum + numbers[i];
+  }
+  return sum;
+};
+
+const multiplier = function (...numbers) {
+  let prod = 1;
+  for (let i = 0; i < numbers.length; i++) {
+    prod = prod * numbers[i];
+  }
+  return prod;
+};
+
+// higher order function
+const calculator = function (fn, ...numbers) {
+  console.log(fn.name);
+  return fn(...numbers); // call back function
+};
+
+const sum1 = calculator(adder, 1, 2, 3, 4, 5);
+const sum2 = calculator(adder, 1, 2, 3);
+const prod1 = calculator(multiplier, 1, 2, 3, 4);
+console.log(sum1, sum2, prod1);
+
+// function returing functions
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet("Hey");
+greeterHey("Anurag");
+
+greet("Hey")("Anurag");
 */
