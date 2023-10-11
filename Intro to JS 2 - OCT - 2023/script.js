@@ -616,4 +616,166 @@ const greeterHey = greet("Hey");
 greeterHey("Anurag");
 
 greet("Hey")("Anurag");
+
+
+const airline = "Etihad Airways";
+const plane = "EY277";
+
+// How to access strings
+console.log(airline[0]);
+console.log(plane[1]);
+// console.log(plane[-1]); (not working for some reason, need to debug)
+// console.log(plane[-4]);
+console.log("ABCD"[1]);
+
+// Strings are primitives, hence are not mutable
+airline[0] = "A"; // simply ignores this
+console.log(airline);
+
+// length of string
+console.log(airline.length);
+console.log(plane.length);
+console.log("ABCD".length);
+
+// Find the index of word
+console.log(airline.indexOf("r"));
+console.log(airline.indexOf("ways")); // case-sensitive
+console.log(airline.indexOf("had"));
+console.log(airline.indexOf("a")); // first-occurence
+console.log(airline.lastIndexOf("a")); // last-occurence
+
+// picking part of the string (substring)
+console.log(airline.slice(7));
+console.log(airline.slice(0, 5));
+
+// first and last words in a sentence
+const sentence = "Quick brown fox jumped over a river";
+console.log(sentence.slice(0, sentence.indexOf(" ")));
+console.log(sentence.slice(sentence.lastIndexOf(" ") + 1));
+
+console.log(airline.slice(-4));
+console.log(airline.slice(-6, -3));
+
+const checkMiddleSeat = function (seat) {
+  const lastLetter = seat[seat.length - 1];
+  // const lastLetter = seat.slice(-1);
+  // const isBExist = seat.indexOf("B");
+  // const isEExist = seat.indexOf("E");
+
+  if (lastLetter == "B" || lastLetter == "E") {
+    console.log("yayy i got a middle seat");
+  } else {
+    console.log("thank god i did not get a middle seat");
+  }
+};
+
+checkMiddleSeat("11B");
+checkMiddleSeat("23C");
+checkMiddleSeat("3E");
+
+console.log(new String("ABCD"));
+console.log(typeof new String("ABCD")); // created in heap
+console.log(typeof "ABCD"); // created in stack
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalization in a name
+const passenger = "aNuRag";
+const passengerLower = passenger.toLowerCase(); // "anurag"
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// comparing emails
+const email = "anurag@accio.in";
+const loginEmail = "    aNuRag@acCio.in \n \t";
+console.log(email === loginEmail);
+
+const trimmedEmail = loginEmail.trim();
+const normalizedEmail = trimmedEmail.toLowerCase();
+console.log(loginEmail);
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+// Replacing
+const priceRs = "300,72#";
+const priceUs = priceRs.replace(",", ".").replace("#", "$");
+console.log(priceUs);
+
+const announcement =
+  "All passengers come to boarding door 23, and start boarding door 23.";
+
+console.log(announcement.replace("door", "gate")); // only replaces first occurence
+console.log(announcement.replaceAll("door", "gate")); // replaces all the occurences
+
+// Booleans
+const place = "Boeing 777";
+console.log(place.includes("ing"));
+console.log(place.includes("Boa"));
+console.log(place.startsWith("Bo"));
+console.log(place.endsWith("77"));
+
+// Simple exercise to check understanding
+const checkBaggage = function (itemStr) {
+  const baggage = itemStr.toLowerCase();
+  console.log(baggage);
+  if (baggage.includes("knife") || baggage.includes("gun")) {
+    console.log("You are Not allowed to board");
+  } else {
+    console.log("Welcome Aboard !!");
+  }
+};
+
+checkBaggage("I have a laptop, some FOOD and a pocket KniFe");
+checkBaggage("Socks and Camera");
+checkBaggage("Got some snacks and a gun for safety");
+
+// Split and join
+const joinedString = "A-Very---Nice--String";
+console.log(joinedString.split("-"));
+
+const fullName = "Virat Kohli";
+const [firstName, lastName] = fullName.split(" "); // ["Virat", "Kohli"]
+const newName = ["Mr.", firstName, lastName];
+console.log(newName.join(" "));
+
+const capitalizeName = function (fullName) {
+  const eachName = fullName.toLowerCase().split(" ");
+  const correctNames = [];
+
+  for (let i = 0; i < eachName.length; i++) {
+    const name = eachName[i];
+    correctNames.push(name.replace(name[0], name[0].toUpperCase()));
+  }
+
+  console.log(correctNames.join(" "));
+};
+
+capitalizeName("virat kohli"); //=> "Virat Kohli"
+capitalizeName("maheNdra siNgh dHoni"); //=> "Mahendra Singh Dhoni"
+
+// Padding
+const message = "Go to gate number 23!";
+console.log(message.length);
+console.log(message.padStart(30, "*"));
+console.log("anurag".padStart(30, "*"));
+
+console.log(message.padEnd(30, "*"));
+console.log("anurag".padEnd(30, "*"));
+
+const maskCreditCard = function (number) {
+  const str = number + "";
+  const last = str.slice(-4); // "7384"
+  console.log(str.length);
+  return last.padStart(str.length, "*");
+};
+
+console.log(maskCreditCard(43378463646467384));
+
+// repeating
+const name = "anurag";
+const encrypted = "a3b4c5";
+const decrypted = "aaabbbbbccccc";
+console.log(name.repeat(5));
 */
