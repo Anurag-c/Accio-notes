@@ -218,3 +218,145 @@ function compressString(s) {
   return ans;
 }
 // TC: O(N), SC: O(1) (if you want to consider output => O(N))
+
+// Substrings
+// Link: https://course.acciojob.com/idle?question=94779a98-b326-4d58-a107-b50cc370b894
+function SubString(str) {
+  const n = str.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < n; j++) {
+      console.log(str.slice(i, j + 1));
+    }
+  }
+}
+// TC: O(N^3), SC: O(1)
+
+function SubString(str) {
+  const n = str.length;
+  for (let i = 0; i < n; i++) {
+    let substr = "";
+    for (let j = i; j < n; j++) {
+      substr += str[j];
+      console.log(substr);
+    }
+  }
+}
+// TC: O(N^2), SC: O(1)
+
+// Distinct Palindromic SubStrings
+// Link: https://course.acciojob.com/idle?question=a2253264-33ae-4cd3-85ce-ba0f6f461418
+function isPalindrome(str) {
+  let start = 0;
+  let end = str.length - 1;
+
+  while (start <= end) {
+    if (str[start] != str[end]) {
+      return false;
+    }
+    start++;
+    end--;
+  }
+
+  return true;
+}
+
+function palindromeSubStrs(str) {
+  const n = str.length;
+  const map = {};
+
+  for (let i = 0; i < n; i++) {
+    let substr = "";
+    for (let j = i; j < n; j++) {
+      substr += str[j];
+      if (isPalindrome(substr)) {
+        // add it to the object / map
+        if (map[substr] != undefined) {
+          map[substr]++;
+        } else {
+          map[substr] = 1;
+        }
+      }
+    }
+  }
+
+  // get all the keys from a map
+  const keys = Object.keys(map);
+
+  // lexicographical order -> sorted order
+  keys.sort();
+
+  // print according output format
+  for (let i = 0; i < keys.length; i++) {
+    console.log(keys[i]);
+  }
+}
+// TC: O(N^3), SC: O(N^2)
+
+// Ptice
+// Link: https://course.acciojob.com/idle?question=9e8aaa54-86e5-4a82-bba6-deaaacb9700c
+function ptice(n, key) {
+  const [adrian, bruno, goran] = ["ABC", "BABC", "CCAABB"];
+  let [acnt, bcnt, gcnt] = [0, 0, 0];
+
+  for (let i = 0; i < n; i++) {
+    const ans = key[i];
+    const adrianAns = adrian[i % 3];
+    const brunoAns = bruno[i % 4];
+    const goranAns = goran[i % 6];
+
+    if (ans == adrianAns) acnt++;
+    if (ans == brunoAns) bcnt++;
+    if (ans == goranAns) gcnt++;
+  }
+
+  let maxMarks = Math.max(acnt, bcnt, gcnt);
+  console.log(maxMarks);
+  if (maxMarks == acnt) console.log("Adrian");
+  if (maxMarks == bcnt) console.log("Bruno");
+  if (maxMarks == gcnt) console.log("Goran");
+}
+// TC: O(N), SC: O(1)
+
+// Autori
+// Link: https://course.acciojob.com/idle?question=5f129c6b-4ef9-461a-b716-60316168e12f
+function autori(str) {
+  const n = str.length;
+  let ans = str[0];
+  for (let i = 0; i < n; i++) {
+    if (str[i] == "-") {
+      ans += str[i + 1];
+    }
+  }
+  return ans;
+}
+// TC: O(N), SC: O(1)
+
+// String to Integer Array
+// Link: https://course.acciojob.com/idle?question=318ca0ab-0c63-4b0b-934b-f34925bfd0cb
+function arrayGenerator(s) {
+  const arr = s.split(",");
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = Number(arr[i]);
+  }
+  return arr;
+}
+
+function arrayGenerator(s) {
+  let rs = "";
+  const n = s.length;
+  const ans = [];
+
+  for (let i = 0; i < n; i++) {
+    if (s[i] == ",") {
+      ans.push(Number(rs));
+      rs = "";
+    } else {
+      rs += s[i];
+    }
+  }
+
+  // unexplored rs
+  ans.push(Number(rs));
+  return ans;
+}
+// TC: O(N), SC: O(1)
