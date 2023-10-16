@@ -360,3 +360,150 @@ function arrayGenerator(s) {
   return ans;
 }
 // TC: O(N), SC: O(1)
+
+// Time Conversion
+// Link: https://course.acciojob.com/idle?question=354f7964-86b9-4bcc-8f31-d070f1336bce
+function timeConversion(s) {
+  // hh  :mm:ss   AM
+  // 01  234567   89
+
+  const ch = s[8]; // to check AM or PM
+  const hh = s.slice(0, 2);
+  const rem = s.slice(2, 8);
+
+  if (ch == "A") {
+    if (hh == "12") {
+      console.log("00" + rem); // change to 00, remove AM
+    } else {
+      console.log(hh + rem); // as it is, just remove AM
+    }
+  } else {
+    if (hh == 12) {
+      console.log(hh + rem); // as it is, just remove PM
+    } else {
+      console.log(Number(hh) + 12 + rem); // add 12, remove PM
+    }
+  }
+}
+// TC: O(1), SC: O(1)
+
+// Bubble Sort
+function bubbleSort(arr) {
+  const n = arr.length;
+  let swaps = 0;
+  // passes
+  for (let fixIdx = n - 1; fixIdx > 0; fixIdx--) {
+    // comparing adjacent elements
+    for (let i = 0; i < fixIdx; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        swaps++;
+      }
+    }
+  }
+  return swaps;
+}
+// TC: O(N^2), SC: O(1)
+
+// Bubble Sort Problem
+// Link: https://course.acciojob.com/idle?question=29cbcea0-c4c1-4b3b-a2c3-038dfb499b85
+function bubbleSort(a, n) {
+  let swaps = 0;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - 1; j++) {
+      // Swap adjacent elements if they are in decreasing order
+      if (a[j] > a[j + 1]) {
+        [a[j], a[j + 1]] = [a[j + 1], a[j]];
+        swaps++;
+      }
+    }
+  }
+  console.log(swaps);
+  console.log(a[0]);
+  console.log(a[n - 1]);
+}
+// TC: O(N^2), SC: O(1)
+
+// Word from Keyboard (Doubt from Student)
+// Link: https://course.acciojob.com/idle?question=ceab1561-febd-488e-9db7-a53053b6086f
+function canType(str, rowStr) {
+  const n = str.length;
+  // O(len(str))
+  for (let i = 0; i < n; i++) {
+    // O(len(rowStr)) => O(len("qwertyuiop")) => O(1)
+    if (rowStr.includes(str[i]) == false) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function getStrings(arr) {
+  const n = arr.length;
+  const res = [];
+  const firstRow = "qwertyuiop";
+  const secondRow = "asdfghjkl";
+  const thirdRow = "zxcvbnm";
+
+  for (let i = 0; i < n; i++) {
+    let check = canType(arr[i], firstRow);
+    check = check || canType(arr[i], secondRow);
+    check = check || canType(arr[i], thirdRow);
+    if (check) {
+      res.push(arr[i]);
+    }
+  }
+  return res;
+}
+// TC: O(len(arr) * maxlen(str)) => O(N^2) [when both arr and str are of same length]
+
+// Selection Sort
+function selectionSort(arr) {
+  const n = arr.length;
+  for (let fixIdx = 0; fixIdx < n - 1; fixIdx++) {
+    // find the minimum ele
+    let minEle = Infinity;
+    let minEleIdx = -1;
+    for (let i = fixIdx; i < n; i++) {
+      if (arr[i] < minEle) {
+        minEle = arr[i];
+        minEleIdx = i;
+      }
+    }
+
+    // avoid un-necessary swappings
+    if (fixIdx != minIdx) {
+      [arr[fixIdx], arr[minEleIdx]] = [arr[minEleIdx], arr[fixIdx]];
+    }
+  }
+}
+// TC: O(N^2), SC: O(1)
+
+// Alice loves number (Contest Question)
+// Link: https://course.acciojob.com/idle?question=c4466efa-c2cd-4fe0-a052-3e49e0b5e745
+function extractNumbers(str) {
+  const n = str.length;
+  let ans = "";
+
+  for (let i = 0; i < n; i++) {
+    if ("1" <= str[i] && str[i] <= "9") {
+      ans += str[i];
+    }
+  }
+
+  return ans;
+}
+// TC: O(N), SC: O(1)
+
+// Helping Ron 3 (Contest Question)
+// Link: https://course.acciojob.com/idle?question=d7582fdb-6347-4ac2-be37-a0e4e93d7b9c
+function subtractTwoMatrix(m, n, mat1, mat2) {
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      mat2[i][j] = mat1[i][j] - mat2[i][j];
+    }
+  }
+
+  return mat2;
+}
+// TC: O(M * N), SC: O(1)
