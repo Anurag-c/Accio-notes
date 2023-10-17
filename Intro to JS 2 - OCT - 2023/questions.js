@@ -507,3 +507,61 @@ function subtractTwoMatrix(m, n, mat1, mat2) {
   return mat2;
 }
 // TC: O(M * N), SC: O(1)
+
+// Insertion sort
+function insertionSort(arr) {
+  const n = arr.length;
+  // We are getting cards one by one
+  for (let i = 1; i < n; i++) {
+    // I got ith card place it in the right position
+    const myCard = arr[i];
+    let j = i - 1;
+    while (j >= 0 && myCard < arr[j]) {
+      arr[j + 1] = arr[j]; // shifting towards right
+      j--;
+    }
+    arr[j + 1] = myCard;
+  }
+  return arr;
+}
+// TC: O(N^2), SC: O(1)
+
+// AS Sorting 1
+function printMatrix(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+/* 
+all are same
+function compare(a, b) {
+	return Number(a) - Number(b);
+}
+const compare = (a, b) => {
+	return Number(a) - Number(b);
+}
+const compare = (a, b) => Number(a) - Number(b);
+*/
+
+function sortCol(mat, n, m) {
+  for (let c = 0; c < m; c++) {
+    const col = [];
+    for (let r = 0; r < n; r++) {
+      col.push(mat[r][c]);
+      // same as col[r] = mat[r][c];
+    }
+    col.sort((a, b) => Number(a) - Number(b));
+    for (let r = 0; r < n; r++) {
+      mat[r][c] = col[r];
+    }
+  }
+  printMatrix(mat);
+}
+
+// TC: O(N^2), SC: O(1)
