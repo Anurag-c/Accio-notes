@@ -563,5 +563,125 @@ function sortCol(mat, n, m) {
   }
   printMatrix(mat);
 }
-
 // TC: O(N^2), SC: O(1)
+
+// 0-1 Sorting
+// Link: https://course.acciojob.com/idle?question=09d1a3ab-046f-4594-b5b4-41040ef6650f
+function Sorting01(n, arr) {
+  let cnt0 = 0;
+  let cnt1 = 0;
+
+  for (let i = 0; i < n; i++) {
+    if (arr[i] == 0) cnt0++;
+    else cnt1++;
+  }
+
+  let idx = 0;
+  while (cnt0 > 0) {
+    arr[idx] = 0;
+    idx++;
+    cnt0--;
+  }
+
+  while (cnt1 > 0) {
+    arr[idx] = 1;
+    idx++;
+    cnt1--;
+  }
+
+  return arr;
+}
+// TC: O(N), SC: O(1)
+
+function Sorting01(n, arr) {
+  let start = 0;
+  let end = n - 1;
+
+  while (start <= end) {
+    if (arr[start] == 1 && arr[end] == 0) {
+      [arr[start], arr[end]] = [arr[end], arr[start]];
+      start++;
+      end--;
+    } else if (arr[start] == 0) start++;
+    else if (arr[end] == 1) end--;
+  }
+
+  return arr;
+}
+// TC: O(N), SC: O(1)
+
+// Smallest Greater Elements - Bubble Sort
+// Link: https://course.acciojob.com/idle?question=037c82ed-47d5-4683-a08c-5cdfb48fb39e
+function smallestGreaterElements(arr) {
+  let res = [];
+
+  for (let i = 0; i < n; i++) {
+    let minEle = Infinity;
+    for (let j = 0; j < n; j++) {
+      if (arr[j] > arr[i] && arr[j] < minEle) {
+        minEle = arr[j];
+      }
+    }
+
+    if (minEle == Infinity) res.push(-10000000);
+    else res.push(minEle);
+  }
+
+  return res;
+}
+
+// Insertion Sort 1
+// Link: https://course.acciojob.com/idle?question=757b5de7-d2dd-4e4d-bee5-13de2526d9d1
+function insertionSort1(arr, n) {
+  const i = n - 1; // run insertion sort only for last element
+  const myCard = arr[i];
+  let j = i - 1;
+  while (j >= 0 && myCard < arr[j]) {
+    arr[j + 1] = arr[j];
+    j--;
+    console.log(...arr);
+  }
+  if (i != j + 1) {
+    arr[j + 1] = myCard;
+    console.log(...arr);
+  }
+}
+// TC: O(N), SC: O(1)
+
+// AS Sorting 4
+// Link: https://course.acciojob.com/idle?question=b999b5d4-ca48-45be-9159-10790d371b98
+function sorting4(n, arr, l) {
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        const maxEle = Math.max(arr[i], arr[j], arr[k]);
+        const minEle = Math.min(arr[i], arr[j], arr[k]);
+        if (maxEle - minEle <= l) cnt++;
+      }
+    }
+  }
+  return cnt;
+}
+// TC: O(N^3), SC: O(1)
+
+function sorting4(n, arr, l) {
+  arr.sort((a, b) => Number(a) - Number(b));
+  let start = 0;
+  let end = 2;
+  let cnt = 0;
+  while (end < n) {
+    if (end - start < 2) {
+      end++;
+    } else if (arr[end] - arr[start] <= l) {
+      const btwn = end - start - 1;
+      cnt += (btwn * (btwn + 1)) / 2;
+      end++;
+    } else {
+      start++;
+    }
+  }
+
+  return cnt;
+}
+// TC: O(NLogN), SC: O(1)
