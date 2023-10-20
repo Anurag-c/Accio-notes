@@ -685,3 +685,91 @@ function sorting4(n, arr, l) {
   return cnt;
 }
 // TC: O(NLogN), SC: O(1)
+
+// Print ACCIOJOB
+// Link: https://course.acciojob.com/idle?question=46f24e9e-fdff-4067-bf4b-8b5e4e65a6ea
+// pre-way
+function solve(n) {
+  if (n == 0) {
+    return;
+  }
+
+  console.log("ACCIOJOB");
+  solve(n - 1);
+}
+
+// post-way
+function solve(n) {
+  if (n == 0) {
+    return;
+  }
+
+  solve(n - 1);
+  console.log("ACCIOJOB");
+}
+
+// using count variable
+function print(cnt, n) {
+  if (cnt == n) {
+    return;
+  }
+
+  console.log("ACCIOJOB");
+  print(cnt + 1, n);
+}
+
+function solve(n) {
+  print(0, n);
+}
+
+// Recusively print numbers
+// Link: https://course.acciojob.com/idle?question=081952cc-46a8-4444-bebd-735bff0c558d
+// post-way
+function print(n) {
+  if (n == 0) {
+    return;
+  }
+
+  print(n - 1); // 1 2 3 4
+  process.stdout.write(n + " "); // 5
+}
+
+function printTillN(N, curr_num) {
+  print(N);
+}
+
+// pre-way
+function printTillN(N, curr_num) {
+  if (curr_num > N) {
+    return;
+  }
+
+  process.stdout.write(curr_num + " "); // 1
+  printTillN(N, curr_num + 1); // 2 3 4 5
+}
+
+// Recursively Print Numbers In Reverse
+// Link: https://course.acciojob.com/idle?question=b0401342-76e9-4b81-9e06-4a92b204a6ef
+// pre-way
+function printtillN(N) {
+  if (N == 0) {
+    return;
+  }
+
+  process.stdout.write(N + " "); // 5
+  printtillN(N - 1); // 4 3 2 1
+}
+
+// post-way
+function print(curr_num, n) {
+  if (curr_num > n) {
+    return;
+  }
+
+  print(curr_num + 1, n); // 5 4 3 2
+  process.stdout.write(curr_num + " "); // 1
+}
+
+function printtillN(N) {
+  print(1, N);
+}
