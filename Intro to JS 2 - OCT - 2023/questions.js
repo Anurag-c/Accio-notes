@@ -773,3 +773,76 @@ function print(curr_num, n) {
 function printtillN(N) {
   print(1, N);
 }
+
+// Decrease Print Increase Print
+// Link: https://course.acciojob.com/idle?question=c00092ae-e058-4be3-b2c7-89ac1206270a
+function printDI(n) {
+  if (n == 0) {
+    return;
+  }
+
+  console.log(n);
+  printDI(n - 1);
+  console.log(n);
+}
+
+// Factorial Recursively
+// Link: https://course.acciojob.com/idle?question=044b6db7-d0b6-4ab5-9bb5-8475269790cf
+// post-way
+function factorial_recursive(n) {
+  if (n == 0) {
+    return 1;
+  }
+
+  const smallAns = factorial_recursive(n - 1);
+  return n * smallAns;
+}
+
+// pre-way
+function fact(curr_num, curr_fact, n) {
+  if (curr_num == n) {
+    return curr_fact;
+  }
+
+  return fact(curr_num + 1, curr_fact * (curr_num + 1), n);
+}
+
+// Power calculation
+// Link: https://course.acciojob.com/idle?question=80e462de-7fd5-4923-ad70-0a388d47c94d
+function xPowerN(x, n) {
+  if (n == 0) {
+    return 1;
+  }
+
+  const smallAns = xPowerN(x, n - 1);
+  return x * smallAns;
+}
+
+function power(x, n, curr_power) {
+  if (n == 0) {
+    return curr_power;
+  }
+
+  return power(x, n - 1, curr_power * x);
+}
+
+// Optimized power calculation
+// Link: https://course.acciojob.com/idle?question=96deddd4-3669-4f3a-ade8-0cbc50118ae4
+function power(x, y) {
+  if (y == 0) {
+    return 1;
+  }
+
+  const smallAns = power(x, parseInt(y / 2));
+  if (y % 2 == 1) {
+    return smallAns * smallAns * x;
+  }
+  return smallAns * smallAns;
+}
+
+function fib(n) {
+  if (n == 1) return 0;
+  if (n == 2) return 1;
+
+  return fib(n - 1) + fib(n - 2);
+}
