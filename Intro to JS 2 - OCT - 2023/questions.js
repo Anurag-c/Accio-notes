@@ -846,3 +846,100 @@ function fib(n) {
 
   return fib(n - 1) + fib(n - 2);
 }
+
+// Print Array Recursively
+// Link: https://course.acciojob.com/idle?question=42087e6a-fcc5-431d-b78a-e1c57a7bb814
+// preorder
+function printArrayRecursive(arr, idx, n) {
+  if (idx == n) {
+    return;
+  }
+
+  process.stdout.write(arr[idx] + " ");
+  printArrayRecursive(arr, idx + 1, n);
+}
+
+// postorder
+function printArr(arr, idx) {
+  if (idx == -1) {
+    return;
+  }
+
+  printArr(arr, idx - 1);
+  process.stdout.write(arr[idx] + " ");
+}
+
+function printArrayRecursive(arr, i, n) {
+  printArr(arr, n - 1);
+}
+
+// Print Reverse Array Recursively
+// Link: https://course.acciojob.com/idle?question=4ad63387-62e1-484f-916b-16a1e5bde7c9
+// post order
+function printReverseArrayRecursive(arr, i, n) {
+  if (i == n) {
+    return;
+  }
+
+  printReverseArrayRecursive(arr, i + 1, n);
+  process.stdout.write(arr[i] + " ");
+}
+
+// preorder
+function printArrRev(arr, idx) {
+  if (idx == -1) {
+    return;
+  }
+
+  process.stdout.write(arr[idx] + " ");
+  printArrRev(arr, idx - 1);
+}
+
+function printReverseArrayRecursive(arr, i, n) {
+  printArrRev(arr, n - 1);
+}
+
+// Smallest Number in an Array using Recursion
+// Link: https://course.acciojob.com/idle?question=f35ea8a2-6832-4e44-8318-c24f708421e3
+// postorder
+function findMinRec(arr, idx) {
+  if (idx == arr.length - 1) {
+    return arr[idx];
+  }
+
+  const smallAns = findMinRec(arr, idx + 1);
+  return Math.min(arr[idx], smallAns);
+}
+
+function findMin(arr, n) {
+  return findMinRec(arr, 0);
+}
+
+// preorder
+function findMinRec(arr, idx, curr_min) {
+  if (idx == arr.length) {
+    return curr_min;
+  }
+
+  return findMinRec(arr, idx + 1, Math.min(arr[idx], curr_min));
+}
+
+function findMin(arr, n) {
+  return findMinRec(arr, 0, Infinity);
+  // return findMinRec(arr, 1, arr[0]);
+}
+
+// Check whether Array is a Palindrome using Recursion
+// Link: https://course.acciojob.com/idle?question=ad0d1ee4-a4b1-4132-b6b5-5a226479cc3a
+// postorder
+function isPalindromic(arr, start_idx, end_idx) {
+  if (start_idx > end_idx) {
+    return 1;
+  }
+
+  const smallAns = isPalindromic(arr, start_idx + 1, end_idx - 1);
+  if (smallAns == 0) return 0;
+  return arr[start_idx] == arr[end_idx] ? 1 : 0;
+}
+
+// HW:PREORDER
