@@ -942,4 +942,135 @@ function isPalindromic(arr, start_idx, end_idx) {
   return arr[start_idx] == arr[end_idx] ? 1 : 0;
 }
 
-// HW:PREORDER
+// preorder
+function isPalindromic(arr, start_idx, end_idx) {
+  if (start_idx > end_idx) {
+    return 1;
+  }
+
+  if (arr[start_idx] != arr[end_idx]) {
+    return 0;
+  }
+
+  return isPalindromic(arr, start_idx + 1, end_idx - 1);
+}
+
+// First Occurence Index
+// Link: https://course.acciojob.com/idle?question=f03dab51-36ef-4e58-b5de-8995417f59ac
+// postorder
+function firstIndex(arr, ele, idx) {
+  if (idx == arr.length) {
+    return -1;
+  }
+
+  const smallAns = firstIndex(arr, ele, idx + 1);
+  if (arr[idx] == ele) return idx;
+  return smallAns;
+}
+
+// preorder
+function firstIndex(arr, ele, idx) {
+  if (idx == arr.length) {
+    return -1;
+  }
+
+  if (arr[idx] == ele) return idx;
+
+  return firstIndex(arr, ele, idx + 1);
+}
+
+// Last Occurence Index
+// Link: https://course.acciojob.com/idle?question=a33a78a1-76d9-45f9-b6a3-9c7d51df6ee2
+// postorder with idx = n - 1
+function lastIndex(arr, ele, idx) {
+  if (idx == -1) {
+    return -1;
+  }
+
+  const smallAns = lastIndex(arr, ele, idx - 1);
+  if (arr[idx] == ele) return idx;
+  return smallAns;
+}
+
+// preorder with idx = n - 1
+function lastIndex(arr, ele, idx) {
+  if (idx == -1) {
+    return -1;
+  }
+
+  if (arr[idx] == ele) return idx;
+
+  return lastIndex(arr, ele, idx - 1);
+}
+
+// postorder with idx = 0
+function lastIndex(arr, ele, idx) {
+  if (idx == arr.length) {
+    return -1;
+  }
+
+  const smallAns = lastIndex(arr, ele, idx + 1);
+  if (smallAns != -1) return smallAns;
+  if (arr[idx] == ele) return idx;
+  return -1;
+}
+
+// preorder with idx = 0
+function lastIndex(arr, ele, idx) {
+  if (idx == arr.length) {
+    return -1;
+  }
+
+  if (arr[idx] == ele) {
+    const smallAns = lastIndex(arr, ele, idx + 1);
+    if (smallAns != -1) return smallAns;
+    return idx;
+  }
+  return lastIndex(arr, ele, idx + 1);
+}
+
+// Find Indices
+// Link: https://course.acciojob.com/idle?question=ba5e0f11-6785-42a7-a9a8-46fa03379de9
+// preorder
+function printAllIndices(arr, ele, idx) {
+  if (idx == arr.length) {
+    return;
+  }
+
+  if (arr[idx] == ele) {
+    process.stdout.write(idx + " ");
+  }
+  printAllIndices(arr, ele, idx + 1);
+}
+
+function findX(arr, n, x) {
+  printAllIndices(arr, x, 0);
+}
+
+// postorder
+function getAllIndices(arr, ele, idx) {
+  if (idx == arr.length) {
+    return [];
+  }
+
+  const smallAns = getAllIndices(arr, ele, idx + 1); // [4, 6]
+  if (arr[idx] == ele) return [idx, ...smallAns]; // [1, 4, 6]
+  return smallAns;
+}
+
+function findX(arr, n, x) {
+  const ans = getAllIndices(arr, x, 0);
+  console.log(...ans);
+}
+
+// Doubt: Nth Even Fibonacci Number
+// Link: https://course.acciojob.com/idle?question=09f6911f-992e-43cb-98dc-75f7848a14e3
+function NthEvenFibonacci(n) {
+  if (n == 1) return 2;
+  if (n == 2) return 8;
+
+  const M = 1000000007;
+  const f1 = (4 * NthEvenFibonacci(n - 1)) % M;
+  const f2 = NthEvenFibonacci(n - 2) % M;
+  return (f1 + f2) % M;
+}
