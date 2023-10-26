@@ -1074,3 +1074,103 @@ function NthEvenFibonacci(n) {
   const f2 = NthEvenFibonacci(n - 2) % M;
   return (f1 + f2) % M;
 }
+
+// Find Number of Digits
+// Link: https://course.acciojob.com/idle?question=2b98dab6-8c91-4f4d-8bb7-829fc1155a26
+// postorder
+function numOfDigi(n) {
+  if (n == 0) return 0;
+  return 1 + numOfDigi(parseInt(n / 10));
+}
+
+// preorder
+function numDigits(n, cnt) {
+  if (n == 0) return cnt;
+  return numDigits(parseInt(n / 10), cnt + 1);
+}
+
+function numOfDigi(n) {
+  return numDigits(n, 0);
+}
+
+// No X
+// Link: https://course.acciojob.com/idle?question=2aff4e35-b341-4902-b262-4c095ed174f9
+// postorder
+function removeX(str, idx) {
+  if (idx == str.length) return "";
+
+  const smallAns = removeX(str, idx + 1);
+  if (str[idx] == "x") return smallAns;
+  return str[idx] + smallAns;
+}
+
+// preorder
+function removeX(str, idx, ans) {
+  if (idx == str.length) return ans;
+
+  // not consider
+  if (str[idx] == "x") return removeX(str, idx + 1, ans);
+
+  // consider
+  return removeX(str, idx + 1, ans + str[idx]);
+}
+
+// Print all subsequences of a string
+// Link: https://course.acciojob.com/idle?question=47e066fc-64ac-4ce9-ab5f-3a3d6d522765
+// postorder
+function getAllSubseq(str, idx) {
+  if (idx == str.length) {
+    return [""];
+  }
+
+  const smallAns = getAllSubseq(str, idx + 1);
+  const ans = [];
+
+  // with str[idx]
+  for (let i = 0; i < smallAns.length; i++) {
+    ans.push(str[idx] + smallAns[i]); // "a" + "bcd"
+  }
+
+  // also add without str[idx]
+  return [ans, ...smallAns];
+}
+
+// preorder
+function printSubSeq(str, idx, subseq, ans) {
+  if (idx == str.length) {
+    ans.push(subseq);
+    return;
+  }
+
+  printSubSeq(str, idx + 1, subseq + str[idx], ans);
+  printSubSeq(str, idx + 1, subseq, ans);
+}
+
+function printSubsequence(str) {
+  const ans = [];
+  printSubSeq(str, 0, "", ans);
+  console.log(...ans);
+}
+
+// Print Stair Path
+// Link: https://course.acciojob.com/idle?question=c6abdf5c-6981-4f50-8908-0ce691ee6851
+// preorder
+function printPaths(n, path) {
+  if (n == 0) {
+    console.log(path);
+    return;
+  }
+
+  if (n < 0) {
+    return;
+  }
+
+  printPaths(n - 1, path + "1");
+  printPaths(n - 2, path + "2");
+  printPaths(n - 3, path + "3");
+
+  // if you have many choices let say 10, 11.. etc
+  // how will you write the code in that case ?
+}
+
+// hw: postorder
