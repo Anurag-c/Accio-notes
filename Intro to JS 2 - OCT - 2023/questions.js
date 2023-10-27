@@ -1173,4 +1173,92 @@ function printPaths(n, path) {
   // how will you write the code in that case ?
 }
 
-// hw: postorder
+// aMaze paths
+// Link: https://course.acciojob.com/idle?question=bb073cbd-0873-4607-824f-35edc0041c02
+function printMazePaths(sr, sc, dr, dc, path) {
+  // reached destination hence stop recursion
+  if (sr == dr && sc == dc) {
+    console.log(path);
+    return;
+  }
+
+  // can i go to right
+  if (sc + 1 <= dc) {
+    // (sr, sc) -> (sr, sc + 1)
+    // going right hence add "h"
+    printMazePaths(sr, sc + 1, dr, dc, path + "h");
+  }
+  // can i go down
+  if (sr + 1 <= dr) {
+    // (sr, sc) -> (sr + 1, sc)
+    // going down hence add "v"
+    printMazePaths(sr + 1, sc, dr, dc, path + "v");
+  }
+}
+
+// Maze Problem
+// Link: https://course.acciojob.com/idle?question=21ed24d5-3798-4152-a4e8-85627d51884c
+function printMazeJumps(sr, sc, dr, dc, path) {
+  if (sr == dr && sc == dc) {
+    console.log(path);
+    return;
+  }
+
+  // I can go right by any no.of jumps
+  for (let jump = 1; sc + jump <= dc; jump++) {
+    printMazeJumps(sr, sc + jump, dr, dc, path + "h" + jump);
+  }
+
+  // I can go down by any no.of jumps
+  for (let jump = 1; sr + jump <= dr; jump++) {
+    printMazeJumps(sr + jump, sc, dr, dc, path + "v" + jump);
+  }
+
+  // I can go diagonally by any no.of jumps
+  for (let jump = 1; sr + jump <= dr && sc + jump <= dc; jump++) {
+    printMazeJumps(sr + jump, sc + jump, dr, dc, path + "d" + jump);
+  }
+}
+
+// Permutation Printing
+// Link: https://course.acciojob.com/idle?question=6a9ab058-5cca-42d5-aeea-3f4003dcd428
+function permute(str, path) {
+  // no ch in str to pick
+  if (str.length == 0) {
+    console.log(path);
+    return;
+  }
+
+  // you can choose any ch from str in this blank
+  // remaining str apart from ch will be the options for next blank(call)
+  for (let i = 0; i < str.length; i++) {
+    // if curr ch is same as prev ch skip it to avoid duplicates (str should be sorted
+    if (i > 0 && str[i] == str[i - 1]) {
+      continue;
+    }
+    // exclude current ch so that options for next blank doesnt include current ch
+    permute(str.slice(0, i) + str.slice(i + 1), path + str[i]);
+  }
+}
+
+function printPermutations(str) {
+  str = [...str].sort().join("");
+  permute(str, "");
+}
+
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+inputArr = [];
+rl.on("line", (input) => {
+  inputArr.push(input);
+});
+
+rl.on("close", () => {
+  // use your input array as required
+  printPermutations(inputArr[0], "");
+});
