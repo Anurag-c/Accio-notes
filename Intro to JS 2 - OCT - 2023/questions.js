@@ -1262,3 +1262,124 @@ rl.on("close", () => {
   // use your input array as required
   printPermutations(inputArr[0], "");
 });
+
+// Permutations
+// Link: https://leetcode.com/problems/permutations/
+function solve(nums, path, ans) {
+  if (path.length == nums.length) {
+    ans.push([...path]); // make a copy and add, why?
+    return;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] != Infinity) {
+      const oldnum = nums[i];
+      path.push(nums[i]); // add to path
+      nums[i] = Infinity; // mark as visited
+      solve(nums, path, ans);
+
+      // backtrack
+      nums[i] = oldnum; // mark as unvisited
+      path.pop(); // remove from path
+    }
+  }
+}
+
+var permute = function (nums) {
+  const path = [];
+  const ans = [];
+  solve(nums, path, ans);
+  return ans;
+};
+
+// Permutations II
+// Link: https://leetcode.com/problems/permutations-ii/
+function solve(nums, path, ans) {
+  if (path.length == nums.length) {
+    ans.push([...path]);
+    return;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    // skip if curr num and prev num are same to avoid duplicates
+    // this will only work if nums is sorted
+    if (i > 0 && nums[i] == nums[i - 1]) {
+      continue;
+    }
+
+    if (nums[i] != Infinity) {
+      const oldnum = nums[i];
+      path.push(nums[i]);
+      nums[i] = Infinity;
+      solve(nums, path, ans);
+      nums[i] = oldnum;
+      path.pop();
+    }
+  }
+}
+
+var permuteUnique = function (nums) {
+  const path = [];
+  const ans = [];
+  nums.sort();
+  solve(nums, path, ans);
+  return ans;
+};
+
+// Decode Ways (String Encodings)
+// Link: https://course.acciojob.com/idle?question=38c7e0ba-2e2e-40a2-b207-e6f6171a5fbd
+const map = [
+  "",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
+function solve(str, idx, path) {
+  if (idx == str.length) {
+    console.log(path);
+    return;
+  }
+
+  // edge case -> 0 cannot be decoded to a letter
+  if (str[idx] == "0") return;
+
+  // take single digit String.fromCharCode(Number(str[i]) + 96)
+  solve(str, idx + 1, path + map[Number(str[idx])]);
+
+  // take two digits
+  if (idx + 1 < str.length) {
+    // check num <= 26
+    const num = Number(str[idx] + str[idx + 1]);
+    if (num <= 26) {
+      solve(str, idx + 2, path + map[num]);
+    }
+  }
+}
+
+function printEncodings(str) {
+  solve(str, 0, "");
+}
