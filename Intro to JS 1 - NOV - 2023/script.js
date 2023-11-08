@@ -94,12 +94,10 @@ console.log(currYear);
 // You cannot have empty values in const
 // const job;
 
-
 // will be discussed during functions / scope
 var name = "anurag";
 name = "xyz";
 console.log(name);
-
 
 // Arithmetic operators
 const currYear = 2023;
@@ -162,4 +160,87 @@ console.log(x);
 
 x--; // x -= 1 // x = x - 1 = 0 - 1 = -1;
 console.log(x);
+
+// comparision operators
+const currYear = 2023;
+const ageAnurag = currYear - 1998; // 25
+const ageYajnesh = currYear - 1999; // 24
+const agePrakriti = currYear - 2000; // 23
+
+// Is ageAnurag greater than agePrakriti ?
+console.log(ageAnurag > agePrakriti);
+
+// Is agePrakriti greater than ageAnurag ?
+console.log(agePrakriti > ageAnurag);
+
+// Is anurag atleast 21 years old ?
+const canDrinkAlcohol = ageAnurag >= 21;
+console.log(canDrinkAlcohol);
+
+const areTheyEqual = ageAnurag == ageYajnesh;
+console.log(areTheyEqual);
+
+const areTheyNotEqual = ageAnurag != ageYajnesh;
+console.log(areTheyNotEqual);
+
+// === vs == or !== vs !=
+console.log(1 == 1, 1 === 1, "1" == 1, "1" === 1);
+
+// operator precedence
+console.log(currYear - 1991 > currYear - 2018);
+
+// let a;
+// let b;
+let a, b;
+a = b = 25 - 10 - 5;
+console.log(a, b);
+
+// always place brackets to ensure correct outputs
+const average = (ageAnurag + agePrakriti) / 2;
+console.log(average);
+
+// Type conversion
+const birthYear = "2001";
+
+// What will the year after 22 years ?
+console.log(Number(birthYear), birthYear);
+console.log(Number(birthYear) + 22);
+
+console.log(String(23), 23);
+console.log(Number("an1u2ra3g")); // NaN
+console.log(typeof NaN); // number
+
+// false
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(""));
+console.log(Boolean(NaN));
+
+console.log(Boolean(1)); // true
+console.log(Boolean("anurag")); // true
+
+// Type coercion
+console.log("I am " + 22 + " Years old");
+console.log("23" + 10 + 5);
+console.log("23" - "10" - 3);
+console.log("23" / "2");
+console.log("23" * 2);
+
+let n = "1" + 1;
+console.log(n, typeof n);
+n--;
+console.log(n, typeof n);
+
+// String templating
+const fname = "Anurag";
+const job = "Teacher";
+const year = 2001;
+
+const anurag =
+  "I am " + fname + ", a " + job + ", " + (currYear - year) + " years old";
+console.log(anurag);
+
+const anuragNew = `I am ${fname}, a ${job}, ${currYear - year} years old`;
+console.log(anuragNew);
 */
