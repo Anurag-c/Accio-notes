@@ -101,3 +101,82 @@ rl.question("", (radius) => {
   console.log(PI * radius * radius);
   console.log(2 * PI * radius);
 });
+
+// Conditional Problem 1
+// Link: https://course.acciojob.com/idle?question=208cee53-a998-404f-a455-5307d71abacd
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  if (n == 28) {
+    console.log("i am young");
+  } else {
+    console.log("i am not young");
+  }
+
+  readline.close();
+});
+
+// Conditional Problem 2
+// Link: https://course.acciojob.com/idle?question=2f5bfb63-8713-432e-90e3-789ee00bc337
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on("line", (input) => {
+  if (Number(input) < 30) {
+    console.log("less important");
+  } else {
+    console.log("more important");
+  }
+  rl.close();
+});
+
+// Conditional Problem 5
+// Link: https://course.acciojob.com/idle?question=38436ae2-5f85-4b5c-82ad-f5bd437c5e73
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on("line", (n) => {
+  if (Number(n) % 6 == 0) {
+    console.log("Divisible");
+  } else {
+    console.log("Not divisible");
+  }
+});
+
+// Verify Cube
+// Link: https://course.acciojob.com/idle?question=ad87c003-dc8d-4ea3-b416-de0ed0c6788e
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  let [a, b] = n.split(" ");
+  a = Number(a);
+  b = Number(b);
+
+  // your code from here
+  const LHS = (a + b) ** 3;
+  const RHS = a ** 3 + b ** 3 + 3 * a ** 2 * b + 3 * a * b ** 2;
+
+  console.log(LHS);
+  console.log(RHS);
+  if (LHS == RHS) {
+    console.log("VERIFIED");
+  } else {
+    console.log("NOT VERIFIED");
+  }
+
+  readline.close();
+});

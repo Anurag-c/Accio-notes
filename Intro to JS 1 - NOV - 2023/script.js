@@ -243,4 +243,109 @@ console.log(anurag);
 
 const anuragNew = `I am ${fname}, a ${job}, ${currYear - year} years old`;
 console.log(anuragNew);
+
+// basic if, else statements
+const age = 15;
+
+if (age >= 18) {
+  console.log("Can start taking driving license.");
+  console.log("Hurray !!! I am happy to hear this.");
+} else {
+  console.log(`Too young. Wait for another ${18 - age} years`);
+}
+
+console.log("I am out of If statement");
+console.log("I am on 256th line");
+
+// scope of variable
+const birthYear = 1998;
+let century;
+if (birthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
+
+// It is not mandatory to use else always, it depends upon your logic
+const day = "tuesday";
+if (day == "monday") {
+  console.log("I have to go for a doctor appointment");
+} else {
+  console.log("I dont know what to do");
+}
+if (day == "monday") {
+  console.log("I have to fo for shopping");
+}
+if (day == "tuesday") {
+  console.log("I have an exam");
+  console.log("I have to attend a wedding");
+}
 */
+
+// else if statement
+const day = "abcdef";
+
+if (day == "monday") {
+  console.log("Plan course structure");
+} else if (day == "tuesday") {
+  console.log("Prepare for exams");
+} else if (day == "wednesday") {
+  console.log("Write examples for coding lectures");
+} else if (day == "thursday") {
+  console.log("Watch recordings");
+} else if (day == "friday") {
+  console.log("solve assignments");
+} else if (day == "saturday") {
+  console.log("Revise all notes");
+} else if (day == "sunday") {
+  console.log("attempt contest");
+} else {
+  console.log("Please enter a valid day");
+}
+
+// Logical operators
+const hasDriversLicense = true; // A
+const hasGoodVision = true; // B
+
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+console.log(!hasGoodVision);
+
+if (hasDriversLicense && hasGoodVision) {
+  console.log("Yayyy !!!!, I am able to drive");
+} else {
+  console.log("Sorry you cannot drive.");
+}
+
+/*
+BMI = (MASS / HEIGHT^2)
+1. Print a nice output to the console, saying who has the higher BMI.
+The message can be either "Mark's BMI is higher than John's!" or "John's BMI is higher than Mark's!"
+
+2. Use a template literal to include the BMI values in the outputs. 
+Example: "Mark's BMI (28.3) is higher than John's (23.9)!"
+*/
+
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+const bmiMark = massMark / heightMark ** 2;
+const bmiJohn = massJohn / heightJohn ** 2;
+
+if (bmiMark > bmiJohn) {
+  console.log(
+    `Mark's BMI (${bmiMark.toFixed(
+      1
+    )}) is higher than John's (${bmiJohn.toFixed(1)})!`
+  );
+} else {
+  console.log(
+    `John's BMI (${bmiJohn.toFixed(
+      1
+    )}) is higher than Mark's (${bmiMark.toFixed(1)})!`
+  );
+}
