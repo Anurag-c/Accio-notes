@@ -281,7 +281,7 @@ if (day == "tuesday") {
   console.log("I have an exam");
   console.log("I have to attend a wedding");
 }
-*/
+
 
 // else if statement
 const day = "abcdef";
@@ -326,7 +326,7 @@ The message can be either "Mark's BMI is higher than John's!" or "John's BMI is 
 
 2. Use a template literal to include the BMI values in the outputs. 
 Example: "Mark's BMI (28.3) is higher than John's (23.9)!"
-*/
+
 
 const massMark = 78;
 const heightMark = 1.69;
@@ -349,3 +349,58 @@ if (bmiMark > bmiJohn) {
     )}) is higher than Mark's (${bmiMark.toFixed(1)})!`
   );
 }
+*/
+
+/*
+There are two gymnastics teams, Dolphins and Koalas. They compete against each other 3 times. 
+The winner with the highest average score wins the trophy!
+
+1. Calculate the average score for each team, using the test data below.
+2. Compare the team's average scores to determine the winner of the competition, and print it to the console. 
+Don't forget that there can be a draw, so test for that as well (draw means they have the same average score).
+
+3. BONUS 1: Include a requirement for a minimum score of 100. With this rule, a team only wins if it has a higher score 
+than the other team and, at the same time a score of at least 100 points.
+HINT: Use a logical operator to test for minimum score, as well as multiple else-if blocks 😉
+
+4. BONUS 2: Minimum score also applies to a draw! So a draw only happens when both teams have the same score 
+and both have a score greater or equal to 100 points. Otherwise, no team wins the trophy.
+
+TEST DATA: Dolphins score 96, 108 and 89. Koalas score 88, 91 and 110
+TEST DATA BONUS 1: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
+TEST DATA BONUS 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
+
+GOOD LUCK 😀
+
+
+const dolphinAverage = (97 + 112 + 101) / 3;
+const koalaAverage = (109 + 95 + 123) / 3;
+
+console.log(dolphinAverage, koalaAverage);
+
+if (dolphinAverage > koalaAverage && dolphinAverage >= 100) {
+  console.log("Dolphins Win");
+} else if (koalaAverage > dolphinAverage && koalaAverage >= 100) {
+  console.log("Koalas Win");
+} else if (
+  koalaAverage == dolphinAverage &&
+  koalaAverage >= 100 &&
+  dolphinAverage >= 100
+) {
+  console.log("Match Drawn, Both Wins the trophy");
+} else {
+  console.log("No one wins the trophy");
+}
+
+
+const age = 24;
+if (age >= 21) {
+  console.log("You can drink alcohol");
+} else {
+  console.log("You cannot drink alcohol");
+}
+
+// ternary operator
+const ans = age >= 21 ? "You can drink alcohol" : "You cannot drink alcohol";
+console.log(ans);
+*/

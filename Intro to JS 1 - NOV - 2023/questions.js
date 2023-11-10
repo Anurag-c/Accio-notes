@@ -180,3 +180,70 @@ readline.question("", (n) => {
 
   readline.close();
 });
+
+// Leap Year
+// Link: https://course.acciojob.com/idle?question=2c8693a8-885f-4c9b-9191-8faaf9ff9913
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (year) => {
+  year = Number(year);
+
+  const A = year % 400 == 0;
+  const C = year % 4 == 0;
+  const D = year % 100 != 0;
+
+  if (A || (C && D)) {
+    console.log(1);
+  } else {
+    console.log(0);
+  }
+
+  readline.close();
+});
+
+// Which Case
+// Link: https://course.acciojob.com/idle?question=1c9a8bab-4f79-4c84-a309-bd850576d228
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (ch) => {
+  if ("A" <= ch && ch <= "Z") {
+    console.log(1);
+  } else if ("a" <= ch && ch <= "z") {
+    console.log(0);
+  } else {
+    console.log(-1);
+  }
+
+  readline.close();
+});
+
+// Big Light
+// Link: https://course.acciojob.com/idle?question=0a4750a0-1950-4442-a4a2-c2f4708a4bc1
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on("line", (input) => {
+  const [h1, h2, v1, v2] = input.split(" ").map(Number);
+
+  if (h1 == h2) {
+    console.log(true);
+  } else if ((h1 < h2 && v1 <= v2) || (h2 < h1 && v2 <= v1)) {
+    console.log(false);
+  } else {
+    if ((h1 - h2) % (v2 - v1) == 0) {
+      console.log(true);
+    } else {
+      console.log(false);
+    }
+  }
+});
