@@ -403,4 +403,52 @@ if (age >= 21) {
 // ternary operator
 const ans = age >= 21 ? "You can drink alcohol" : "You cannot drink alcohol";
 console.log(ans);
+
+console.log("pushup 1");
+console.log("pushup 2");
+console.log("pushup 3");
+console.log("pushup 4");
+console.log("pushup 5");
+console.log("pushup 6");
+console.log("pushup 7");
+console.log("pushup 8");
+console.log("pushup 9");
+console.log("pushup 10");
+
+for (let num = 1; num <= 10; num++) {
+  console.log(`pushup ${num}`);
+}
+
+console.log("pushup 5");
+console.log("pushup 4");
+console.log("pushup 3");
+console.log("pushup 2");
+console.log("pushup 1");
+
+for (let num = 5; num >= 1; num--) {
+  console.log(`pushup ${num}`);
+}
+
+for (let num = 1; num <= 5; num++) {
+  console.log(`You are at level ${num}`);
+
+  if (num == 3) {
+    console.log("Sorry you cannot proceed to next level");
+    break;
+  }
+}
+
+console.log("For loop completed");
+
+
+for (let num = 1; num <= 5; num++) {
+  if (num == 3) {
+    console.log("You can skip this level");
+    continue;
+  }
+
+  console.log(`You are at level ${num}`);
+}
+
+console.log("For loop completed");
 */

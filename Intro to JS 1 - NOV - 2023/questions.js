@@ -247,3 +247,127 @@ rl.on("line", (input) => {
     }
   }
 });
+
+// Print 1 to 10
+// Link: https://course.acciojob.com/idle?question=f8efe7b3-6e86-4d39-91c2-b72148c46da6
+for (let num = 1; num <= 10; num++) {
+  console.log(num);
+}
+
+// Sum of Natural Numbers
+// https://course.acciojob.com/idle?question=75a292e5-d69d-44a0-a74d-366c7c3c5e95
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on("line", (N) => {
+  N = Number(N);
+  let sum = 0;
+  for (let num = 1; num <= N; num++) {
+    sum = sum + num;
+  }
+
+  console.log(sum);
+
+  rl.close();
+});
+
+// Another Approach
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on("line", (N) => {
+  N = Number(N);
+
+  const ans = (N * (N + 1)) / 2;
+  console.log(ans);
+  rl.close();
+});
+
+// Factorial with loop
+// Link: https://course.acciojob.com/idle?question=a93bddb1-78e4-4ad6-a018-275668ecc3e4
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  readline.close();
+  n = Number(n);
+  let fact = 1;
+
+  for (let num = 1; num <= n; num++) {
+    fact = fact * num;
+  }
+  /*
+  for (let num = n; num >= 1; num--) {
+    fact = fact * num;
+  }
+  */
+
+  console.log(fact);
+});
+
+// Even Sum
+// Link: https://course.acciojob.com/idle?question=c6e3351d-7e24-4eea-b683-ba262959fa84
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  n = Number(n);
+  /*
+  let sum = 0;
+  for (let num = 1; num <= n; num++) {
+    if (num % 2 == 0) {
+      sum = sum + num;
+    }
+  }
+
+  for (let num = 2; num <= n; num += 2) {
+    sum = sum + num;
+  }
+  */
+  if (n % 2 != 0) {
+    n = n - 1;
+  }
+
+  const sum = (n * (n + 2)) / 4;
+  console.log(sum);
+  readline.close();
+});
+
+// Check Prime
+// Link: https://course.acciojob.com/idle?question=03d33e77-b47d-43ee-a075-e46ff509b0a6
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  n = Number(n);
+
+  let isPrime = true;
+  for (let num = 2; num <= n - 1; num++) {
+    if (n % num == 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime == true) {
+    console.log(`${n} is a prime number`);
+  } else {
+    console.log(`${n} is not a prime number`);
+  }
+
+  readline.close();
+});
