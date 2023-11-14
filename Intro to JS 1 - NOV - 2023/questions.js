@@ -371,3 +371,82 @@ readline.question("", (n) => {
 
   readline.close();
 });
+
+// Improved version
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  n = Number(n);
+
+  let isPrime = true;
+  for (let num = 2; num * num <= n; num++) {
+    if (n % num == 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime == true) {
+    console.log(`${n} is a prime number`);
+  } else {
+    console.log(`${n} is not a prime number`);
+  }
+
+  readline.close();
+});
+
+// Sum of digits
+// Link: https://course.acciojob.com/idle?question=16ae2277-0d38-4eba-9a84-d4326ea2da2e
+function SumofDigits(n) {
+  let sum = 0;
+  while (n != 0) {
+    const digit = n % 10; // get last digit
+    sum = sum + digit;
+    n = parseInt(n / 10); // remove last digit
+  }
+
+  console.log(sum);
+}
+
+// Reverse digits of a Number
+// Link: https://course.acciojob.com/idle?question=817d51d8-e009-4322-8e51-257b76455a4c
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  let rev = 0;
+  while (n != 0) {
+    const digit = n % 10;
+    n = parseInt(n / 10);
+    rev = rev * 10 + digit;
+  }
+  console.log(rev);
+  readline.close();
+});
+
+// N Stars
+// Link: https://course.acciojob.com/idle?question=24eb1955-7e70-45d9-8ce8-f9d9a8268aca
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  // horizontal stars
+  for (let i = 0; i < n; i++) {
+    process.stdout.write("* ");
+  }
+
+  console.log(); // go to next line after printing all horizontal stars
+
+  // vertical stars
+  for (let i = 0; i < n; i++) {
+    console.log("*");
+  }
+  readline.close();
+});

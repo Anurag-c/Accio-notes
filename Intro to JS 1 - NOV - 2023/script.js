@@ -451,4 +451,21 @@ for (let num = 1; num <= 5; num++) {
 }
 
 console.log("For loop completed");
+
+
+for (let num = 1; num <= 5; num++) {
+  console.log(`level ${num}`);
+}
+
+
+let num = 1;
+while (num <= 5) {
+  if (num == 3) {
+    console.log("Sorry you cannot go forward");
+    continue; // infinite iterations
+  }
+
+  console.log(`level ${num}`);
+  num++;
+}
 */
