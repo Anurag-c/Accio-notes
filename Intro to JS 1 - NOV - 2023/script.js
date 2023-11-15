@@ -469,3 +469,9 @@ while (num <= 5) {
   num++;
 }
 */
+
+// ASCII Conversions
+console.log("A".charCodeAt(0));
+console.log("d".charCodeAt(0));
+console.log(String.fromCharCode(65));
+console.log(String.fromCharCode(100));

@@ -450,3 +450,147 @@ readline.question("", (n) => {
   }
   readline.close();
 });
+
+// Right Angle Triangle Stars
+// Link: https://course.acciojob.com/idle?question=a148f7c8-e47f-45a9-bd72-8808f823ead1
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  // go to every row
+  for (let row = 1; row <= n; row++) {
+    // print required pattern for the current row
+    for (let col = 1; col <= row; col++) {
+      process.stdout.write("*");
+    }
+    console.log(); // move to next line
+  }
+
+  readline.close();
+});
+
+// Staircase
+// Link: https://course.acciojob.com/idle?question=ac6a801c-d206-4945-9e19-583eb006417f
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  n = parseInt(n);
+
+  for (let row = 1; row <= n; row++) {
+    for (let spaces = 1; spaces <= n - row; spaces++) {
+      process.stdout.write(" ");
+    }
+    for (let hashes = 1; hashes <= row; hashes++) {
+      process.stdout.write("#");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Star Pyramid
+// Link: https://course.acciojob.com/idle?question=e9e6daa1-9972-4e6c-a285-7a3e084a56b9
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  n = parseInt(n);
+
+  // same as staircase but, there is a gap in between
+  for (let row = 1; row <= n; row++) {
+    for (let spaces = 1; spaces <= n - row; spaces++) {
+      process.stdout.write(" ");
+    }
+    for (let stars = 1; stars <= row; stars++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Print Number Pattern 2
+// Link: https://course.acciojob.com/idle?question=8e5ac095-1d55-41cc-aaa7-75f2c24f953a
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on("line", (n) => {
+  // your code here
+  for (let row = 1; row <= n; row++) {
+    for (let num = row; num >= 1; num--) {
+      process.stdout.write(num + "");
+    }
+    console.log();
+  }
+
+  rl.close();
+});
+
+// Armstrong Numbers in Range
+// Link: https://course.acciojob.com/idle?question=620db89b-bcf4-4913-be13-64da3b4ddbeb
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (line) => {
+  let [m, n] = line.split(" ").map(Number);
+
+  for (let num = m; num <= n; num++) {
+    // count the number of digits
+    let temp = num;
+    let cnt = 0;
+    while (temp != 0) {
+      temp = parseInt(temp / 10);
+      cnt++;
+    }
+
+    // sum of (digit power no.of digits)
+    temp = num;
+    let sum = 0;
+    while (temp != 0) {
+      const digit = temp % 10;
+      sum = sum + digit ** cnt;
+      temp = parseInt(temp / 10);
+    }
+
+    // armstrong number
+    if (num == sum) {
+      console.log(num);
+    }
+  }
+
+  readline.close();
+});
+
+// Print Character Pattern
+// Link: https://course.acciojob.com/idle?question=687fa3e9-43fd-4000-8e0d-71330c8742e1
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  for (let row = 1; row <= n; row++) {
+    const alphabet = String.fromCharCode(64 + row);
+    for (let col = 1; col <= row; col++) {
+      process.stdout.write(alphabet);
+    }
+    console.log();
+  }
+
+  readline.close();
+});
