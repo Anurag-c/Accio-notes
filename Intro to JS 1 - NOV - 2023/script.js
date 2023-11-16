@@ -468,10 +468,122 @@ while (num <= 5) {
   console.log(`level ${num}`);
   num++;
 }
-*/
 
 // ASCII Conversions
 console.log("A".charCodeAt(0));
 console.log("d".charCodeAt(0));
 console.log(String.fromCharCode(65));
 console.log(String.fromCharCode(100));
+
+
+// A box / paper containing your code => function
+function logger() {
+  console.log("Hi I am Anurag");
+  console.log("I will be your instructor");
+}
+
+// calling / invoking / runnning a function
+logger();
+
+let a = 1;
+const b = 7;
+console.log(a, b);
+logger();
+
+let x = "something";
+let y = 4;
+let z = 0;
+console.log(x, y, z);
+logger();
+
+
+function juiceMaker(apples, oranges) {
+  const juice = `Juice with ${apples} apples and ${oranges} oranges`;
+  return juice;
+  console.log(1, 2, 3, 4);
+}
+
+const ans = juiceMaker(4, 2);
+console.log(ans);
+
+console.log(juiceMaker(2, 4));
+
+juiceMaker(3, 3);
+juiceMaker(1, 3);
+
+
+function cutPieces(fruit) {
+  return 4 * fruit;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutPieces(apples);
+  const orangePieces = cutPieces(oranges);
+
+  const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges`;
+  return juice;
+}
+
+console.log(fruitProcessor(2, 3));
+
+
+const name = "anurag";
+
+function first() {
+  let a = 1;
+  const b = second();
+  a = a + b;
+  return a;
+}
+
+function second() {
+  var c = 2;
+  return c;
+}
+
+const x = first();
+console.log(x);
+
+
+// global scope
+const name = "anurag";
+if (true) {
+  console.log(name);
+}
+function print() {
+  console.log(name);
+}
+print();
+
+
+// function scope
+function calcAge(birthYear) {
+  birthYear = birthYear + 1;
+  let age = 2023 - birthYear;
+  return age;
+}
+
+function main() {
+  let birthYear = 2000;
+  console.log(calcAge(birthYear));
+  console.log(birthYear);
+  console.log(age);
+}
+
+main();
+
+
+// block scope
+let year = 1992;
+if (year >= 1981 && year <= 1996) {
+  var oldGen = true; // due to hoisting
+}
+console.log(oldGen);
+
+function print() {
+  var test = "yes";
+  console.log("I am print");
+}
+print();
+console.log(test);
+*/

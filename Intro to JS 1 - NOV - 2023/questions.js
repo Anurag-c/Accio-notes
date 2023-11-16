@@ -594,3 +594,107 @@ readline.question("", (n) => {
 
   readline.close();
 });
+
+// Function Problem 2
+// Link: https://course.acciojob.com/idle?question=b27b4039-2b8b-4834-9a6b-f8622057be7a
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function fun(n, m) {
+  console.log(n + m);
+}
+
+readline.question("", (input) => {
+  const [n, m] = input.split(" ").map(Number);
+  fun(n, m);
+  readline.close();
+});
+
+// Function Problem 3
+// Link: https://course.acciojob.com/idle?question=922be2a0-a552-456c-9f9e-5c41b514d200
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function fun(n) {
+  return n + 5;
+}
+
+rl.on("line", (n) => {
+  let result = fun(parseInt(n));
+  console.log(result);
+  rl.close();
+});
+
+// Super Hero
+// Link: https://course.acciojob.com/idle?question=4b50de0b-5e1c-4477-8a34-82fa7d292044
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function ModifyName(name) {
+  return `${name} is a Super Hero`;
+}
+
+rl.on("line", (name) => {
+  console.log(ModifyName(name));
+  rl.close();
+});
+
+// Place Value Checker
+// Link: https://course.acciojob.com/idle?question=7412f7e1-3017-44fa-83a9-00b9c0781986
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  let res = determineSecondLastDigit(parseInt(n));
+  if (res) console.log("Yes");
+  else console.log("No");
+  readline.close();
+});
+
+function determineSecondLastDigit(n) {
+  n = parseInt(n / 10);
+  const digit = n % 10;
+  return digit == 0;
+}
+
+// Calculate nCr
+// Link: https://course.acciojob.com/idle?question=869a6e7b-e104-45df-b2b0-28a803fecc43
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function factorial(n) {
+  let fact = 1;
+  for (let num = 1; num <= n; num++) {
+    fact = fact * num;
+  }
+  return fact;
+}
+
+function calculate_nCr(n, r) {
+  let nFact = factorial(n);
+  let rFact = factorial(r);
+  let nrFact = factorial(n - r);
+  const ans = nFact / (rFact * nrFact);
+  return ans;
+}
+
+readline.question("", (input) => {
+  const [n, r] = input.split(" ").map(Number);
+  const ans = calculate_nCr(n, r);
+  console.log(ans);
+  readline.close();
+});
