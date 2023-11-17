@@ -587,3 +587,115 @@ function print() {
 print();
 console.log(test);
 */
+
+/*
+// functions are hoisted
+console.log(first());
+
+function first() {
+  let a = 3;
+  let b = second();
+  return a + b;
+}
+
+function second() {
+  return 4;
+}
+
+// var is hoisted
+console.log(age); // undefined
+var age = 20;
+
+// let, const are not hoisted
+console.log(name);
+console.log(birthYear);
+let name = "anurag";
+const birthYear = 2001;
+
+const friend1 = "Amit";
+const friend2 = "Mahidhar";
+const friend3 = "Nihita";
+const friend4 = "Jishan";
+
+// Datastructures help us to store and access data efficiently
+
+// How to create an array
+const friends = ["Amit", "Mahidhar", "Nihita", "Jishan"];
+console.log(friends);
+
+const numbers = new Array(1, 3, 5, 7, 9, 11);
+console.log(numbers);
+
+// How to access elements of the array
+console.log(friends[2]);
+console.log(friends[1]);
+console.log(friends[0]);
+console.log(friends[3]);
+
+// total number of elements
+console.log(friends.length);
+console.log(numbers.length);
+
+// getting last element of the array
+console.log(friends[friends.length - 1]);
+console.log(numbers[numbers.length - 1]);
+
+// print all elements on new line
+for (let i = 0; i < friends.length; i++) {
+  console.log(friends[i]);
+}
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+}
+
+// how to change values
+friends[2] = "Prakriti";
+friends[1] = "Rahul";
+console.log(friends);
+
+// add element at end
+numbers.push(13);
+console.log(numbers);
+numbers.push(15);
+console.log(numbers);
+
+// can store any datatype
+const firstName = "Anurag";
+const age = 21;
+const job = "Teacher";
+
+const myArr = [firstName, age, job, friends, numbers];
+console.log(myArr[0]);
+console.log(myArr[1]);
+console.log(myArr[2]);
+console.log(myArr[3]);
+console.log(myArr.length);
+console.log(myArr[3].length);
+console.log(myArr[4].length);
+console.log(myArr[3][1]);
+
+// Exercise
+function calcAge(birthYear) {
+  return 2023 - birthYear;
+}
+
+const years = [1990, 1967, 2002, 2010, 2018, 1992, 2003, 1987];
+
+// Create an array called ages which has age for given birthYears
+const ages = [];
+for (let i = 0; i < years.length; i++) {
+  ages.push(calcAge(years[i]));
+}
+
+console.log(ages);
+
+
+// how to generate any two element pairs
+const arr = [16, 24, 89, 35];
+const n = arr.length;
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    console.log(i, j, arr[i], arr[j]);
+  }
+}
+*/

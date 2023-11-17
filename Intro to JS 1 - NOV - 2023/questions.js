@@ -698,3 +698,170 @@ readline.question("", (input) => {
   console.log(ans);
   readline.close();
 });
+
+// Array Problem 1
+// Link: https://course.acciojob.com/idle?question=203c6532-1438-4d70-8854-94f35fe1b0ba
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  readline.question("", (arr) => {
+    arr = arr.split(" ").map(Number);
+    let ans = ArrayProblem1(n, arr);
+    console.log(ans);
+    readline.close();
+  });
+});
+
+function ArrayProblem1(n, arr) {
+  let max_ele = -Infinity;
+  let max_idx = -1;
+
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > max_ele) {
+      max_ele = arr[i];
+      max_idx = i;
+    }
+  }
+
+  return max_idx;
+}
+
+// Array Problem 2
+// Link: https://course.acciojob.com/idle?question=e958fa46-11df-46f0-9153-6907e969d40d
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  readline.question("", (arr) => {
+    const arrNum = arr.split(" ").map(Number);
+    const ans = ArrayProblem2(n, arrNum);
+    console.log(ans);
+    readline.close();
+  });
+});
+
+function ArrayProblem2(n, arr) {
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > 35) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+
+// Array Problem 5
+// Link: https://course.acciojob.com/idle?question=f98feeb1-40eb-4b6f-a600-067714166864
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function ArrayProblem(arr, k) {
+  const n = arr.length;
+  let cnt = 0;
+  for (let i = 0; i < n - 1; i++) {
+    if (arr[i] + arr[i + 1] == k) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+
+readline.question("", (input) => {
+  const [n, k] = input.split(" ").map(Number);
+  readline.question("", (input) => {
+    const arr = input.split(" ").map(Number);
+    console.log(ArrayProblem(arr, k));
+    readline.close();
+  });
+});
+
+// Array Operations
+// Link: https://course.acciojob.com/idle?question=c2985a2b-5ee0-4569-a77b-7459b1efd8d7
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  readline.question("", (arr) => {
+    arr = arr.split(" ").map(Number);
+    arrayOperations(arr, n);
+    readline.close();
+  });
+});
+
+function arrayOperations(arr, n) {
+  let sum = 0;
+  let max_ele = -Infinity;
+  for (let i = 0; i < n; i++) {
+    sum = sum + arr[i];
+    if (arr[i] > max_ele) {
+      max_ele = arr[i];
+    }
+  }
+
+  const average = parseInt(sum / n);
+  console.log(sum, average, max_ele);
+}
+
+// Maximum difference between two elements in an Array
+// https://course.acciojob.com/idle?question=b5a0f4ca-7b5e-4fee-9487-3ca52a582741
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let n;
+let arr = [];
+
+rl.on("line", (input) => {
+  if (!n) {
+    n = parseInt(input);
+  } else {
+    arr = input.split(" ").map(Number);
+    ArrayProblem(arr);
+    rl.close();
+  }
+});
+
+function ArrayProblem(arr) {
+  let n = arr.length;
+  let max_diff = -Infinity;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      const diff = Math.abs(arr[i] - arr[j]);
+      if (diff > max_diff) {
+        max_diff = diff;
+      }
+    }
+  }
+
+  console.log(max_diff);
+}
+
+// Improvised version
+function ArrayProblem(arr) {
+  let n = arr.length;
+  let max_ele = -Infinity;
+  let min_ele = Infinity;
+
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > max_ele) {
+      max_ele = arr[i];
+    }
+    if (arr[i] < min_ele) {
+      min_ele = arr[i];
+    }
+  }
+
+  console.log(max_ele - min_ele);
+}
