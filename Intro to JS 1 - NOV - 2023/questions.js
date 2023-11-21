@@ -865,3 +865,172 @@ function ArrayProblem(arr) {
 
   console.log(max_ele - min_ele);
 }
+
+// Index of an element
+// Link: https://course.acciojob.com/idle?question=71ec4228-63be-4027-9fa4-08135d2a16d6
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function indexOfElement(N, X, arr) {
+  let isFound = false;
+  for (let i = 0; i < N; i++) {
+    if (arr[i] == X) {
+      isFound = true;
+      process.stdout.write(i + 1 + " ");
+    }
+  }
+
+  if (isFound == false) {
+    console.log(-1);
+  }
+}
+
+readline.question("", (input) => {
+  const [N, X] = input.split(" ").map(Number);
+  readline.question("", (input) => {
+    const arr = input.split(" ").map(Number);
+    indexOfElement(N, X, arr);
+    readline.close();
+  });
+});
+
+// A contest
+// Link: https://course.acciojob.com/idle?question=0363c617-a2d0-41a5-a2a3-f5736d1c36f7
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on("line", (a) => {
+  rl.on("line", (b) => {
+    const [n, k] = a.split(" ").map(Number);
+    const arr = b.split(" ").map(Number);
+    printFindParticipants(arr, n, k);
+    rl.close();
+  });
+});
+
+function printFindParticipants(arr, n, k) {
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > 0 && arr[i] >= arr[k - 1]) {
+      cnt++;
+    }
+  }
+  console.log(cnt);
+}
+
+// Reverse an array
+// Link: https://course.acciojob.com/idle?question=944dba4b-f895-44af-8ec1-7445343e5713
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let n;
+let arr = [];
+
+rl.on("line", (input) => {
+  if (!n) {
+    n = parseInt(input);
+  } else {
+    arr = input.split(" ").map(Number);
+    reverseArray(arr, 0, n - 1);
+    console.log(arr.join(" "));
+    rl.close();
+  }
+});
+
+function reverseArray(arr, start, end) {
+  while (start <= end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+// Array Problem 6
+// Link: https://course.acciojob.com/idle?question=02fe1fa2-2fba-4a5f-aca0-baac93f166a3
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+readline.question("", (n) => {
+  readline.question("", (arr) => {
+    arr = arr.split(" ").map(Number);
+    let ans = ArrayProblem6(n, arr);
+    console.log(ans);
+    readline.close();
+  });
+});
+
+function ArrayProblem6(n, arr) {
+  let prev_even_idx = -1;
+  let minDiff = Infinity;
+
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > 0 && arr[i] % 2 == 0) {
+      if (prev_even_idx != -1) {
+        const diff = i - prev_even_idx;
+        if (minDiff > diff) {
+          minDiff = diff;
+        }
+      }
+
+      prev_even_idx = i;
+    }
+  }
+
+  if (minDiff == Infinity) {
+    return -1;
+  }
+  return minDiff;
+}
+
+// 2nd Largest from array
+// Link: https://course.acciojob.com/idle?question=d5b5b101-0636-4654-bd4d-bfecce8e5d00
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on("line", (line) => {
+  input.push(line);
+});
+
+rl.on("close", () => {
+  let n = parseInt(input[0]);
+  let arr = input[1].split(" ").map(Number);
+  SecondLargest(arr, n);
+});
+
+function SecondLargest(arr, n) {
+  let firstMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > firstMax) {
+      firstMax = arr[i];
+    }
+  }
+
+  let secondMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] != firstMax && arr[i] > secondMax) {
+      secondMax = arr[i];
+    }
+  }
+
+  console.log(secondMax);
+}
