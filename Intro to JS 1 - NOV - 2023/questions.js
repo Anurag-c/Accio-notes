@@ -1034,3 +1034,94 @@ function SecondLargest(arr, n) {
 
   console.log(secondMax);
 }
+
+// Buildings
+// Link: https://course.acciojob.com/idle?question=a7bdae50-cbdd-4048-a3c3-be52504b9580
+function isGreater(arr, idx) {
+  const ele = arr[idx];
+  for (let i = 0; i < idx; i++) {
+    // I found a building on left with h > currh
+    if (arr[i] > ele) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function countVisibleRoofs(heights) {
+  let n = heights.length;
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    const check = isGreater(heights, i);
+    if (check == false) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+
+// Improved version
+function countVisibleRoofs(heights) {
+  let n = heights.length;
+  let cnt = 0;
+  let maxUntilNow = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (maxUntilNow <= heights[i]) {
+      cnt++;
+      maxUntilNow = heights[i];
+    }
+  }
+  return cnt;
+}
+
+// Array Adding
+// Link: https://course.acciojob.com/idle?question=a426a64f-8962-4a98-9433-3200d900ad67
+
+function calSumUtil(a, b, n, m) {
+  let i = n - 1;
+  let j = m - 1;
+  let carry = 0;
+  const res = [];
+
+  while (i >= 0) {
+    const sum = j >= 0 ? a[i] + b[j] + carry : a[i] + carry;
+    res[i] = sum % 10;
+    carry = parseInt(sum / 10);
+    i--;
+    j--;
+  }
+
+  if (carry > 0) {
+    // add an element 1 to start of res
+    res.unshift(1);
+  }
+
+  return res;
+}
+
+function calSum(a, b, n, m) {
+  if (n >= m) return calSumUtil(a, b, n, m);
+  return calSumUtil(b, a, m, n);
+}
+
+// Rotate Array
+// Link: https://course.acciojob.com/idle?question=444d4b46-efef-467a-8833-e3fede7d22f0
+function reverse(arr, start, end) {
+  while (start <= end) {
+    const temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+function rotateArray(arr, n, k) {
+  k = k % n;
+  reverse(arr, 0, n - 1);
+  reverse(arr, 0, n - k - 1);
+  reverse(arr, n - k, n - 1);
+  for (let i = 0; i < n; i++) {
+    process.stdout.write(arr[i] + " ");
+  }
+}
