@@ -698,4 +698,16 @@ for (let i = 0; i < n; i++) {
     console.log(i, j, arr[i], arr[j]);
   }
 }
+
+
+// how to generate subarrays
+const arr = [1, 2, 3, 4, 5];
+const n = arr.length;
+for (let start = 0; start < n; start++) {
+  let subarr = "";
+  for (let end = start; end < n; end++) {
+    subarr = subarr + arr[end] + " ";
+    console.log(start, end, subarr);
+  }
+}
 */

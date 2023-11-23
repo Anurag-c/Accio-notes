@@ -1125,3 +1125,127 @@ function rotateArray(arr, n, k) {
     process.stdout.write(arr[i] + " ");
   }
 }
+
+// Subarray Sum Zero
+// Link: https://course.acciojob.com/idle?question=7f096e64-5c0d-4333-b324-02e6ac91a3d7
+function zeroSubarray(arr) {
+  const n = arr.length;
+  let isFound = false;
+
+  for (let start = 0; start < n; start++) {
+    let subArrSum = 0;
+    for (let end = start; end < n; end++) {
+      subArrSum = subArrSum + arr[end];
+      // you will have the sum of [start, end]
+      if (subArrSum == 0) {
+        isFound = true;
+        console.log(`Subarray found from Index ${start} to ${end}`);
+      }
+    }
+  }
+
+  if (isFound == false) {
+    console.log(-1);
+  }
+}
+
+// Subarray sum divisible by k
+// Link: https://course.acciojob.com/idle?question=fd54a321-f9b7-4772-9d78-
+function subarrayDivisbleByK(arr, n, k) {
+  let cnt = 0;
+  for (let start = 0; start < n; start++) {
+    let subArrSum = 0;
+    for (let end = start; end < n; end++) {
+      subArrSum = subArrSum + arr[end];
+      if (subArrSum % k == 0) {
+        cnt++;
+      }
+    }
+  }
+
+  return cnt;
+}
+
+// Find Split Point
+// Link: https://course.acciojob.com/idle?question=c0af5738-5a1c-4a05-a68c-789f38a620d1
+function findSplit(n, arr) {
+  for (let cut = 0; cut < n - 1; cut++) {
+    let lsum = 0;
+    let larr = "";
+    for (let i = 0; i <= cut; i++) {
+      lsum += arr[i];
+      larr += arr[i] + " ";
+    }
+
+    let rsum = 0;
+    let rarr = "";
+    for (let i = cut + 1; i < n; i++) {
+      rsum += arr[i];
+      rarr += arr[i] + " ";
+    }
+
+    if (lsum == rsum) {
+      return [larr, rarr];
+    }
+  }
+
+  return -1;
+}
+
+function splitArray(n, arr) {
+  const cut = findSplit(n, arr);
+  if (cut == -1) {
+    console.log("Not Possible");
+  } else {
+    console.log(cut[0]);
+    console.log(cut[1]);
+  }
+}
+
+// Improved version
+function findSplit(n, arr) {
+  let total = 0;
+  for (let i = 0; i < n; i++) {
+    total += arr[i];
+  }
+
+  let lsum = 0;
+  for (let cut = 0; cut < n - 1; cut++) {
+    lsum += arr[cut];
+    const rsum = total - lsum;
+    if (lsum == rsum) {
+      return cut;
+    }
+  }
+
+  return -1;
+}
+
+function splitArray(n, arr) {
+  const cut = findSplit(n, arr);
+  if (cut == -1) {
+    console.log("Not Possible");
+  } else {
+    for (let i = 0; i <= cut; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+    console.log();
+    for (let i = cut + 1; i < n; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+  }
+}
+
+// Find Geometric Triplets
+// Link: https://course.acciojob.com/idle?question=cefcef33-7a3f-46ea-99f4-694dd5297224
+function findGeometricTriplets(arr, n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        if (arr[j] * arr[j] == arr[i] * arr[k]) {
+          console.log(arr[i], arr[j], arr[k]);
+        }
+      }
+    }
+  }
+}
