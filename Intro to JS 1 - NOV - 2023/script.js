@@ -710,4 +710,39 @@ for (let start = 0; start < n; start++) {
     console.log(start, end, subarr);
   }
 }
+
+const friends1 = ["Amit", "Avinash", "Gangaram"];
+const friends2 = ["Jatin", "Jishan", "Lavina", "Ashfaque"];
+const friends3 = ["Anis", "Nihita"];
+
+const allFriends = [friends1, friends2, friends3];
+
+console.log(allFriends);
+console.log(allFriends[0]);
+console.log(allFriends[1]);
+console.log(allFriends[2]);
+
+console.log(friends2[1]);
+console.log(allFriends[1][1]);
+console.log(allFriends[2][0]);
+
+// How to create a 2D Array
+const n = 5;
+const arr = [];
+for (let i = 0; i < n; i++) {
+  arr[i] = []; // Initialize the smaller array
+  for (let j = 0; j < n; j++) {
+    arr[i][j] = j + 1;
+  }
+}
+
+// Iterate / print 2D array / matrix
+const rows = arr.length;
+const cols = arr[0].length;
+for (let i = 0; i < rows; i++) {
+  for (let j = 0; j < cols; j++) {
+    process.stdout.write(arr[i][j] + " ");
+  }
+  console.log();
+}
 */

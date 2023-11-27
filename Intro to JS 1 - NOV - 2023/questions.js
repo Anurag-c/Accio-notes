@@ -1249,3 +1249,42 @@ function findGeometricTriplets(arr, n) {
     }
   }
 }
+
+// Print 2D Array
+// Link: https://course.acciojob.com/idle?question=9ea8dbd6-3b71-45c9-a8c3-1bfb7608ad13
+function printElements(arr, n, m) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      process.stdout.write(arr[i][j] + " ");
+    }
+    console.log();
+  }
+}
+
+// Print Matrix Column Wise
+// Link: https://course.acciojob.com/idle?question=31900452-fb2e-45cd-93b0-fb4d6afbfac0
+function printMatrixColumnwise(mat, n, m) {
+  // go to every column
+  for (let c = 0; c < m; c++) {
+    // go to every row
+    for (let r = 0; r < n; r++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+  }
+}
+
+// Alternate Manner Matrix Traversal
+// Link: https://course.acciojob.com/idle?question=191ba184-3c72-468a-83fe-5100d558f7eb
+function printElementsAlternately(mat, n, m) {
+  for (let i = 0; i < n; i++) {
+    if (i % 2 == 0) {
+      for (let j = 0; j < m; j++) {
+        process.stdout.write(mat[i][j] + " ");
+      }
+    } else {
+      for (let j = m - 1; j >= 0; j--) {
+        process.stdout.write(mat[i][j] + " ");
+      }
+    }
+  }
+}
