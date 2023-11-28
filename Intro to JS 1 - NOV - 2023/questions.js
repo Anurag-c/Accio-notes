@@ -1288,3 +1288,151 @@ function printElementsAlternately(mat, n, m) {
     }
   }
 }
+
+// Matrix Multiplication
+// Link: https://course.acciojob.com/idle?question=da3dfaa3-541f-4b9b-a202-30b4fb01a835
+function printMultiplication(a, b, n) {
+  const rows1 = n;
+  const cols1 = n;
+  const rows2 = n;
+  const cols2 = n;
+
+  if (cols1 != rows2) return;
+
+  // Initializing the matrix
+  let res = [];
+  for (let r = 0; r < rows1; r++) {
+    res[r] = [];
+    for (let c = 0; c < cols2; c++) {
+      res[r][c] = 0;
+    }
+  }
+
+  // pick row of a and col of b and iterate on k
+  for (let r = 0; r < rows1; r++) {
+    for (let c = 0; c < cols2; c++) {
+      for (let k = 0; k < cols1; k++) {
+        res[r][c] += a[r][k] * b[k][c];
+      }
+    }
+  }
+
+  // printing the result
+  for (let r = 0; r < rows1; r++) {
+    for (let c = 0; c < cols2; c++) {
+      process.stdout.write(res[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+// Transpose of Matrix
+// Link: https://course.acciojob.com/idle?question=57e7562d-b233-42ca-89f6-c10ad5cdf579
+function matrixTranspose(mat, n) {
+  for (let r = 1; r < n; r++) {
+    for (let c = 0; c < r; c++) {
+      const temp = mat[r][c];
+      mat[r][c] = mat[c][r];
+      mat[c][r] = temp;
+    }
+  }
+  return mat;
+}
+
+// Spirally traversing a matrix
+// Link: https://course.acciojob.com/idle?question=5f714d43-3f91-4c47-b41b-203207e63522
+function spirallyTraverse(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  let minR = 0;
+  let maxR = rows - 1;
+  let minC = 0;
+  let maxC = cols - 1;
+  let totalEle = rows * cols;
+
+  while (totalEle > 0) {
+    // top wall
+    for (let c = minC; c <= maxC && totalEle > 0; c++) {
+      process.stdout.write(mat[minR][c] + " ");
+      totalEle--;
+    }
+    minR++;
+
+    // right wall
+    for (let r = minR; r <= maxR && totalEle > 0; r++) {
+      process.stdout.write(mat[r][maxC] + " ");
+      totalEle--;
+    }
+    maxC--;
+
+    // bottom wall
+    for (let c = maxC; c >= minC && totalEle > 0; c--) {
+      process.stdout.write(mat[maxR][c] + " ");
+      totalEle--;
+    }
+    maxR--;
+
+    // left wall
+    for (let r = maxR; r >= minR && totalEle > 0; r--) {
+      process.stdout.write(mat[r][minC] + " ");
+      totalEle--;
+    }
+    minC++;
+  }
+}
+
+// Alt Matrix Sum
+// Link: https://course.acciojob.com/idle?question=04a591ba-305a-4bd7-a4b2-9a06ac187837
+function alternateMatrixSum(mat, n) {
+  let bsum = 0;
+  let wsum = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if ((r + c) % 2 == 0) {
+        bsum += mat[r][c];
+      } else {
+        wsum += mat[r][c];
+      }
+    }
+  }
+
+  console.log(bsum);
+  console.log(wsum);
+}
+
+// Other way
+function alternateMatrixSum(mat, n) {
+  let bsum = 0;
+  let wsum = 0;
+  for (let r = 0; r < n; r++) {
+    let isBlack = false;
+    if (r % 2 == 0) isBlack = true;
+
+    for (let c = 0; c < n; c++) {
+      if (isBlack) {
+        bsum += mat[r][c];
+      } else {
+        wsum += mat[r][c];
+      }
+
+      isBlack = !isBlack; // invert
+    }
+  }
+
+  console.log(bsum);
+  console.log(wsum);
+}
+
+// Diagonal Difference!
+// Link: https://course.acciojob.com/idle?question=8a6cbf35-d128-459b-a7ba-9e269d2af40a
+function diagonalDifference(mat, n) {
+  let diag = 0;
+  let adiag = 0;
+  for (let r = 0; r < n; r++) {
+    diag += mat[r][r];
+    adiag += mat[r][n - r - 1];
+  }
+
+  console.log(Math.abs(diag - adiag));
+}
