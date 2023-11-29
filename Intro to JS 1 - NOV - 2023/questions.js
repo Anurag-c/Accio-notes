@@ -1436,3 +1436,213 @@ function diagonalDifference(mat, n) {
 
   console.log(Math.abs(diag - adiag));
 }
+
+// Find The Way
+// Link: https://course.acciojob.com/idle?question=60d37a31-7584-48eb-baad-ee073ffc7acf
+function findTheWay(matrix) {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  let i = 0;
+  let j = 0;
+  let facing = 0;
+
+  while (true) {
+    // decide your facing
+    facing = (facing + matrix[i][j]) % 4;
+    matrix[i][j] = 0;
+
+    // move forward
+    // facing right (i, j) -> (i, j + 1)
+    if (facing == 0) {
+      j++;
+    }
+    // facing down (i, j) -> (i + 1, j)
+    else if (facing == 1) {
+      i++;
+    }
+    // facing left (i, j) -> (i, j - 1)
+    else if (facing == 2) {
+      j--;
+    }
+    // facing top (i, j) -> (i - 1, j)
+    else {
+      i--;
+    }
+
+    // exit conditions
+    // exit from right
+    if (j == cols) {
+      j--; // to get the previous cell (before exit)
+      break;
+    }
+    // exit from down
+    else if (i == rows) {
+      i--;
+      break;
+    }
+    // exit from left
+    else if (j == -1) {
+      j++;
+      break;
+    }
+    // exit from top
+    else if (i == -1) {
+      i++;
+      break;
+    }
+  }
+
+  return [i, j];
+}
+
+// Array Subtracting
+// Link: https://course.acciojob.com/idle?question=4ed416d3-76b0-41a6-a956-3201e2fb6079
+function subtractUtil(a, b, n, m) {
+  let i = n - 1;
+  let j = m - 1;
+  let borrow = 0;
+  res = [];
+
+  // cover same lengths
+  while (i >= 0 && j >= 0) {
+    if (a[i] + borrow >= b[j]) {
+      res[i] = a[i] + borrow - b[j];
+      borrow = 0;
+    } else {
+      res[i] = a[i] + borrow + 10 - b[j];
+      borrow = -1;
+    }
+
+    i--;
+    j--;
+  }
+
+  // left over elements in 1st array, when length of a > length b
+  while (i >= 0) {
+    res[i] = a[i] + borrow;
+    borrow = 0;
+    i--;
+  }
+
+  return res;
+}
+
+function subtract(arr1, arr2) {
+  const n = arr1.length;
+  const m = arr2.length;
+
+  if (n > m) {
+    return subtractUtil(arr1, arr2, n, m);
+  } else if (n < m) {
+    let res = subtractUtil(arr2, arr1, m, n);
+    res[0] = res[0] * -1;
+    return res;
+  } else {
+    for (let i = 0; i < n; i++) {
+      if (arr1[i] > arr2[i]) {
+        return subtractUtil(arr1, arr2, n, m);
+      } else if (arr2[i] > arr1[i]) {
+        let res = subtractUtil(arr2, arr1, m, n);
+        res[0] = res[0] * -1;
+        return res;
+      }
+    }
+    return subtractUtil(arr1, arr2, n, m);
+  }
+}
+
+// Maxima Minima
+// Link: https://course.acciojob.com/idle?question=834a5e9e-9b0c-45db-b0e1-375bafb999ea
+function minEleRow(mat, row) {
+  const cols = mat[row].length;
+  let minEle = Infinity;
+  for (let c = 0; c < cols; c++) {
+    if (mat[row][c] < minEle) {
+      minEle = mat[row][c];
+    }
+  }
+  return minEle;
+}
+
+function maxEleCol(mat, col) {
+  const rows = mat.length;
+  let maxEle = -Infinity;
+  for (let r = 0; r < rows; r++) {
+    if (mat[r][col] > maxEle) {
+      maxEle = mat[r][col];
+    }
+  }
+  return maxEle;
+}
+
+function maximaMinima(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      const minR = minEleRow(mat, i);
+      const maxC = maxEleCol(mat, j);
+      if (mat[i][j] == minR && mat[i][j] == maxC) {
+        return mat[i][j];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// Using Precomputation
+function maximaMinima(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  // Initialize arrays
+  const minEleRow = [];
+  for (let i = 0; i < rows; i++) {
+    minEleRow[i] = Infinity;
+  }
+  const maxEleCol = [];
+  for (let i = 0; i < cols; i++) {
+    maxEleCol[i] = -Infinity;
+  }
+
+  // precompute
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (mat[i][j] < minEleRow[i]) {
+        minEleRow[i] = mat[i][j];
+      }
+      if (mat[i][j] > maxEleCol[j]) {
+        maxEleCol[j] = mat[i][j];
+      }
+    }
+  }
+
+  // main logic
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      const minR = minEleRow[i];
+      const maxC = maxEleCol[j];
+      if (mat[i][j] == minR && mat[i][j] == maxC) {
+        return mat[i][j];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// Toeplitz Matrix
+// Link: https://course.acciojob.com/idle?question=fa4a91e3-218d-473b-8d33-65fb2af3e145
+function isToeplitzMatrix(matrix, m, n) {
+  for (let i = 0; i < m - 1; i++) {
+    for (let j = 0; j < n - 1; j++) {
+      if (matrix[i][j] != matrix[i + 1][j + 1]) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
