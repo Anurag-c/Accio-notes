@@ -779,3 +779,32 @@ const encrypted = "a3b4c5";
 const decrypted = "aaabbbbbccccc";
 console.log(name.repeat(5));
 */
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Include the socket.io-client code here
+  const socket = io.connect("http://localhost:3000", {
+    query: {
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDdkMDM4ZGIzNTUxMzM2YzA4MmEyYiIsImlhdCI6MTcwMTM3NTI0MCwiZXhwIjoxNzAxOTgwMDQwfQ._U5XOkDfYY_RjGj1d7MG975_SWVYLkZEei0W6kysXK8",
+    },
+  }); // Replace with your server URL
+
+  // Event listener for when the connection is established
+  socket.on("connect", () => {
+    console.log(`connected to socket id: ${socket.id}`);
+    socket.emit("start_conversation", {});
+
+    socket.on("start_chat", (chat) => {
+      console.log(chat);
+    });
+  });
+
+  /* Event listener for incoming messages
+  socket.on("message", (data) => {
+    console.log("Received message:", data);
+  });
+
+  // Sending a message to the server
+  const messageToSend = { content: "Hello, Socket.IO!" };
+  socket.emit("sendMessage", messageToSend);*/
+});
