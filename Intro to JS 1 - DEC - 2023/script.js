@@ -114,4 +114,77 @@ console.log("A Teacher");
 console.log("An Engineer");
 
 console.log("Hello I am Anurag\nA Teacher\nAn Engineer");
+
+// Assignment operators
+let x = 10 + 5;
+console.log(x);
+
+x += 10; // x = x + 10 = 15 + 10 = 25
+console.log(x);
+
+x *= 2; // x = x * 2 = 25 * 2 = 50
+console.log(x);
+
+x /= 10; // x = x / 10 = 50 / 10 = 5
+console.log(x);
+
+x -= 8; // x = x - 8 = 5 - 8 = -3;
+console.log(x);
+
+// post increment / decrement
+x++; // x += 1 => x = x + 1 = -3 + 1 = -2
+console.log(x);
+
+x--; // x -= 1 => x = x - 1 = -2 - 1 = -3
+console.log(x);
+
+// pre increment / decrement
+++x; // x += 1 => x = x + 1 = -3 + 1 = -2
+console.log(x);
+
+--x; // x -= 1 => x = x - 1 = -2 - 1 = -3
+console.log(x);
+
+// comparision operators
+const currYear = 2023;
+const ageAnurag = currYear - 2001; // 2023 - 2001 = 22
+const ageVishal = currYear - 1999; // 2023 - 1999 = 24
+const ageAbbas = currYear - 2000; // 2023 - 2000 = 23
+
+// Is Anurag's age greater than age of Abbas
+console.log(ageAnurag > ageAbbas); // 22 > 23 = false
+
+// Is Abbas's age less than age of vishal
+console.log(ageAbbas < ageVishal); // 23 < 24 = true
+
+// can anurag drink alcohol ?
+// anurag should atleast 21 years old ?
+// age of anurag should be greater than or equal to 21 ?
+const canDrinkAlcohol = ageAnurag >= 21;
+console.log(canDrinkAlcohol);
+
+// are abbas and vishal of same age
+const areTheyEqual = ageAbbas == ageVishal;
+console.log(areTheyEqual);
+
+const areTheyNotEqual = ageAbbas != ageVishal;
+console.log(areTheyNotEqual);
+
+console.log(1 == 1, 1 === 1, "1" == 1, "1" === 1);
+// true true true false
+
+const currYear = 2023;
+const ageAnurag = currYear - 2001; // 2023 - 2001 = 22
+const ageVishal = currYear - 1999; // 2023 - 1999 = 24
+const ageAbbas = currYear - 2000; // 2023 - 2000 = 23
+console.log(currYear - 1991 > currYear - 2018);
+
+let a;
+let b;
+a = b = 25 - 10 - 5;
+console.log(a, b);
+
+// always use brackets to avoid confusion around precedence
+const average = (ageAnurag + ageAbbas) / 2;
+console.log(average);
 */
