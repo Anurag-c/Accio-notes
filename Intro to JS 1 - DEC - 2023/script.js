@@ -362,6 +362,15 @@ if (bmiMark > bmiJohn) {
     )}) is higher than Mark's (${bmiMark.toFixed(1)})!`
   );
 }
-*/
+
 
 //////////////////////////// DEC 12th ////////////////////////////
+
+// ASCII Values
+console.log(String.fromCharCode(65));
+console.log("M".charCodeAt(0));
+console.log("+".charCodeAt(0));
+console.log(String.fromCharCode(45));
+*/
+
+//////////////////////////// DEC 13th ////////////////////////////
