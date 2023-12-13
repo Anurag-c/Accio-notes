@@ -199,3 +199,98 @@ rl.on("line", (input) => {
     }
   }
 });
+
+// Sum of Natural Numbers
+// Link: https://course.acciojob.com/idle?question=75a292e5-d69d-44a0-a74d-366c7c3c5e95
+rl.on("line", (N) => {
+  // write your code here
+  let sum = 0;
+  N = Number(N);
+  for (let num = 1; num <= N; num++) {
+    sum = sum + num; // sum += num;
+  }
+  console.log(sum);
+  rl.close();
+});
+
+// Another approach (efficient)
+rl.on("line", (N) => {
+  // write your code here
+  N = Number(N);
+  const sum = (N * (N + 1)) / 2;
+  console.log(sum);
+
+  rl.close();
+});
+
+// Factorial with loop
+// Link: https://course.acciojob.com/idle?question=a93bddb1-78e4-4ad6-a018-275668ecc3e4
+readline.question("", (n) => {
+  readline.close();
+  // Write your code here
+  n = Number(n);
+  let fact = 1;
+  for (let num = 1; num <= n; num++) {
+    fact = fact * num; // fact *= num;
+  }
+  console.log(fact);
+});
+
+// Even Sum
+// Link: https://course.acciojob.com/idle?question=c6e3351d-7e24-4eea-b683-ba262959fa84
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+  let sum = 0;
+
+  /*
+  // Approach 1
+  for (let num = 1; num <= n; num++) {
+    if (num % 2 == 0) {
+      sum = sum + num;
+    }
+  }
+  */
+
+  // Approach 2
+  for (let num = 2; num <= n; num += 2) {
+    sum = sum + num;
+  }
+
+  console.log(sum);
+  readline.close();
+});
+
+// using formula
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+  if (n % 2 != 0) {
+    n = n - 1;
+  }
+
+  const sum = (n * (n + 2)) / 4;
+  console.log(sum);
+  readline.close();
+});
+
+// Quadrants JS (Doubt)
+// Link: https://course.acciojob.com/idle?question=c878e8a7-f476-4303-a251-5e878a60a736
+rl.on("line", (x) => {
+  rl.on("line", (y) => {
+    x = Number(x);
+    y = Number(y);
+
+    if (x > 0 && y > 0) {
+      console.log(1);
+    } else if (x < 0 && y > 0) {
+      console.log(2);
+    } else if (x < 0 && y < 0) {
+      console.log(3);
+    } else {
+      console.log(4);
+    }
+
+    rl.close();
+  });
+});

@@ -371,6 +371,82 @@ console.log(String.fromCharCode(65));
 console.log("M".charCodeAt(0));
 console.log("+".charCodeAt(0));
 console.log(String.fromCharCode(45));
+
+
+//////////////////////////// DEC 13th ////////////////////////////
+
+// ternary operator
+const age = 18;
+if (age >= 21) {
+  console.log("You can drink alcohol");
+} else {
+  console.log("You cannot drink alcohol");
+}
+
+// ternary operators mostly used in conditional rendering of react components
+const ans = age >= 21 ? "You can drink alcohol" : "You cannot drink alcohol";
+console.log(ans);
+
+age >= 21
+  ? console.log("you can drink alcohol")
+  : console.log("you cannot drink alcohol");
+
+
+// for loop
+console.log("pushup 1");
+console.log("pushup 2");
+console.log("pushup 3");
+console.log("pushup 4");
+console.log("pushup 5");
+console.log("pushup 6");
+console.log("pushup 7");
+console.log("pushup 8");
+console.log("pushup 9");
+console.log("pushup 10");
+
+for (initialization; condition; operation) {
+  // your code
+}
+
+
+for (let cnt = 1; cnt <= 10; cnt++) {
+  console.log(`pushup ${cnt}`);
+}
+
+
+console.log("pushup 5");
+console.log("pushup 4");
+console.log("pushup 3");
+console.log("pushup 2");
+console.log("pushup 1");
+
+for (let cnt = 5; cnt > 0; cnt--) {
+  console.log(`pushup ${cnt}`);
+  console.log(`you are at level ${cnt}`);
+}
+
+// break
+for (let num = 1; num <= 5; num++) {
+  if (num == 3) {
+    console.log("Sorry you cannot proceed to next level");
+    break;
+  }
+  console.log(`You are at level ${num}`);
+}
+
+console.log("for loop completed");
+
+
+//continue
+for (let num = 1; num <= 5; num++) {
+  if (num == 3) {
+    console.log("Congratulations!!! you can skip this due to bonus points");
+    continue;
+  }
+  console.log(`You are at level ${num}`);
+}
+
+console.log("for loop completed");
 */
 
 //////////////////////////// DEC 13th ////////////////////////////
