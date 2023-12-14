@@ -294,3 +294,55 @@ rl.on("line", (x) => {
     rl.close();
   });
 });
+
+// Check Prime
+// Link: https://course.acciojob.com/idle?question=03d33e77-b47d-43ee-a075-e46ff509b0a6
+readline.question("", (n) => {
+  // your code here
+  n = Number(n);
+  let isPrime = true;
+  for (let num = 2; num * num <= n; num++) {
+    if (n % num == 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime) {
+    console.log(`${n} is a prime number`);
+  } else {
+    console.log(`${n} is not a prime number`);
+  }
+
+  readline.close();
+});
+
+// Sum of digits
+// Link : https://course.acciojob.com/idle?question=16ae2277-0d38-4eba-9a84-d4326ea2da2e
+function SumofDigits(n) {
+  let sum = 0;
+  n = Number(n);
+  while (n > 0) {
+    const digit = n % 10; // extract digit
+    sum = sum + digit; // sum += digit;
+    n = parseInt(n / 10); // remove the digit
+  }
+
+  console.log(sum);
+}
+
+// Reverse digits of a Number
+// Link: https://course.acciojob.com/idle?question=817d51d8-e009-4322-8e51-257b76455a4c
+readline.question("", (n) => {
+  //Write your code here
+  let rev = 0;
+  n = Number(n);
+  while (n > 0) {
+    const digit = n % 10; // extract digit
+    rev = rev * 10 + digit;
+    n = parseInt(n / 10); // remove the digit
+  }
+
+  console.log(rev);
+  readline.close();
+});

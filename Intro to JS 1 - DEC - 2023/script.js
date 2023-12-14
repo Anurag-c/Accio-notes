@@ -447,6 +447,28 @@ for (let num = 1; num <= 5; num++) {
 }
 
 console.log("for loop completed");
-*/
+
 
 //////////////////////////// DEC 13th ////////////////////////////
+
+// while
+let num = 1;
+while (num <= 10) {
+  let temp = 5;
+  console.log(num);
+  num++;
+}
+console.log(num); // 11
+console.log(temp); // error (out of scope)
+
+let num = 1;
+while (num <= 5) {
+  if (num == 3) {
+    console.log("Sorry you cannot go forward");
+    num++; // fix, move the number from 3 -> 4
+    continue; // infinite iterations
+  }
+  console.log(`level ${num}`);
+  num++;
+}
+*/
