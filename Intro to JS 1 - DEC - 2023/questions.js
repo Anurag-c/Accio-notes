@@ -346,3 +346,185 @@ readline.question("", (n) => {
   console.log(rev);
   readline.close();
 });
+
+// N Stars
+// Link: https://course.acciojob.com/idle?question=24eb1955-7e70-45d9-8ce8-f9d9a8268aca
+readline.question("", (n) => {
+  // Write your code here
+  for (let i = 0; i < n; i++) {
+    process.stdout.write("*");
+  }
+  console.log();
+  for (let i = 0; i < n; i++) {
+    console.log("*");
+  }
+  readline.close();
+});
+
+// Right Angle Traingle Stars
+// Link: https://course.acciojob.com/idle?question=a148f7c8-e47f-45a9-bd72-8808f823ead1
+readline.question("", (n) => {
+  //Write your code here
+  const rows = Number(n);
+  for (let i = 1; i <= rows; i++) {
+    const cols = i;
+    for (let j = 1; j <= cols; j++) {
+      process.stdout.write("*");
+    }
+    console.log(); // after printing a row move to new line
+  }
+  readline.close();
+});
+
+// Staircase
+// Link: https://course.acciojob.com/idle?question=ac6a801c-d206-4945-9e19-583eb006417f
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+  for (let row = 1; row <= n; row++) {
+    for (let spaces = 1; spaces <= n - row; spaces++) {
+      process.stdout.write(" ");
+    }
+    for (let hashes = 1; hashes <= row; hashes++) {
+      process.stdout.write("#");
+    }
+    console.log(); // after printing a row move to new line
+  }
+  readline.close();
+});
+
+// Star Pyramid
+// Link: https://course.acciojob.com/idle?question=e9e6daa1-9972-4e6c-a285-7a3e084a56b9
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+  for (let row = 1; row <= n; row++) {
+    for (let spaces = 1; spaces <= n - row; spaces++) {
+      process.stdout.write(" ");
+    }
+    for (let starsp = 1; starsp <= row; starsp++) {
+      process.stdout.write("* ");
+    }
+    console.log(); // after printing a row move to new line
+  }
+  readline.close();
+});
+
+// Print Number Pattern 2
+// Link: https://course.acciojob.com/idle?question=8e5ac095-1d55-41cc-aaa7-75f2c24f953a
+rl.on("line", (n) => {
+  // your code here
+  for (let row = 1; row <= n; row++) {
+    for (let num = row; num >= 1; num--) {
+      process.stdout.write(num + "");
+      // process.stdout.write(String(num));
+    }
+    console.log(); // after printing a row move to new line
+  }
+  rl.close();
+});
+
+// Print Character Pattern
+// Link: https://course.acciojob.com/idle?question=687fa3e9-43fd-4000-8e0d-71330c8742e1
+readline.question("", (n) => {
+  // Write your code here
+  for (let row = 1; row <= n; row++) {
+    const charOfRow = String.fromCharCode(64 + row);
+    for (let col = 1; col <= row; col++) {
+      process.stdout.write(charOfRow);
+    }
+    console.log();
+  }
+  readline.close();
+});
+
+// Armstrong Numbers in Range
+// Link: https://course.acciojob.com/idle?question=620db89b-bcf4-4913-be13-64da3b4ddbeb
+readline.question("", (line) => {
+  let [m, n] = line.split(" ").map(Number);
+
+  // Write the code here
+  // go to every number and check if it is armstrong
+  for (let num = m; num <= n; num++) {
+    // 1. count number of digits
+    let cnt = 0;
+    let temp = num;
+    while (temp > 0) {
+      temp = parseInt(temp / 10);
+      cnt++;
+    }
+    // after the above loop temp becomes 0
+
+    // 2. sum of digit power no.of digits
+    let sum = 0;
+    temp = num;
+    while (temp > 0) {
+      const digit = temp % 10;
+      sum = sum + digit ** cnt;
+      temp = parseInt(temp / 10);
+    }
+    // after the above loop temp becomes 0
+
+    // 3. compare with original number
+    if (sum == num) {
+      console.log(num);
+    }
+  }
+
+  readline.close();
+});
+
+// Function Problem 2
+// Link: https://course.acciojob.com/idle?question=b27b4039-2b8b-4834-9a6b-f8622057be7a
+function fun(n, m) {
+  // write code here
+  console.log(n + m);
+}
+
+// Function Problem 3
+// Link: https://course.acciojob.com/idle?question=922be2a0-a552-456c-9f9e-5c41b514d200
+function fun(n) {
+  // write code here
+  return n + 5;
+}
+
+// Super Hero
+// Link: https://course.acciojob.com/idle?question=4b50de0b-5e1c-4477-8a34-82fa7d292044
+function ModifyName(name) {
+  // write code here
+  const ans = `${name} is a Super Hero`;
+  return ans;
+}
+
+// Place Vlaue checker
+// Link: https://course.acciojob.com/idle?question=7412f7e1-3017-44fa-83a9-00b9c0781986
+function determineSecondLastDigit(n) {
+  // write code here
+  n = parseInt(n / 10);
+  if (n % 10 == 0) {
+    return true;
+  }
+  return false;
+  // only executed when if becomes false,
+  // because, if becomes true it will return
+}
+
+// Calculate nCr
+// Link: https://course.acciojob.com/idle?question=869a6e7b-e104-45df-b2b0-28a803fecc43
+function factorial(n) {
+  let fact = 1;
+  for (let i = 1; i <= n; i++) {
+    fact = fact * i;
+  }
+  return fact;
+}
+
+function calculate_nCr(n, r) {
+  // write code here
+  let nFact = factorial(n);
+  let rFact = factorial(r);
+  let nMinusRFact = factorial(n - r);
+
+  const ans = nFact / (rFact * nMinusRFact);
+  return ans;
+}

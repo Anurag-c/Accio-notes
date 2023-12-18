@@ -471,4 +471,45 @@ while (num <= 5) {
   console.log(`level ${num}`);
   num++;
 }
+
+function logger() {
+  console.log("Hi I am Anurag");
+  console.log("I am your Instructor");
+}
+
+logger();
+logger();
+logger();
+
+
+function cutPieces(fruit) {
+  return 4 * fruit;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutPieces(apples);
+  const orangePieces = cutPieces(oranges);
+  const ans = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges`;
+  return ans;
+}
+
+const res = fruitProcessor(4, 2);
+console.log(res);
+
+const fname = "anurag";
+
+function first() {
+  let a = 1;
+  const b = second();
+  a = a + b;
+  return a;
+}
+
+function second() {
+  let c = 2;
+  return c;
+}
+
+const x = first();
+console.log(x);
 */
