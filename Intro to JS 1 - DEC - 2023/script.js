@@ -512,4 +512,50 @@ function second() {
 
 const x = first();
 console.log(x);
+
+// global scope
+const a = 5;
+let fname = "arjun";
+const year = 2023;
+
+function test() {
+  console.log(a, fname, year);
+}
+
+test();
+console.log(a, fname, year);
+
+// function scope
+function calcAge(birthYear) {
+  const currYear = 2023;
+  var age = currYear - birthYear;
+  return age;
+}
+
+console.log(calcAge(2001));
+console.log(age); // as expected, reference error
+
+// block scope
+const birthYear = 1991;
+if (1981 <= birthYear && birthYear <= 1996) {
+  const oldGen = true;
+  var century = 20;
+}
+console.log(century); // var type variables are not block scoped
+console.log(oldGen); // reference error
+
+test();
+demo();
+console.log(currYear); // undefined
+
+function test() {
+  console.log("Hi, How are you ?");
+}
+
+function demo() {
+  console.log("demo function");
+}
+
+var currYear = 2023;
+let example = "some value";
 */

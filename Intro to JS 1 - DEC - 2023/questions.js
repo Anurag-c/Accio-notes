@@ -528,3 +528,45 @@ function calculate_nCr(n, r) {
   const ans = nFact / (rFact * nMinusRFact);
   return ans;
 }
+
+// Diamond Pattern
+// Link: https://course.acciojob.com/idle?question=ba892dad-d841-4f88-9d20-8f7c633f8b6b
+function upperTraingle(x) {
+  for (let row = 1; row <= x; row++) {
+    for (let space = 1; space <= x - row; space++) {
+      process.stdout.write("  ");
+    }
+    for (let star = 1; star <= 2 * row - 1; star++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+}
+
+function lowerTraingle(x) {
+  for (let row = 1; row <= x; row++) {
+    for (let space = 1; space <= row; space++) {
+      process.stdout.write("  ");
+    }
+    for (let star = 1; star <= 2 * (x - row) + 1; star++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+}
+
+let input = [];
+rl.on("line", (line) => {
+  input.push(line);
+}).on("close", () => {
+  let t = Number(input[0]);
+  let index = 1;
+
+  while (t > 0) {
+    let n = Number(input[index]);
+    upperTraingle(parseInt(n / 2) + 1);
+    lowerTraingle(parseInt(n / 2));
+    t--;
+    index++;
+  }
+});
