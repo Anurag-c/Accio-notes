@@ -570,3 +570,74 @@ rl.on("line", (line) => {
     index++;
   }
 });
+
+// Array Problem 1
+// Link: https://course.acciojob.com/idle?question=203c6532-1438-4d70-8854-94f35fe1b0ba
+function ArrayProblem1(n, arr) {
+  // Write code here
+  let maxEle = arr[0];
+  let maxIdx = 0;
+
+  /*
+  // alternatively
+  let maxEle = -Infinity;
+  let maxIdx = -1;
+  run loop from i = 0
+  */
+
+  for (let i = 1; i < n; i++) {
+    // if you find a shop with greater chocolates
+    if (arr[i] > maxEle) {
+      maxEle = arr[i];
+      maxIdx = i;
+    }
+  }
+
+  return maxIdx;
+}
+
+// Array Operations
+// Link: https://course.acciojob.com/idle?question=c2985a2b-5ee0-4569-a77b-7459b1efd8d7
+function arrayOperations(arr, n) {
+  // Write your code here
+  let sum = 0;
+  let maxEle = -Infinity; // or arr[0];
+  for (let i = 0; i < n; i++) {
+    sum = sum + arr[i];
+    // If your current ele > maximum element then update
+    if (arr[i] > maxEle) {
+      maxEle = arr[i];
+    }
+  }
+
+  const average = parseInt(sum / n);
+  console.log(sum, average, maxEle);
+}
+
+// Array Problem 2
+// Link: https://course.acciojob.com/idle?question=e958fa46-11df-46f0-9153-6907e969d40d
+function ArrayProblem2(n, arr) {
+  // Write code here
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > 35) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+
+// Array Problem 5
+// Link: https://course.acciojob.com/idle?question=f98feeb1-40eb-4b6f-a600-067714166864
+function ArrayProblem(arr, k) {
+  // Write code here
+  const n = arr.length;
+  let cnt = 0;
+  for (let i = 0; i < n - 1; i++) {
+    if (arr[i] + arr[i + 1] == k) {
+      cnt++;
+    }
+  }
+
+  return cnt;
+}

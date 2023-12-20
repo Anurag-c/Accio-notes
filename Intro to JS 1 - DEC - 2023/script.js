@@ -558,4 +558,104 @@ function demo() {
 
 var currYear = 2023;
 let example = "some value";
+
+/////////////////// DEC 20 /////////////////
+// Arrays
+
+const friend1 = "Vishal";
+const friend2 = "Piyush";
+const friend3 = "Rohit";
+const friend4 = "Ankit";
+
+console.log(friend1, friend2, friend3, friend4);
+
+// Datastructures help us store and access data efficiently.
+
+// How to create an array
+const friends1 = ["Amit", "Piyush", "Vishal", "Rohit", 1, 2, 3, true, false];
+console.log(friends1);
+
+const friends2 = new Array("Amit", "Piyush", "Vishal", "Rohit");
+console.log(friends2);
+
+// How to access elements of array
+console.log(friends1[2]);
+console.log(friends1[1]);
+console.log(friends1[3]);
+console.log(friends1[0]);
+
+// Find the number of elements in the array
+console.log(friends1.length);
+console.log(friends2.length);
+
+// How to get the last element of the array
+console.log(friends1[friends1.length - 1]);
+console.log(friends2[friends2.length - 1]);
+
+// How to print all elements on a new line
+for (let i = 0; i < friends1.length; i++) {
+  console.log(i, friends1[i]);
+}
+for (let i = 0; i < friends2.length; i++) {
+  console.log(i, friends2[i]);
+}
+
+// Can i change a box / element ? yes
+console.log(friends2);
+friends2[2] = "Ankit";
+friends2[0] = "Vishal";
+console.log(friends2);
+
+// How to add new elements to array (at end)?
+friends2.push("Anoop");
+friends2.push("Arsh");
+friends2.push("Ayush");
+console.log(friends2);
+
+// Arrays can store multiple data types at once
+const firstName = "Anurag";
+const age = 21;
+const job = "Teacher";
+const friends = ["Anoop", "Arsh", "Ayush", "xyz"];
+
+const myArr = [firstName, age, job, friends];
+console.log(myArr[0]);
+console.log(myArr[1]);
+console.log(myArr[2]);
+console.log(myArr[3]);
+
+// how many friends are there to anurag ?
+console.log(myArr[3].length);
+console.log(friends[1]);
+console.log(myArr[3][1]);
+
+// get the last friend in general ?
+console.log(friends[friends.length - 1]);
+console.log(myArr[3][myArr[3].length - 1]);
+
+// hoisting doubt in break
+var a = 5;
+function test() {
+  console.log(a);
+  var a = 10;
+  console.log(a);
+}
+test();
+
+// Exercise
+function calcAge(birthYear) {
+  return 2023 - birthYear;
+}
+
+const years = [1990, 1967, 2002, 2010, 2018, 1992, 2003, 1987];
+
+// create an array called ages which has
+// respective age for each birthYear in the years array
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(calcAge(years[i]));
+}
+
+console.log(ages);
 */
