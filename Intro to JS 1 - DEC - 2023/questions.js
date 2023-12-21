@@ -641,3 +641,101 @@ function ArrayProblem(arr, k) {
 
   return cnt;
 }
+
+// Maximum difference between two elements in an Array
+// Link: https://course.acciojob.com/idle?question=b5a0f4ca-7b5e-4fee-9487-3ca52a582741
+function ArrayProblem(arr) {
+  // Write your code here
+  const n = arr.length;
+  let maxDiff = -Infinity;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      const diff = Math.abs(arr[i] - arr[j]);
+      if (diff > maxDiff) {
+        maxDiff = diff;
+      }
+    }
+  }
+
+  console.log(maxDiff);
+}
+
+// optimal / efficient approach
+function ArrayProblem(arr) {
+  // Write your code here
+  const n = arr.length;
+  let maxEle = -Infinity;
+  let minEle = Infinity;
+
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > maxEle) {
+      maxEle = arr[i];
+    }
+
+    if (arr[i] < minEle) {
+      minEle = arr[i];
+    }
+  }
+
+  console.log(maxEle - minEle);
+}
+
+// 2nd Largest from array
+// https://course.acciojob.com/idle?question=d5b5b101-0636-4654-bd4d-bfecce8e5d00
+function SecondLargest(arr, n) {
+  // Write code here
+  let firstMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > firstMax) {
+      firstMax = arr[i];
+    }
+  }
+
+  let secondMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] != firstMax && arr[i] > secondMax) {
+      secondMax = arr[i];
+    }
+  }
+
+  console.log(secondMax);
+}
+
+// Reverse an array
+// Link: https://course.acciojob.com/idle?question=94Reverse an array4dba4b-f895-44af-8ec1-7445343e5713
+function reverseArray(arr, start, end) {
+  //Write code here
+  while (start <= end) {
+    // swap arr[start], arr[end]
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+
+  /* 
+  // just for understanding
+  for (let start = 0, end = n - 1; start <= end; start++, end--) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+  }
+  */
+}
+
+// A Contest
+// Link: https://course.acciojob.com/idle?question=0363c617-a2d0-41a5-a2a3-f5736d1c36f7
+function printFindParticipants(arr, n, k) {
+  // Write your code here
+  const kthPartScore = arr[k - 1];
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] >= kthPartScore && arr[i] > 0) {
+      cnt++;
+    }
+  }
+
+  console.log(cnt);
+}

@@ -658,4 +658,14 @@ for (let i = 0; i < years.length; i++) {
 }
 
 console.log(ages);
+
+
+// How to generate pairs
+let arr = [10, 20, 30, 40];
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i + 1; j < arr.length; j++) {
+    console.log(i, j, arr[i], arr[j]);
+  }
+}
+console.log(typeof Infinity, typeof -Infinity);
 */
