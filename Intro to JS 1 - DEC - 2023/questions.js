@@ -739,3 +739,125 @@ function printFindParticipants(arr, n, k) {
 
   console.log(cnt);
 }
+
+// Array Adding
+// Link: https://course.acciojob.com/idle?question=a426a64f-8962-4a98-9433-3200d900ad67
+function calSumUtil(a, b, n, m) {
+  // Write your code here
+
+  // 1. initialize / create empty result array
+  const res = [];
+  for (let i = 0; i < n; i++) {
+    res.push(0);
+  }
+
+  // 2. start adding from last
+  let i = n - 1;
+  let j = m - 1;
+  let carry = 0;
+
+  while (i >= 0) {
+    /*
+    let sum;
+    if(j >= 0) {
+      sum = a[i] + b[j] + carry;
+    }
+    else {
+      sum = a[i] + carry;
+    }
+    */
+
+    let sum = j >= 0 ? a[i] + b[j] + carry : a[i] + carry;
+    res[i] = sum % 10;
+    carry = sum / 10;
+
+    i--;
+    j--;
+  }
+
+  // 3. If there is carry left, add 1 to the beginning of array
+  if (carry == 1) {
+    res.unshift(1);
+  }
+
+  return res;
+}
+
+function calSum(a, b, n, m) {
+  // Write your code here
+  if (n >= m) {
+    return calSumUtil(a, b, n, m);
+  }
+  return calSumUtil(b, a, m, n);
+}
+
+// Buildings
+// Link: https://course.acciojob.com/idle?question=a7bdae50-cbdd-4048-a3c3-be52504b9580
+function isVisible(heights, idx) {
+  for (let i = idx - 1; i >= 0; i--) {
+    if (heights[i] > heights[idx]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function countVisibleRoofs(heights) {
+  // Write your code here
+  const n = heights.length;
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    if (isVisible(heights, i)) {
+      cnt++;
+    }
+  }
+
+  return cnt;
+}
+
+// Efficient / optimal
+function countVisibleRoofs(heights) {
+  // Write your code here
+  const n = heights.length;
+  let cnt = 0;
+  let runningMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (runningMax <= heights[i]) {
+      cnt++;
+      runningMax = heights[i];
+    }
+  }
+
+  return cnt;
+}
+
+// Rotate array
+// Link: https://course.acciojob.com/idle?question=444d4b46-efef-467a-8833-e3fede7d22f0
+function reverse(arr, start, end) {
+  while (start <= end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
+
+function rotateArray(arr, n, k) {
+  // Write code here
+  k = k % n;
+
+  // reverse entire array
+  reverse(arr, 0, n - 1);
+
+  // reverse 1st n - k elements
+  reverse(arr, 0, n - k - 1);
+
+  // reverse last k elements
+  reverse(arr, n - k, n - 1);
+
+  for (let i = 0; i < n; i++) {
+    process.stdout.write(arr[i] + " ");
+  }
+}
