@@ -861,3 +861,94 @@ function rotateArray(arr, n, k) {
     process.stdout.write(arr[i] + " ");
   }
 }
+
+// Subarray Sum Zero
+// Link: https://course.acciojob.com/idle?question=7f096e64-5c0d-4333-b324-02e6ac91a3d7
+function zeroSubarray(arr) {
+  //Write your code here
+  const n = arr.length;
+  let isFound = false;
+
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum = sum + arr[end];
+      if (sum == 0) {
+        isFound = true;
+        console.log(`Subarray found from Index ${start} to ${end}`);
+      }
+    }
+  }
+
+  if (isFound == false) {
+    console.log(-1);
+  }
+}
+
+// Subarray sum divisible by k
+// Link: https://course.acciojob.com/idle?question=fd54a321-f9b7-4772-9d78-69ffe5a0ccb8
+function subarrayDivisbleByK(arr, n, k) {
+  let cnt = 0;
+
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum = sum + arr[end];
+      if (sum % k == 0) {
+        cnt++;
+      }
+    }
+  }
+
+  return cnt;
+}
+
+// Find Split Point
+// Link: https://course.acciojob.com/idle?question=c0af5738-5a1c-4a05-a68c-789f38a620d1
+function getSplitPoint(N, arr) {
+  let total = 0;
+  for (let i = 0; i < N; i++) {
+    total += arr[i];
+  }
+
+  let lsum = 0;
+  for (let i = 0; i < N - 1; i++) {
+    lsum += arr[i];
+    const rsum = total - lsum;
+    if (lsum == rsum) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+function splitArray(N, arr) {
+  const cutPos = getSplitPoint(N, arr);
+  if (cutPos == -1) {
+    console.log("Not Possible");
+  } else {
+    for (let i = 0; i <= cutPos; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+    console.log();
+    for (let i = cutPos + 1; i < N; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+  }
+}
+
+// Find Geometric Triplets
+// Link: https://course.acciojob.com/idle?question=cefcef33-7a3f-46ea-99f4-694dd5297224
+function findGeometricTriplets(arr, n) {
+  // Write code here
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        if (arr[j] * arr[j] == arr[i] * arr[k]) {
+          console.log(arr[i], arr[j], arr[k]);
+        }
+      }
+    }
+  }
+}

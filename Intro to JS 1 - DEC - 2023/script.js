@@ -668,4 +668,15 @@ for (let i = 0; i < arr.length; i++) {
   }
 }
 console.log(typeof Infinity, typeof -Infinity);
+
+// How to generate subarray
+const arr = [10, 20, 30, 40];
+const n = arr.length;
+for (let start = 0; start < n; start++) {
+  let subarr = "";
+  for (let end = start; end < n; end++) {
+    subarr = subarr + arr[end] + " ";
+    console.log(subarr);
+  }
+}
 */
