@@ -679,4 +679,105 @@ for (let start = 0; start < n; start++) {
     console.log(subarr);
   }
 }
+
+const friends1 = ["Amit", "Rohit", "Anoop"];
+const friends2 = ["Vishal", "Saurabh", "Piyush", "Sujata"];
+const friends3 = ["Akram", "JavaScript"];
+
+const allFriends = [friends1, friends2, friends3];
+
+console.log(allFriends);
+console.log(allFriends[0]);
+console.log(allFriends[1]);
+console.log(allFriends[2]);
+
+const rows = allFriends.length;
+const cols0 = allFriends[0].length;
+const cols1 = allFriends[1].length;
+const cols2 = allFriends[2].length;
+console.log("No.of rows (smaller arrays): " + rows);
+console.log("No.of cols in row-0: " + cols0);
+console.log("No.of cols in row-1: " + cols1);
+console.log("No.of cols in row-2: " + cols2);
+
+// How to print a matrix
+function printMatrix(mat) {
+  /*
+  // print all elements from row - 0
+  for (let i = 0; i < mat[0].length; i++) {
+    process.stdout.write(mat[0][i] + " ");
+  }
+  console.log();
+
+  // print all elements from row - 1
+  for (let i = 0; i < mat[1].length; i++) {
+    process.stdout.write(mat[1][i] + " ");
+  }
+  console.log();
+
+  // print all elements from row - 2
+  for (let i = 0; i < mat[2].length; i++) {
+    process.stdout.write(mat[2][i] + " ");
+  }
+  
+
+  const rows = mat.length;
+  // as the no.of cols are same for every row
+  const cols = mat[0].length;
+
+  // go to every row
+  for (let r = 0; r < rows; r++) {
+    // iterate on cols of that row
+    // when in case of jagged arrays (no.of cols in each row differ)
+    // const cols = mat[r].length;
+    for (let c = 0; c < cols; c++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+function createMatrix(n) {
+  const mat = [];
+
+  /*
+  const arr1 = [];
+  for (let i = 0; i < 3; i++) {
+    arr1.push(i + 1);
+  }
+  mat.push(arr1);
+
+  const arr2 = [];
+  for (let i = 0; i < 3; i++) {
+    arr2.push(i + 1);
+  }
+  mat.push(arr2);
+
+  const arr3 = [];
+  for (let i = 0; i < 3; i++) {
+    arr3.push(i + 1);
+  }
+  mat.push(arr3);
+  
+
+  for (let r = 0; r < n; r++) {
+    const arr = [];
+    for (let c = 0; c < n; c++) {
+      arr.push(c + 1);
+    }
+    mat.push(arr);
+  }
+  return mat;
+}
+
+const mat = [
+  [1, 2, 3, 4],
+  [1, 2, 3, 4],
+  [1, 2, 3, 4],
+  [1, 2, 3, 4],
+];
+printMatrix(mat);
+
+const newMat = createMatrix(3);
+printMatrix(newMat);
 */

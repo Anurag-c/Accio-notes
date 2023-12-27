@@ -952,3 +952,133 @@ function findGeometricTriplets(arr, n) {
     }
   }
 }
+
+// Print 2D Array
+// Link: https://course.acciojob.com/idle?question=9ea8dbd6-3b71-45c9-a8c3-1bfb7608ad13
+function printElements(arr, n, m) {
+  // Write your code here
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < m; c++) {
+      process.stdout.write(arr[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+// Print Matrix Column Wise
+// Link: https://course.acciojob.com/idle?question=31900452-fb2e-45cd-93b0-fb4d6afbfac0
+function printMatrixColumnwise(mat, n, m) {
+  // Write code here and print output
+
+  // go to every column
+  for (let c = 0; c < m; c++) {
+    // iterate on rows
+    for (let r = 0; r < n; r++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+  }
+}
+
+// Alternate Manner Matrix Traversal
+// Link: https://course.acciojob.com/idle?question=191ba184-3c72-468a-83fe-5100d558f7eb
+function printElementsAlternately(mat, m, n) {
+  // Write code here and print output
+  for (let r = 0; r < m; r++) {
+    if (r % 2 == 0) {
+      for (let c = 0; c < n; c++) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    } else {
+      for (let c = n - 1; c >= 0; c--) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    }
+  }
+}
+
+// Transpose of a Matrix
+// Link: https://course.acciojob.com/idle?question=57e7562d-b233-42ca-89f6-c10ad5cdf579
+function matrixTranspose(mat, n) {
+  //Write your code here
+  const transMat = [];
+  for (let c = 0; c < n; c++) {
+    const arr = [];
+    for (let r = 0; r < n; r++) {
+      arr.push(mat[r][c]);
+    }
+    transMat.push(arr);
+  }
+
+  return transMat;
+}
+
+// space efficient
+function matrixTranspose(mat, n) {
+  //Write your code here
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < r; c++) {
+      const temp = mat[r][c];
+      mat[r][c] = mat[c][r];
+      mat[c][r] = temp;
+    }
+  }
+
+  return mat;
+}
+
+// Array Subtracting
+// Link: https://course.acciojob.com/idle?question=4ed416d3-76b0-41a6-a956-3201e2fb6079
+function compare(arr1, arr2) {
+  let n1 = arr1.length;
+  let n2 = arr2.length;
+  if (n1 > n2) {
+    return true;
+  } else if (n1 < n2) {
+    return false;
+  }
+
+  // where n1 == n2
+  for (let i = 0; i < n1; i++) {
+    if (arr1[i] < arr2[i]) {
+      return false;
+    } else if (arr1[i] > arr2[i]) {
+      return true;
+    }
+  }
+  return true;
+}
+
+function arraySubtracting(arr1, arr2) {
+  let n = arr1.length;
+  let m = arr2.length;
+
+  let res = [];
+  for (let i = 0; i < n; i++) {
+    res.push(0);
+  }
+  let i = n - 1;
+  let j = m - 1;
+  let sub = 0;
+  let carry = 0;
+  while (i >= 0) {
+    sub = j >= 0 ? arr1[i] - arr2[j] - carry : arr1[i] - carry;
+    carry = 0;
+    if (sub < 0) {
+      sub += 10;
+      carry = 1;
+    }
+    res[i] = sub % 10;
+    i--;
+    j--;
+  }
+  return res;
+}
+
+function subtract(arr1, arr2) {
+  if (compare(arr1, arr2)) {
+    return arraySubtracting(arr1, arr2);
+  }
+  const res = arraySubtracting(arr2, arr1);
+  res[0] = res[0] * -1;
+  return res;
+}
