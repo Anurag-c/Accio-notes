@@ -1082,3 +1082,138 @@ function subtract(arr1, arr2) {
   res[0] = res[0] * -1;
   return res;
 }
+
+// Matrix Multiplication
+// Link: https://course.acciojob.com/idle?question=da3dfaa3-541f-4b9b-a202-30b4fb01a835
+function printMultiplication(matrix1, matrix2, n) {
+  const rows1 = n;
+  const cols1 = n;
+  const rows2 = n;
+  const cols2 = n;
+
+  if (cols1 != rows2) return;
+
+  // Initialize an empty matrix
+  const res = []; // rows1 x cols2
+  for (let r = 0; r < rows1; r++) {
+    const arr = [];
+    for (let c = 0; c < cols2; c++) {
+      arr.push(0);
+    }
+    res.push(arr);
+  }
+
+  // Fill each box in res matrix
+  // res[r][c] = rth row of matrix1 x cth col of matrix2
+  for (let r = 0; r < rows1; r++) {
+    for (let c = 0; c < cols2; c++) {
+      for (let k = 0; k < rows2; k++) {
+        res[r][c] += matrix1[r][k] * matrix2[k][c];
+      }
+    }
+  }
+
+  for (let r = 0; r < rows1; r++) {
+    for (let c = 0; c < cols2; c++) {
+      process.stdout.write(res[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+// Spirally traversing a matrix
+// Link: https://course.acciojob.com/idle?question=5f714d43-3f91-4c47-b41b-203207e63522
+function spirallyTraverse(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  let minR = 0;
+  let maxR = rows - 1;
+  let minC = 0;
+  let maxC = cols - 1;
+  let totalEle = rows * cols;
+
+  while (totalEle > 0) {
+    // 1. Top wall (minR, minC to maxC)
+    for (let c = minC; c <= maxC && totalEle > 0; c++) {
+      process.stdout.write(mat[minR][c] + " ");
+      totalEle--;
+    }
+    minR++;
+
+    // 2. right wall (maxC, minR to maxR)
+    for (let r = minR; r <= maxR && totalEle > 0; r++) {
+      process.stdout.write(mat[r][maxC] + " ");
+      totalEle--;
+    }
+    maxC--;
+
+    // 3. bottom wall (maxR, maxC to minC)
+    for (let c = maxC; c >= minC && totalEle > 0; c--) {
+      process.stdout.write(mat[maxR][c] + " ");
+      totalEle--;
+    }
+    maxR--;
+
+    // 4. left wall (minC, maxR to minR)
+    for (let r = maxR; r >= minR && totalEle > 0; r--) {
+      process.stdout.write(mat[r][minC] + " ");
+      totalEle--;
+    }
+    minC++;
+  }
+}
+
+// Alt Matrix Sum
+// Link: https://course.acciojob.com/idle?question=04a591ba-305a-4bd7-a4b2-9a06ac187837
+function alternateMatrixSum(mat, n) {
+  // Write your code here
+  let bsum = 0;
+  let wsum = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if ((r + c) % 2 == 0) {
+        bsum += mat[r][c];
+      } else {
+        wsum += mat[r][c];
+      }
+    }
+  }
+
+  console.log(bsum);
+  console.log(wsum);
+}
+
+// Diagonal Difference!
+// Link: https://course.acciojob.com/idle?question=8a6cbf35-d128-459b-a7ba-9e269d2af40a
+function diagonalDifference(mat, n) {
+  // Write your code here
+  let diag = 0;
+  let adiag = 0;
+  for (let r = 0; r < n; r++) {
+    diag += mat[r][r];
+    adiag += mat[r][n - r - 1];
+  }
+
+  console.log(Math.abs(diag - adiag));
+}
+
+// Sum of upper and lower triangles
+// Link: https://course.acciojob.com/idle?question=d39c3375-6cfe-47a6-9c75-9f0acf8ae916
+function triangleSums(n, matrix) {
+  // your code here
+  let upper = 0;
+  let lower = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if (r >= c) {
+        lower += matrix[r][c];
+      }
+      if (r <= c) {
+        upper += matrix[r][c];
+      }
+    }
+  }
+
+  console.log(upper, lower);
+}
