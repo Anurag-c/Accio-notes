@@ -1217,3 +1217,147 @@ function triangleSums(n, matrix) {
 
   console.log(upper, lower);
 }
+
+// Find the way
+// Link: https://course.acciojob.com/idle?question=60d37a31-7584-48eb-baad-ee073ffc7acf
+function findTheWay(matrix) {
+  //Write code here
+
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  // Initially mouse is at top-left (0, 0) and facing right (0)
+  let i = 0;
+  let j = 0;
+  let facing = 0;
+
+  while (true) {
+    facing = (facing + matrix[i][j]) % 4;
+
+    if (matrix[i][j] == 1) {
+      matrix[i][j] = 0;
+    }
+
+    if (facing == 0) {
+      j++;
+    } else if (facing == 1) {
+      i++;
+    } else if (facing == 2) {
+      j--;
+    } else {
+      i--;
+    }
+
+    if (j == cols) {
+      // exit from right
+      return [i, j - 1];
+    } else if (i == rows) {
+      // exit from bottom
+      return [i - 1, j];
+    } else if (j == -1) {
+      // exit from left
+      return [i, j + 1];
+    } else if (i == -1) {
+      // exit from top
+      return [i + 1, j];
+    }
+  }
+}
+
+// Maxima Minima
+// Link: https://course.acciojob.com/idle?question=834a5e9e-9b0c-45db-b0e1-375bafb999ea
+function minRow(mat, row) {
+  let minEle = Infinity;
+  const cols = mat[0].length;
+  for (let c = 0; c < cols; c++) {
+    if (mat[row][c] < minEle) {
+      minEle = mat[row][c];
+    }
+  }
+
+  return minEle;
+}
+
+function maxCol(mat, col) {
+  let maxEle = -Infinity;
+  const rows = mat.length;
+  for (let r = 0; r < rows; r++) {
+    if (mat[r][col] > maxEle) {
+      maxEle = mat[r][col];
+    }
+  }
+
+  return maxEle;
+}
+
+function maximaMinima(mat) {
+  //Write code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      const minR = minRow(mat, i);
+      const maxC = maxCol(mat, j);
+      if (mat[i][j] == minR && mat[i][j] == maxC) {
+        return mat[i][j];
+      }
+    }
+  }
+
+  return -1;
+}
+
+readline.question("", (n) => {
+  let matrix = [];
+  let count = 0;
+  readline.on("line", (line) => {
+    matrix.push(line.trim().split(" ").map(Number));
+    count++;
+    if (count == n) {
+      let result = maximaMinima(matrix);
+      console.log(result);
+      readline.close();
+    }
+  });
+});
+
+// Efficient / optimal approach
+function maximaMinima(mat) {
+  //Write code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  const minRow = [];
+  for (let i = 0; i < rows; i++) {
+    minRow.push(Infinity);
+  }
+
+  const maxCol = [];
+  for (let i = 0; i < cols; i++) {
+    maxCol.push(-Infinity);
+  }
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (mat[i][j] < minRow[i]) {
+        minRow[i] = mat[i][j];
+      }
+      if (mat[i][j] > maxCol[j]) {
+        maxCol[j] = mat[i][j];
+      }
+    }
+  }
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      const minR = minRow[i];
+      const maxC = maxCol[j];
+      if (mat[i][j] == minR && mat[i][j] == maxC) {
+        return mat[i][j];
+      }
+    }
+  }
+
+  return -1;
+}
