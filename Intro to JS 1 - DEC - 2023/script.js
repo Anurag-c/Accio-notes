@@ -1,3 +1,119 @@
+class Monster {
+  constructor(name) {
+    this.name = name;
+  }
+
+  attack() {
+    console.log(`${this.name} attacked`);
+  }
+
+  walk() {
+    console.log(`${this.name} walked`);
+  }
+}
+
+class FlyingMonster extends Monster {
+  fly() {
+    console.log(`${this.name} flew`);
+  }
+}
+
+class SwimmingMonster extends Monster {
+  swim() {
+    console.log(`${this.name} swam`);
+  }
+}
+
+class FlyingSwimmingMonster extends FlyingMonster {
+  swim() {
+    console.log(`${this.name} swam`);
+  }
+}
+
+const bear = new Monster("bear");
+bear.walk();
+bear.attack();
+
+const eagle = new FlyingMonster("eager");
+eagle.walk();
+eagle.attack();
+eagle.fly();
+
+const shark = new SwimmingMonster("shark");
+shark.walk();
+shark.attack();
+shark.swim();
+
+const dipper = new FlyingSwimmingMonster("dipper");
+dipper.walk();
+dipper.attack();
+dipper.fly();
+dipper.swim();
+
+function attackerAndWalker({ name }) {
+  return {
+    attack: function () {
+      console.log(`${name} attacked`);
+    },
+    walk: function () {
+      console.log(`${name} walked`);
+    },
+  };
+}
+
+function flyer({ name }) {
+  return {
+    fly: function () {
+      console.log(`${name} flew`);
+    },
+  };
+}
+
+function swimmer({ name }) {
+  return {
+    swim: function () {
+      console.log(`${name} swam`);
+    },
+  };
+}
+
+function FlyingMonsterCreator(name) {
+  const monster = { name };
+
+  return {
+    ...monster,
+    ...attackerAndWalker(monster),
+    ...flyer(monster),
+  };
+}
+
+function swimmingMonsterCreator(name) {
+  const monster = { name };
+
+  return {
+    ...monster,
+    ...attackerAndWalker(monster),
+    ...swimmer(monster),
+  };
+}
+
+function flyingSwimmingMonsterCreator(name) {
+  const monster = { name };
+
+  return {
+    ...monster,
+    ...attackerAndWalker(monster),
+    ...flyer(monster),
+    ...swimmer(monster),
+  };
+}
+
+const obj = flyingSwimmingMonsterCreator("Monster");
+obj.attack();
+obj.walk();
+obj.fly();
+obj.swim();
+
 /*
 
 ///////////////////////// DEC 7th ///////////////////////////////////
