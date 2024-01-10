@@ -120,7 +120,7 @@ console.log(typeof someVariable);
 
 // null (fact / bug in JS)
 console.log(null);
-console.log(typeof null);
+console.log(typeof null); // Object
 
 // we can change the values of a variable
 let example = "How old are you ?";
@@ -289,6 +289,138 @@ const average = (ageAnurag + ageSovan) / 2;
 console.log(average);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-*/
+
 
 /////////////////////////////////////////////////// JAN 10 ///////////////////////////////////////////
+
+// Type conversion
+const birthYear = "2001";
+
+// what will be the year after 23 years ?
+console.log("2001" + "23");
+console.log(typeof birthYear);
+console.log(typeof Number(birthYear));
+console.log(Number(birthYear) + 23);
+
+console.log(String(23), typeof String(23));
+console.log(Number("an12u3r4ag")); // NaN
+console.log(typeof NaN); // number
+
+// false for only these values
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(""));
+console.log(Boolean(NaN));
+
+// anyother values it is true
+console.log(Boolean(123));
+console.log(Boolean("anurag"));
+
+// Type Coercion
+// string + number = string + string
+console.log("I am " + 22 + " Years old");
+console.log("23" + 10 + 5);
+console.log(5 + 10 + "23");
+console.log(5 + "23" + 10);
+console.log(10, "abc", 9082);
+
+// all other cases string -> number
+console.log("23" - "10" + 5);
+console.log("23" * 2);
+console.log("23" / "2");
+
+// Strict checking
+console.log(1 == 1);
+console.log(1 === 1);
+
+console.log("1" == 1);
+console.log("2023" == 2023);
+console.log("1" === 1);
+
+console.log("1" == "1");
+console.log("1" === "1");
+
+console.log(1 !== 1);
+console.log(1 !== "1");
+
+// If-else statements
+const age = 16;
+
+if (age >= 18) {
+  console.log("You can get a driving license");
+  console.log("line1");
+  console.log("line1");
+}
+
+console.log("This is after if statement");
+
+if (age >= 18) {
+  console.log("You can get a driving license");
+} else {
+  console.log("Sorry you cannot get License");
+}
+
+console.log("This is after if-else statements");
+
+const day = "tuesday";
+if (day == "monday") {
+  console.log("I have to go for a doctor appointment");
+} else {
+  console.log("I dont know what to do");
+}
+if (day == "monday") {
+  console.log("I have to go for shopping");
+}
+if (day == "tuesday") {
+  console.log("I have an exam");
+  console.log("I have a weddding to attend");
+}
+
+// else if statements
+const day = "abcdef";
+
+if (day == "monday") {
+  console.log("Plan course structure");
+} else if (day == "tuesday") {
+  console.log("Prepare for exams");
+} else if (day == "wednesday") {
+  console.log("Write examples for coding lectures");
+} else if (day == "thursday") {
+  console.log("Watch recordings");
+} else if (day == "friday") {
+  console.log("solve assignments");
+} else if (day == "saturday") {
+  console.log("Revise all notes");
+} else if (day == "sunday") {
+  console.log("attempt contest");
+} else {
+  console.log("Please enter a valid day");
+}
+
+// scope
+const birthYear = 1998;
+let century;
+if (birthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
+
+// Ternary operator
+const age = 22;
+if (age >= 21) {
+  console.log("You can drink alcohol");
+} else {
+  console.log("You cannot drink alcohol");
+}
+
+age >= 21
+  ? console.log("You can drink alcohol")
+  : console.log("You cannot drink alcohol");
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////// JAN 11 ///////////////////////////////////////////
