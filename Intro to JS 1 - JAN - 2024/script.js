@@ -419,8 +419,42 @@ if (age >= 21) {
 age >= 21
   ? console.log("You can drink alcohol")
   : console.log("You cannot drink alcohol");
-*/
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////// JAN 11 ///////////////////////////////////////////
+/////////////////////////////////////////////////// JAN 12 ///////////////////////////////////////////
+
+// Logical operators
+const age = 16;
+const A = age >= 20; // Age is greater than or equal to 20
+const B = age < 30; // Age is less than 30
+
+console.log(!A); // NOT A
+console.log(A && B); // A AND B
+console.log(A || B); // A OR B
+console.log(!A && B); // NOT A AND B
+console.log(A || !B); // A OR NOT B
+
+const hasDriversLicense = false; // A
+const hasGoodVision = true; // B
+
+// Tell whether sarah can drive or not
+if (hasDriversLicense && hasDriversLicense) {
+  console.log("Sarah can drive");
+} else {
+  console.log("Sarah cannot drive");
+}
+*/
+
+// Ascii conversions
+console.log(String.fromCharCode(65));
+console.log(String.fromCharCode(90));
+console.log(String.fromCharCode(97));
+console.log(String.fromCharCode(122));
+console.log(String.fromCharCode(60));
+
+console.log("A".charCodeAt(0));
+console.log("Z".charCodeAt(0));
+console.log("a".charCodeAt(0));
+console.log("z".charCodeAt(0));
