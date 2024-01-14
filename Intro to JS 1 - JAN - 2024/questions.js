@@ -162,3 +162,91 @@ rl.on("line", (x) => {
     rl.close();
   });
 });
+
+// Sum of Natural Numbers
+// Link: https://course.acciojob.com/idle?question=75a292e5-d69d-44a0-a74d-366c7c3c5e95
+rl.on("line", (N) => {
+  // write your code here
+  // console.log(N, typeof N)
+
+  N = Number(N);
+  let sum = 0;
+  let prod = 1;
+  for (let num = 1; num <= N; num++) {
+    sum = sum + num;
+    prod = prod * num;
+  }
+
+  console.log(sum);
+  console.log(prod);
+  rl.close();
+});
+
+// efficient / optimal approach
+rl.on("line", (N) => {
+  // write your code here
+  N = Number(N);
+  console.log((N * (N + 1)) / 2);
+});
+
+// Factorial with loop
+// Link: https://course.acciojob.com/idle?question=a93bddb1-78e4-4ad6-a018-275668ecc3e4
+readline.question("", (n) => {
+  readline.close();
+  // Write your code here
+  n = Number(n);
+  let prod = 1;
+  for (let num = 1; num <= n; num++) {
+    prod = prod * num;
+  }
+  console.log(prod);
+});
+
+// Even Sum
+// Link: https://course.acciojob.com/idle?question=c6e3351d-7e24-4eea-b683-ba262959fa84
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+
+  let sum = 0;
+  for (let num = 2; num <= n; num += 2) {
+    sum += num;
+  }
+  console.log(sum);
+
+  readline.close();
+});
+
+// Efficient / optimal
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+  if (n % 2 != 0) {
+    n--;
+  }
+
+  console.log((n * (n + 2)) / 4);
+});
+
+// Check Prime
+// Link: https://course.acciojob.com/idle?question=03d33e77-b47d-43ee-a075-e46ff509b0a6
+readline.question("", (n) => {
+  // your code here
+  n = Number(n);
+
+  let isPrime = true;
+  for (let num = 2; num < n; num++) {
+    if (n % num == 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime) {
+    console.log(`${n} is a prime number`);
+  } else {
+    console.log(`${n} is not a prime number`);
+  }
+
+  readline.close();
+});

@@ -445,7 +445,7 @@ if (hasDriversLicense && hasDriversLicense) {
 } else {
   console.log("Sarah cannot drive");
 }
-*/
+
 
 // Ascii conversions
 console.log(String.fromCharCode(65));
@@ -458,3 +458,50 @@ console.log("A".charCodeAt(0));
 console.log("Z".charCodeAt(0));
 console.log("a".charCodeAt(0));
 console.log("z".charCodeAt(0));
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////// JAN 14 ///////////////////////////////////////////
+console.log("level 1");
+console.log("level 2");
+console.log("level 3");
+console.log("level 4");
+console.log("level 5");
+console.log("level 6");
+console.log("level 7");
+console.log("level 8");
+console.log("level 9");
+console.log("level 10");
+
+for (let num = 1; num <= 10; num++) {
+  console.log(`level ${num}`);
+}
+
+console.log("for loop completed");
+
+for (let num = 5; num >= 1; num--) {
+  console.log(`level ${num}`);
+}
+*/
+
+// break
+for (let num = 1; num <= 5; num++) {
+  console.log(`level ${num}`);
+  if (num == 3) {
+    console.log("Sorry you cannot move to next level");
+    break;
+  }
+}
+
+console.log("for loop completed");
+
+// continue
+for (let num = 1; num <= 5; num++) {
+  console.log(`level ${num}`);
+  if (num == 3) {
+    console.log("You can skip this level");
+    continue;
+  }
+}
+
+console.log("for loop completed");
