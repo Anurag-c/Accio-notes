@@ -482,7 +482,6 @@ console.log("for loop completed");
 for (let num = 5; num >= 1; num--) {
   console.log(`level ${num}`);
 }
-*/
 
 // break
 for (let num = 1; num <= 5; num++) {
@@ -505,3 +504,29 @@ for (let num = 1; num <= 5; num++) {
 }
 
 console.log("for loop completed");
+
+// while loop
+let num = 1;
+while (num <= 5) {
+  console.log(`level ${num}`);
+  num++;
+}
+
+// break and continue
+let level = 1;
+while (level <= 5) {
+  if (level == 3) {
+    console.log("sorry you cannot go forward");
+    level++;
+    continue;
+  }
+  console.log(`level ${level}`);
+  level++;
+}
+
+// chrome doesnt know about process but node.js does
+console.log("*********");
+console.log("Hi my name is anurag");
+process.stdout.write("*********");
+process.stdout.write("Hi my name is anurag");
+*/
