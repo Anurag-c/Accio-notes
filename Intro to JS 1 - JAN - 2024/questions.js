@@ -306,3 +306,115 @@ rl.on("line", (input) => {
     }
   }
 });
+
+// Right Angle Triangle Stars
+// Link: https://course.acciojob.com/idle?question=a148f7c8-e47f-45a9-bd72-8808f823ead1
+readline.question("", (n) => {
+  //Write your code here
+  for (let row = 0; row < n; row++) {
+    for (let col = 0; col < row + 1; col++) {
+      process.stdout.write("*"); // prints in the same line
+    }
+    console.log(); // move to next line
+  }
+
+  readline.close();
+});
+
+// Staircase
+// Link: https://course.acciojob.com/idle?question=ac6a801c-d206-4945-9e19-583eb006417f
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+  for (let row = 0; row < n; row++) {
+    for (let space = 0; space < n - row - 1; space++) {
+      process.stdout.write(" ");
+    }
+    for (let hash = 0; hash < row + 1; hash++) {
+      process.stdout.write("#");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Star pyramid
+// Link: https://course.acciojob.com/idle?question=e9e6daa1-9972-4e6c-a285-7a3e084a56b9
+readline.question("", (n) => {
+  //Write your code here
+  for (let row = 0; row < n; row++) {
+    for (let space = 0; space < n - row - 1; space++) {
+      process.stdout.write(" ");
+    }
+    for (let starsp = 0; starsp < row + 1; starsp++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Print Number Pattern 2
+// Link: https://course.acciojob.com/idle?question=8e5ac095-1d55-41cc-aaa7-75f2c24f953a
+rl.on("line", (n) => {
+  // your code here
+  for (let row = 0; row < n; row++) {
+    let num = row + 1;
+    for (let col = 0; col < row + 1; col++) {
+      process.stdout.write(String(num));
+      num--;
+    }
+    console.log();
+  }
+
+  rl.close();
+});
+
+// Character Pattern
+// Link: https://course.acciojob.com/idle?question=687fa3e9-43fd-4000-8e0d-71330c8742e1
+readline.question("", (n) => {
+  // Write your code here
+  for (let row = 0; row < n; row++) {
+    const alphabet = String.fromCharCode(65 + row);
+    for (let col = 0; col < row + 1; col++) {
+      process.stdout.write(alphabet);
+    }
+    console.log();
+  }
+  readline.close();
+});
+
+// Armstrong Numbers in Range
+// Link: https://course.acciojob.com/idle?question=620db89b-bcf4-4913-be13-64da3b4ddbeb
+readline.question("", (line) => {
+  let [m, n] = line.split(" ").map(Number);
+
+  // Write the code here
+  for (let num = m; num <= n; num++) {
+    // 1. Count no.of digits
+    let temp = num;
+    let cnt = 0;
+    while (temp != 0) {
+      temp = parseInt(temp / 10);
+      cnt++;
+    }
+
+    // 2. sum of every digit to power no.of digits
+    // re-initialize temp as it becomes 0 after step-1
+    temp = num;
+    let sum = 0;
+    while (temp != 0) {
+      const lastDigit = temp % 10;
+      sum += lastDigit ** cnt;
+      temp = parseInt(temp / 10);
+    }
+
+    if (sum == num) {
+      console.log(num);
+    }
+  }
+
+  readline.close();
+});
