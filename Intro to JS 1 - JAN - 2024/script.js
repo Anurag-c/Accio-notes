@@ -505,6 +505,10 @@ for (let num = 1; num <= 5; num++) {
 
 console.log("for loop completed");
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////// JAN 16 ///////////////////////////////////////////
+
 // while loop
 let num = 1;
 while (num <= 5) {
@@ -529,4 +533,85 @@ console.log("*********");
 console.log("Hi my name is anurag");
 process.stdout.write("*********");
 process.stdout.write("Hi my name is anurag");
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////// JAN 17 ///////////////////////////////////////////
+
+function logger() {
+  console.log("Hello, I am Anurag");
+  console.log("I work at AccioJob");
+  console.log("I love teaching");
+}
+
+logger();
+
+console.log("100 lines of code");
+/*
+   code
+
+logger();
+
+console.log("50 lines of code");
+/*
+   code
+
+
+logger();
+
+console.log("1000 lines of code");
+/*
+   code
+
+function add(a, b) {
+  a = Number(a);
+  b = Number(b);
+  console.log(a + b);
+}
+
+function improvedAddition(a, b, c, d) {
+  a = Number(a);
+  b = Number(b);
+  c = Number(c);
+  d = Number(d);
+  console.log(a + b + c + d);
+}
+
+function responsibleAddition(a, b) {
+  a = Number(a);
+  b = Number(b);
+  return a + b;
+}
+
+const result = responsibleAddition(5, 8);
+console.log(result);
+
+function incorrectAddition(a, b) {
+  a = Number(a);
+  return;
+  b = Number(b);
+  return a + b;
+}
+
+const res = incorrectAddition(5, 8);
+console.log(res);
+
+add(5, 8);
+improvedAddition(1, 5, 4, 9);
+improvedAddition("1", "5", "4", "9");
+
+
+function cutPieces(fruit) {
+  return 4 * fruit;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutPieces(apples);
+  const orangePieces = cutPieces(oranges);
+  const ans = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges`;
+  return ans;
+}
+
+const result = fruitProcessor(8, 12);
+console.log(result);
 */

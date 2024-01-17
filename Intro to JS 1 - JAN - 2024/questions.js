@@ -418,3 +418,116 @@ readline.question("", (line) => {
 
   readline.close();
 });
+
+// Function Problem 1
+// Link: https://course.acciojob.com/idle?question=13a54748-3053-4959-a051-b14a4634770c
+function fun() {
+  console.log("I am another function");
+}
+
+fun();
+
+// Function Problem 2
+// Link: https://course.acciojob.com/idle?question=b27b4039-2b8b-4834-9a6b-f8622057be7a
+function fun(n, m) {
+  // write code here
+  console.log(n + m);
+}
+
+readline.question("", (input) => {
+  const [n, m] = input.split(" ").map(Number);
+  fun(n, m);
+  readline.close();
+});
+
+// Function Problem 3
+// Link: https://course.acciojob.com/idle?question=922be2a0-a552-456c-9f9e-5c41b514d200
+function fun(n) {
+  // write code here
+  for (let i = 0; i < 5; i++) {
+    n++;
+  }
+  return n;
+  // or return n + 5 directly insted of for loop
+}
+
+rl.on("line", (n) => {
+  let result = fun(parseInt(n));
+  console.log(result);
+  rl.close();
+});
+
+// Frequency of digit
+// Link: https://course.acciojob.com/idle?question=e2214e07-d190-4c58-8287-52e6b136e293
+function frequencyOfDigit(n, d) {
+  // Write your code here
+  let cnt = 0;
+  while (n != 0) {
+    const digit = n % 10;
+    if (digit == d) {
+      cnt++;
+    }
+    n = parseInt(n / 10);
+  }
+
+  return cnt;
+}
+
+// Super Hero
+// Link: https://course.acciojob.com/idle?question=4b50de0b-5e1c-4477-8a34-82fa7d292044
+function ModifyName(name) {
+  // write code here
+  return `${name} is a Super Hero`;
+}
+
+// Calculate nCr
+// Link: https://course.acciojob.com/idle?question=869a6e7b-e104-45df-b2b0-28a803fecc43
+function factorial(num) {
+  let fact = 1;
+  for (let i = 1; i <= num; i++) {
+    fact = fact * i;
+  }
+  return fact;
+}
+
+function calculate_nCr(n, r) {
+  // write code here
+  const n_fact = factorial(n);
+  const r_fact = factorial(r);
+  const nr_fact = factorial(n - r);
+  return n_fact / (r_fact * nr_fact);
+}
+
+// Place value checker
+// Link: https://course.acciojob.com/idle?question=7412f7e1-3017-44fa-83a9-00b9c0781986
+function determineSecondLastDigit(n) {
+  // write code here
+  n = parseInt(n / 10); // remove last digit
+  // after removing, now the last digit is actually 2nd last
+  return n % 10 == 0; // check last digit is 0
+}
+
+// Binary To Decimal
+// Link: https://course.acciojob.com/idle?question=f89c75c7-084a-4472-b293-43736a2f34ab
+// This will not work with string greater than 15/16 length
+// Hence We need to do string iteration which comes in module 2
+function binToDec(s) {
+  //Write code here
+  let num = Number(s);
+  let dec = 0;
+  let power = 0;
+
+  while (num != 0) {
+    const digit = num % 10;
+    dec += digit * 2 ** power;
+    power++;
+    num = parseInt(num / 10);
+  }
+
+  return dec;
+}
+
+function binToDec(s) {
+  // Write code here
+  return parseInt(s, 2);
+}
