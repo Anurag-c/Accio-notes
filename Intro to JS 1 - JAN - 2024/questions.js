@@ -531,3 +531,34 @@ function binToDec(s) {
   // Write code here
   return parseInt(s, 2);
 }
+
+// Diamond Pattern
+// Link: https://course.acciojob.com/idle?question=ba892dad-d841-4f88-9d20-8f7c633f8b6b
+function pyramid(n) {
+  for (let row = 0; row < n; row++) {
+    for (let space = 0; space < n - row - 1; space++) {
+      process.stdout.write("  ");
+    }
+    for (let star = 0; star < 2 * row + 1; star++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+}
+
+function revPyramid(n) {
+  for (let row = 0; row < n; row++) {
+    for (let space = 0; space < row + 1; space++) {
+      process.stdout.write("  ");
+    }
+    for (let star = 0; star < 2 * (n - row) - 1; star++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+}
+
+function diamond(n) {
+  pyramid(parseInt(n / 2) + 1);
+  revPyramid(parseInt(n / 2));
+}

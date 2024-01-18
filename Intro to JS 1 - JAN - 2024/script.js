@@ -614,4 +614,105 @@ function fruitProcessor(apples, oranges) {
 
 const result = fruitProcessor(8, 12);
 console.log(result);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////// JAN 18 ///////////////////////////////////////////
+const firstName = "Anurag";
+
+function second() {
+  let c = 2;
+  return c;
+}
+
+function first() {
+  let a = 1;
+  const b = second();
+  a = a + b;
+  return a;
+}
+
+const x = first();
+console.log(x);
+
+// Global Scope
+const a = 5;
+let firstName = "Arjun";
+const year = 2023;
+
+function test() {
+  console.log("test", a, firstName, year);
+}
+
+test();
+console.log("outside test", a, firstName, year);
+
+// Function Scope
+function calcAge(birthYear) {
+  const currYear = 2024;
+  const age = currYear - birthYear;
+  return age;
+}
+
+console.log(calcAge(2001));
+console.log(currYear, age);
+
+// block scope
+const birthYear = 1998;
+if (1981 <= birthYear && birthYear < 2000) {
+  const oldGen = true;
+}
+console.log(oldGen);
+
+// Hoisting
+test();
+demo();
+console.log(currYear);
+console.log(example);
+
+function test() {
+  console.log("Hi, How are you ?");
+}
+
+function demo() {
+  console.log("I am demo function");
+}
+
+var currYear = 2024;
+let example = "some random value";
+
+// Question 1
+y = 3;
+console.log(y);
+var y = 100;
+console.log(y);
+
+// Question 2
+function example() {
+  console.log(a);
+}
+console.log(a);
+var a = 1;
+example();
+
+// Question 3
+function first() {
+  console.log(1);
+}
+
+first();
+
+function first() {
+  console.log(2);
+}
+
+first();
+
+// Question 4
+var test = 100;
+console.log(test);
+function test() {
+  console.log("Insisde function test");
+}
+console.log(test);
 */
