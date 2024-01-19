@@ -715,4 +715,111 @@ function test() {
   console.log("Insisde function test");
 }
 console.log(test);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////// JAN 19 ///////////////////////////////////////////
+const friend1 = "Dipayan";
+const friend2 = "Sovan";
+const friend3 = "Naveen";
+const friend4 = "Avneet";
+
+console.log(friend1, friend2, friend3, friend4);
+
+// Data structures help us store and access data efficiently
+
+// How to create an array
+const friends1 = ["Dipayan", "Sovan", "Naveen", "Avneet"];
+console.log(friends1);
+
+const friends2 = new Array("Dipayan", "Sovan", "Naveen", "Avneet");
+console.log(friends2);
+
+// How to access individual elements (index)
+console.log(friends1[2]); // Naveen
+console.log(friends1[3]); // Avneet
+
+// size of an array
+console.log(friends1.length);
+
+// last element in an array
+const n = friends1.length;
+console.log(friends1[n - 1]); // Avneet
+
+// print all elements
+for (let i = 0; i < n; i++) {
+  console.log(friends1[i]);
+}
+
+// how to change values
+console.log("BEFORE", friends1);
+friends1[0] = "Kapil";
+console.log("AFTER", friends1);
+
+// add elements to the end of array
+friends1.push("Dipayan");
+friends1.push("Shanu");
+console.log(friends1);
+
+// Arrays can store combination different data types
+const firstName = "Anurag";
+const age = 23;
+const job = "Teacher";
+const friends = ["Kapil", "Sovan", "Naveen", "Avneet", "Dipayan", "Shanu"];
+
+const myArr = [firstName, age, job, friends];
+console.log(myArr);
+console.log(myArr[0]);
+console.log(myArr[1]);
+console.log(myArr[2]);
+console.log(myArr[3]);
+
+// given myArr, print the number of friends he has
+console.log(myArr[3].length);
+
+// given myArr, print the 2nd friend
+console.log(myArr[3][1]);
+
+// given myArr, print the last friend
+const numFriends = myArr[3].length;
+console.log(myArr[3][numFriends - 1]);
+
+// Practice Question
+function calcAge(birthYear) {
+  return 2024 - birthYear;
+}
+
+const years = [1990, 1997, 1968, 2002, 2010, 1992, 2003, 1998];
+
+// Create an array called ages which has
+// repestive age for each birthYear in the years array
+const ages = [];
+
+// write your code
+for (let i = 0; i < years.length; i++) {
+  ages.push(calcAge(years[i]));
+}
+
+console.log(ages);
+
+// How to generate pair of any 2 elements
+const arr = [16, 24, 89, 35, 67];
+const n = arr.length;
+
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    console.log(i, j, arr[i], arr[j]);
+  }
+}
+
+// you can chain for loops as you wish for different combinations
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    for (let k = j + 1; k < n; k++) {
+      for (let l = k + 1; l < n; l++) {
+        console.log(i, j, k, l, arr[i], arr[j], arr[k], arr[l]);
+      }
+    }
+  }
+}
 */
