@@ -822,4 +822,48 @@ for (let i = 0; i < n; i++) {
     }
   }
 }
+
+// Working of memory
+let arr = [1, 3, 5, 7];
+console.log(arr);
+
+let brr = [0, 2, 4, 6];
+brr[2] = 30;
+
+brr = arr;
+arr[2] = 40;
+console.log(brr);
+
+function increment1(a) {
+  a++;
+}
+
+let a = 2;
+increment1(a);
+console.log(a);
+
+function increment2(arr) {
+  arr[0]++;
+}
+
+let arr = [1, 3, 5, 7];
+increment2(arr);
+console.log(arr);
+
+
+function change(arr) {
+  arr = [0, 2, 4, 6];
+}
+
+let arr = [1, 3, 5, 7];
+change();
+console.log(arr);
+
+function change() {
+  arr = [0, 2, 4, 6];
+}
+
+let arr = [1, 3, 5, 7];
+change();
+console.log(arr);
 */

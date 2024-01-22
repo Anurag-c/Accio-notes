@@ -628,3 +628,57 @@ function ArrayProblem(arr) {
 
   console.log(maxDiff);
 }
+
+// Efficient / optimal
+function ArrayProblem(arr) {
+  // Write your code here
+  let maxEle = -Infinity;
+  let minEle = Infinity;
+  const n = arr.length;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > maxEle) {
+      maxEle = arr[i];
+    }
+
+    if (arr[i] < minEle) {
+      minEle = arr[i];
+    }
+  }
+
+  console.log(maxEle - minEle);
+}
+
+// 2nd Largest from array
+// Link: https://course.acciojob.com/idle?question=d5b5b101-0636-4654-bd4d-bfecce8e5d00
+function SecondLargest(arr, n) {
+  // Write code here
+  let firstMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > firstMax) {
+      firstMax = arr[i];
+    }
+  }
+
+  let secondMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] != firstMax && arr[i] > secondMax) {
+      secondMax = arr[i];
+    }
+  }
+
+  console.log(secondMax);
+}
+
+// Reverse an array
+// Link: https://course.acciojob.com/idle?question=944dba4b-f895-44af-8ec1-7445343e5713
+function reverseArray(arr, start, end) {
+  //Write code here
+  while (start <= end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
