@@ -682,3 +682,88 @@ function reverseArray(arr, start, end) {
     end--;
   }
 }
+
+// Array Adding
+// Link: https://course.acciojob.com/idle?question=a426a64f-8962-4a98-9433-3200d900ad67
+function calSumUtil(a, b, n, m) {
+  // Write your code here
+
+  // we assume that n >= m is guaranteed
+
+  // 1. Initialize / create empty result array
+  const res = [];
+  for (let i = 0; i < n; i++) {
+    res.push(0);
+  }
+
+  // 2. Start adding from right to left
+  let i = n - 1;
+  let j = m - 1;
+  let carry = 0;
+
+  while (i >= 0) {
+    let sum = j >= 0 ? a[i] + b[j] + carry : a[i] + carry;
+    res[i] = sum % 10;
+    carry = parseInt(sum / 10);
+    i--;
+    j--;
+  }
+
+  // 3. Handle Leftover Carry
+  if (carry == 1) {
+    res.unshift(1); // adds an element at front of the array
+  }
+
+  return res;
+}
+
+function calSum(a, b, n, m) {
+  // Write your code here
+  if (n >= m) {
+    return calSumUtil(a, b, n, m);
+  } else {
+    return calSumUtil(b, a, m, n);
+  }
+}
+
+// Buildings
+// Link: https://course.acciojob.com/idle?question=a7bdae50-cbdd-4048-a3c3-be52504b9580
+function countVisibleRoofs(heights) {
+  // Write your code here
+  const n = heights.length;
+  let runningMax = -Infinity;
+  let cnt = 0;
+
+  for (let i = 0; i < n; i++) {
+    if (heights[i] >= runningMax) {
+      cnt++;
+      runningMax = heights[i];
+    }
+  }
+
+  return cnt;
+}
+
+// Rotate array
+// Link: https://course.acciojob.com/idle?question=444d4b46-efef-467a-8833-e3fede7d22f0
+function reverseArr(arr, start, end) {
+  while (start <= end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
+
+function rotateArray(arr, n, k) {
+  k = k % n;
+  reverseArr(arr, 0, n - 1);
+  reverseArr(arr, 0, n - k - 1);
+  reverseArr(arr, n - k, n - 1);
+
+  for (let i = 0; i < n; i++) {
+    process.stdout.write(arr[i] + " ");
+  }
+}
