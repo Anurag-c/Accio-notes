@@ -866,4 +866,25 @@ function change() {
 let arr = [1, 3, 5, 7];
 change();
 console.log(arr);
+
+// How to generate all subarrays
+const arr = [10, 20, 30, 40];
+const n = arr.length;
+
+for (let start = 0; start < n; start++) {
+  let subarr = "";
+  for (let end = start; end < n; end++) {
+    subarr += arr[end] + " ";
+    console.log(subarr);
+  }
+}
+
+// How to print sum of every subarray
+for (let start = 0; start < n; start++) {
+  let sum = 0;
+  for (let end = start; end < n; end++) {
+    sum += arr[end];
+    console.log(start, end, sum);
+  }
+}
 */

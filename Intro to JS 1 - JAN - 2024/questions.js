@@ -767,3 +767,98 @@ function rotateArray(arr, n, k) {
     process.stdout.write(arr[i] + " ");
   }
 }
+
+// Subarray Sum Zero
+// Link: https://course.acciojob.com/idle?question=7f096e64-5c0d-4333-b324-02e6ac91a3d7
+function zeroSubarray(arr) {
+  //Write your code here
+  const n = arr.length;
+  let isFound = false;
+
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum += arr[end];
+      if (sum == 0) {
+        isFound = true;
+        console.log(`Subarray found from Index ${start} to ${end}`);
+      }
+    }
+  }
+
+  if (isFound == false) {
+    console.log(-1);
+  }
+}
+
+// Subarray sum divisible by k
+// Link: https://course.acciojob.com/idle?question=fd54a321-f9b7-4772-9d78-69ffe5a0ccb8
+function subarrayDivisbleByK(arr, n, k) {
+  let cnt = 0;
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum += arr[end];
+      if (sum % k == 0) {
+        cnt++;
+      }
+    }
+  }
+
+  return cnt;
+}
+
+// Find Split Point
+// Link: https://course.acciojob.com/idle?question=c0af5738-5a1c-4a05-a68c-789f38a620d1
+function findSplit(n, arr) {
+  // 1. find total sum
+  let total = 0;
+  for (let i = 0; i < n; i++) {
+    total += arr[i];
+  }
+
+  // 2. use running sum technique
+  let lsum = 0;
+  for (let split = 0; split < n - 1; split++) {
+    lsum += arr[split];
+    const rsum = total - lsum;
+    if (lsum == rsum) {
+      return split;
+    }
+  }
+
+  return -1;
+}
+
+function splitArray(n, arr) {
+  const split = findSplit(n, arr);
+  if (split == -1) {
+    console.log("Not Possible");
+  } else {
+    for (let i = 0; i <= split; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+    console.log();
+    for (let i = split + 1; i < n; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+  }
+}
+
+// Find Geometric Triplets
+// Link: https://course.acciojob.com/idle?question=cefcef33-7a3f-46ea-99f4-694dd5297224
+function findGeometricTriplets(arr, n) {
+  // Write code here
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        // a = arr[i], b = arr[j], c = arr[k]
+        // b / a == c / b
+        // b * b == a * c (cross multiply)
+        if (arr[j] * arr[j] == arr[i] * arr[k]) {
+          console.log(arr[i], arr[j], arr[k]);
+        }
+      }
+    }
+  }
+}
