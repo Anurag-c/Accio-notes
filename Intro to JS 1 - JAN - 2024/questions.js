@@ -862,3 +862,59 @@ function findGeometricTriplets(arr, n) {
     }
   }
 }
+
+// Array Subtraction
+// Link: https://course.acciojob.com/idle?question=4ed416d3-76b0-41a6-a956-3201e2fb6079
+function findSubtractionUtil(arr1, n, arr2, m) {
+  const res = [];
+  for (let i = 0; i < n; i++) {
+    res.push(0);
+  }
+
+  let i = n - 1;
+  let j = m - 1;
+  let borrow = 0;
+
+  while (i >= 0) {
+    let diff = j >= 0 ? arr1[i] - arr2[j] - borrow : arr1[i] - borrow;
+
+    if (diff < 0) {
+      diff += 10;
+      borrow = 1;
+    } else {
+      borrow = 0;
+    }
+
+    res[i] = diff;
+    i--;
+    j--;
+  }
+  return res;
+}
+
+function shouldISwap(arr1, n, arr2, m) {
+  if (n > m) {
+    return false;
+  } else if (n < m) {
+    return true;
+  } else {
+    for (let i = 0; i < n; i++) {
+      if (arr1[i] > arr2[i]) {
+        return false;
+      } else if (arr1[i] < arr2[i]) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+function findSubtraction(arr1, n, arr2, m) {
+  if (shouldISwap(arr1, n, arr2, m)) {
+    const res = findSubtractionUtil(arr2, m, arr1, n);
+    res[0] = res[0] * -1;
+    return res;
+  }
+
+  return findSubtractionUtil(arr1, n, arr2, m);
+}
