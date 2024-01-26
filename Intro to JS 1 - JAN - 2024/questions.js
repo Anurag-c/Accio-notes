@@ -918,3 +918,36 @@ function findSubtraction(arr1, n, arr2, m) {
 
   return findSubtractionUtil(arr1, n, arr2, m);
 }
+
+// Print Matrix Column Wise
+// Link: https://course.acciojob.com/idle?question=31900452-fb2e-45cd-93b0-fb4d6afbfac0
+function printMatrixColumnwise(mat, n, m) {
+  const rows = n;
+  const cols = m;
+
+  for (let c = 0; c < cols; c++) {
+    // Pick the column, Iterate on row
+    for (let r = 0; r < rows; r++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+  }
+}
+
+// Alternate Manner Matrix Traversal
+// Link: https://course.acciojob.com/idle?question=191ba184-3c72-468a-83fe-5100d558f7eb
+function printElementsAlternately(mat, m, n) {
+  const rows = m;
+  const cols = n;
+
+  for (let r = 0; r < rows; r++) {
+    if (r % 2 == 0) {
+      for (let c = 0; c < cols; c++) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    } else {
+      for (let c = cols - 1; c >= 0; c--) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    }
+  }
+}

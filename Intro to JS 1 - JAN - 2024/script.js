@@ -888,3 +888,50 @@ for (let start = 0; start < n; start++) {
   }
 }
 */
+
+/*
+const friends1 = ["Sovan", "Naveen", "Avneet"];
+const friends2 = ["Kapil", "Pramendra", "Ayush", "Kajal"];
+const friends3 = ["JavaScript", "C++"];
+
+const allFriends = [friends1, friends2, friends3];
+
+const rows = allFriends.length;
+console.log(rows);
+
+
+function printMatrix(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  for (let r = 0; r < rows; r++) {
+    // Iterate on the cols of the current row
+    // For Jagged Arrays, const cols = mat[r].length;
+    for (let c = 0; c < cols; c++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+function createMatrix(n) {
+  const rows = n;
+  const cols = n;
+  const mat = []; // bigger array
+
+  // Build smaller arrays for every row
+  for (let r = 0; r < rows; r++) {
+    // How to build a single row
+    const smallArr = [];
+    for (let c = 0; c < cols; c++) {
+      smallArr.push(c + 1);
+    }
+    mat.push(smallArr);
+  }
+
+  return mat;
+}
+
+const mat = createMatrix(4);
+printMatrix(mat);
+*/
