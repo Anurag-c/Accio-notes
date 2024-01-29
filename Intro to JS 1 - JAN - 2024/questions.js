@@ -951,3 +951,162 @@ function printElementsAlternately(mat, m, n) {
     }
   }
 }
+
+// Matrix Multiplication
+// Link: https://course.acciojob.com/idle?question=da3dfaa3-541f-4b9b-a202-30b4fb01a835
+function printMultiplication(a, b, n) {
+  const rows1 = n;
+  const cols1 = n;
+  const rows2 = n;
+  const cols2 = n;
+
+  // in this qs there wont be such scenario, just added to make it generalized
+  if (cols1 != rows2) return [];
+
+  const res = [];
+  const rows3 = rows1;
+  const cols3 = cols2;
+  for (let r = 0; r < rows3; r++) {
+    const smallArr = [];
+    for (let c = 0; c < cols3; c++) {
+      smallArr.push(0);
+    }
+    res.push(smallArr);
+  }
+
+  for (let r = 0; r < rows3; r++) {
+    for (let c = 0; c < cols3; c++) {
+      for (let k = 0; k < cols1; k++) {
+        res[r][c] += a[r][k] * b[k][c];
+      }
+    }
+  }
+
+  for (let r = 0; r < rows3; r++) {
+    for (let c = 0; c < cols3; c++) {
+      process.stdout.write(res[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+function matrixTranspose(mat, n) {
+  //Write your code here
+  const rows1 = n;
+  const cols1 = n;
+
+  // r1 x c1 => c1 x r1
+  const rows2 = cols1;
+  const cols2 = rows1;
+  const res = [];
+
+  for (let r = 0; r < rows2; r++) {
+    const smallArr = [];
+    for (let c = 0; c < cols2; c++) {
+      smallArr.push(0);
+    }
+    res.push(smallArr);
+  }
+
+  for (let r = 0; r < rows2; r++) {
+    for (let c = 0; c < cols2; c++) {
+      res[r][c] = mat[c][r];
+    }
+  }
+
+  return res;
+}
+
+function matrixTranspose(mat, n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < i; j++) {
+      let temp = mat[i][j];
+      mat[i][j] = mat[j][i];
+      mat[j][i] = temp;
+    }
+  }
+
+  return mat;
+}
+
+// Spirally traversing a matrix
+// Link: https://course.acciojob.com/idle?question=5f714d43-3f91-4c47-b41b-203207e63522
+function spirallyTraverse(mat) {
+  // Write your code here
+
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  let minR = 0;
+  let maxR = rows - 1;
+  let minC = 0;
+  let maxC = cols - 1;
+
+  const totalEle = rows * cols;
+  let cnt = 0;
+
+  while (cnt < totalEle) {
+    // 1. Top wall (minR, minC to maxC)
+    for (let c = minC; c <= maxC && cnt < totalEle; c++) {
+      process.stdout.write(mat[minR][c] + " ");
+      cnt++;
+    }
+    minR++;
+
+    // 2. right wall (maxC, minR to maxR)
+    for (let r = minR; r <= maxR && cnt < totalEle; r++) {
+      process.stdout.write(mat[r][maxC] + " ");
+      cnt++;
+    }
+    maxC--;
+
+    // 3. bottom wall (maxR, maxC to minC)
+    for (let c = maxC; c >= minC && cnt < totalEle; c--) {
+      process.stdout.write(mat[maxR][c] + " ");
+      cnt++;
+    }
+    maxR--;
+
+    // 4. left wall (minC, maxR to minR)
+    for (let r = maxR; r >= minR && cnt < totalEle; r--) {
+      process.stdout.write(mat[r][minC] + " ");
+      cnt++;
+    }
+    minC++;
+  }
+}
+
+// Alt Matrix Sum
+// Link: https://course.acciojob.com/idle?question=04a591ba-305a-4bd7-a4b2-9a06ac187837
+function alternateMatrixSum(mat, n) {
+  // Write your code here
+  let wsum = 0;
+  let bsum = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if ((r + c) % 2 == 0) {
+        bsum += mat[r][c];
+      } else {
+        wsum += mat[r][c];
+      }
+    }
+  }
+
+  console.log(bsum);
+  console.log(wsum);
+}
+
+// Diagonal Difference!
+// Link: https://course.acciojob.com/idle?question=8a6cbf35-d128-459b-a7ba-9e269d2af40a
+function diagonalDifference(mat, n) {
+  // Write your code here
+  let diag = 0;
+  let adiag = 0;
+
+  for (let i = 0; i < n; i++) {
+    diag += mat[i][i];
+    adiag += mat[i][n - i - 1];
+  }
+
+  console.log(Math.abs(adiag - diag));
+}
