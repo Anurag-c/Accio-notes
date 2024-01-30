@@ -1110,3 +1110,236 @@ function diagonalDifference(mat, n) {
 
   console.log(Math.abs(adiag - diag));
 }
+
+// Find The Way
+// Link: https://course.acciojob.com/idle?question=60d37a31-7584-48eb-baad-ee073ffc7acf
+function findTheWay(matrix) {
+  //Write code here
+
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  let i = 0;
+  let j = 0;
+  let facing = 0;
+
+  while (true) {
+    // 1. Decide your facing
+    if (matrix[i][j] == 1) {
+      matrix[i][j] = 0;
+      facing = (facing + 1) % 4;
+    }
+
+    // 2. now you know the correct facing handle move forward
+    if (facing == 0) {
+      j++;
+    } else if (facing == 1) {
+      i++;
+    } else if (facing == 2) {
+      j--;
+    } else {
+      i--;
+    }
+
+    // 3. Check whether you are out or not, return lastbox
+    if (i == -1) {
+      return [0, j];
+    } else if (j == cols) {
+      return [i, cols - 1];
+    } else if (i == rows) {
+      return [rows - 1, j];
+    } else if (j == -1) {
+      return [i, 0];
+    }
+  }
+}
+
+// Maxima Minima
+// Link: https://course.acciojob.com/idle?question=834a5e9e-9b0c-45db-b0e1-375bafb999ea
+function findMinRow(mat, row) {
+  // Iterate on the columns of this row
+  const cols = mat[row].length;
+  let minEle = Infinity;
+
+  for (let c = 0; c < cols; c++) {
+    if (mat[row][c] < minEle) {
+      minEle = mat[row][c];
+    }
+  }
+
+  return minEle;
+}
+
+function findMaxCol(mat, col) {
+  // Iterate on the rows of this col
+  const rows = mat.length;
+  let maxEle = -Infinity;
+
+  for (let r = 0; r < rows; r++) {
+    if (mat[r][col] > maxEle) {
+      maxEle = mat[r][col];
+    }
+  }
+
+  return maxEle;
+}
+
+function maximaMinima(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      const minR = findMinRow(mat, i);
+      const maxC = findMaxCol(mat, j);
+
+      if (mat[i][j] == minR && mat[i][j] == maxC) {
+        return mat[i][j];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// Efficient / optimal
+function maximaMinima(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  // 1. Precompute, calculate minR, maxC beforehand
+  const minR = [];
+  const maxC = [];
+  for (let r = 0; r < rows; r++) {
+    const minEle = findMinRow(mat, r);
+    minR.push(minEle);
+  }
+
+  for (let c = 0; c < cols; c++) {
+    const maxEle = findMaxCol(mat, c);
+    maxC.push(maxEle);
+  }
+
+  // 2. Proceed to find maxima/minima by using the precomputed values
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (mat[i][j] == minR[i] && mat[i][j] == maxC[j]) {
+        return mat[i][j];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// Special Matrix
+// Link: https://course.acciojob.com/idle?question=178c414a-f842-4be8-ae84-179be8e00b57
+function special(matrix, n) {
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      // belongs to diag or adiag, then ele != 0, if not return false
+      if (r == c || c == n - r - 1) {
+        if (matrix[r][c] == 0) {
+          return false;
+        }
+      } else {
+        // non diag/adiag ele should be zero, if not return false
+        if (matrix[r][c] != 0) {
+          return false;
+        }
+      }
+    }
+  }
+
+  return true;
+}
+
+// Sum of upper and lower triangles
+// Link: https://course.acciojob.com/idle?question=d39c3375-6cfe-47a6-9c75-9f0acf8ae916
+function triangleSums(n, matrix) {
+  // your code here
+  let upper = 0;
+  let lower = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if (r >= c) {
+        lower += matrix[r][c];
+      }
+      if (r <= c) {
+        upper += matrix[r][c];
+      }
+    }
+  }
+
+  console.log(upper, lower);
+}
+
+// Spiral Matrix 2
+// Link: https://course.acciojob.com/idle?question=1c7f6e92-7c70-491d-bf1c-7444b8e78a9c
+function spirallyTraverse(mat, n, m) {
+  let minR = 0;
+  let maxR = n - 1;
+  let minC = 0;
+  let maxC = m - 1;
+  let total = n * m;
+  let cnt = 0;
+  res = [];
+
+  while (cnt < total) {
+    // left wall (top -> bottom)
+    for (let i = minR; i <= maxR && cnt < total; i++) {
+      res.push(mat[i][minC]);
+      cnt++;
+    }
+    minC++;
+
+    // bottom (left -> right)
+    for (let i = minC; i <= maxC && cnt < total; i++) {
+      res.push(mat[maxR][i]);
+      cnt++;
+    }
+    maxR--;
+
+    // right wall (bottom -> top)
+    for (let i = maxR; i >= minR && cnt < total; i--) {
+      res.push(mat[i][maxC]);
+      cnt++;
+    }
+    maxC--;
+
+    // top wall (left -> right)
+    for (let i = maxC; i >= minC && cnt < total; i--) {
+      res.push(mat[minR][i]);
+      cnt++;
+    }
+    minR++;
+  }
+
+  return res;
+}
+
+// Diagonal Traversal of a Matrix
+// https://course.acciojob.com/idle?question=c6c26827-a9b9-478e-bafb-77ab8d37bc88
+function storeDiagonal(mat, r, c, n, res) {
+  // (r, c) is start point of diagonal
+  while (r < n && c < n) {
+    res.push(mat[r][c]);
+    r++;
+    c++;
+  }
+}
+
+function diagonalTraversal(mat, n) {
+  // your code here
+  const res = [];
+
+  for (let c = n - 1; c >= 0; c--) {
+    storeDiagonal(mat, 0, c, n, res);
+  }
+
+  for (let r = 1; r < n; r++) {
+    storeDiagonal(mat, r, 0, n, res);
+  }
+
+  return res;
+}
