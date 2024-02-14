@@ -382,8 +382,8 @@ if (birthYear <= 2000) {
 console.log(century);
 
 let firstName;
-console.log(firstName);
-console.log(lastName);
+console.log(firstName); // undefined
+console.log(lastName); // not-defined
 
 // Ternary operator
 const age = 22;
