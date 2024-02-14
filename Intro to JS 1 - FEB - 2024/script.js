@@ -29,7 +29,7 @@ console.log(firstName);
 console.log(firstName);
 
 
-////////////////////////////////////////////////////////////// Feb 9 //////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////// Feb 10 //////////////////////////////////////////////////////////////
 
 // Variable Naming conventions and rules
 
@@ -240,4 +240,163 @@ console.log(num);
 
 num--; // num -= 1 => num = num - 1 => num = -2 - 1 = -3
 console.log(num);
+
+////////////////////////////////////////////////////////////// Feb 14 //////////////////////////////////////////////////////////////
+
+// Comparision operators
+const currYear = 2024;
+const ageAnurag = currYear - 2001; // 2024 - 2001 = 23
+const ageSandip = currYear - 1999; // 2024 - 1999 = 25
+const ageAatif = currYear - 2000; // 2024 - 2000 = 24
+console.log(ageAnurag, ageSandip, ageAatif);
+
+// Is Anurag's age greater than Sandip's age
+console.log(ageAnurag > ageSandip);
+
+// Is Aatif's age less than Sandip's age
+console.log(ageAatif < ageSandip);
+
+// Are Aatif and anurag are of same age
+console.log(ageAnurag == ageAatif);
+
+// can Anurag drink alcohol ?
+// anurag should be atleast 21 years old
+console.log(ageAnurag >= 21);
+console.log(21 >= 21);
+console.log(21 <= 21);
+console.log(21 > 21);
+console.log(21 < 21);
+
+// are Aatif and anurag are of different age
+console.log(ageAnurag != ageAatif);
+
+// Type Conversion
+const birthYear = "2001";
+
+// what will be the year after 23 years from birthYear ?
+console.log(birthYear + 23);
+console.log(Number(birthYear) + 23);
+console.log(typeof birthYear);
+console.log(typeof Number(birthYear));
+
+console.log("1897230123", typeof "1897230123");
+console.log(Number("1897230123"));
+
+console.log(String(23), typeof String(23));
+console.log(Number("hello world"));
+console.log(typeof NaN);
+
+// false for only these values
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(""));
+console.log(Boolean(NaN));
+
+// true for any other value
+console.log(Boolean(1234));
+console.log(Boolean("Hello World"));
+
+// Type Coercion
+// string + number = string + string
+console.log("I am " + 22 + " Years old");
+console.log("23" + 10 + 5);
+console.log(5 + 10 + "23");
+console.log(5 + "23" + 10);
+
+// All other cases string -> number
+console.log("23" - "10" + 5);
+console.log("23" * 2);
+console.log("23" / "2");
+
+// Strict Checking
+console.log(10 == 10);
+console.log("hello" == "hello");
+console.log("10" == "10");
+console.log(10 == "10");
+
+console.log(10 === 10);
+console.log("hello" === "hello");
+console.log("10" === "10");
+console.log(10 === "10"); // false
+
+// If-else statements
+const age = 21;
+
+if (age >= 18) {
+  console.log("Inside If");
+  console.log("You can get driving license");
+} else {
+  console.log("Inside else");
+  console.log("Sorry you cannot get driving license");
+}
+
+console.log("outside of if-else");
+console.log("outside of if-else");
+console.log("outside of if-else");
+
+// experimenting with if-else
+const day = "tuesday";
+if (day == "monday") {
+  console.log("I have to go for a doctor appointment");
+} else {
+  console.log("I dont know what to do");
+}
+if (day == "monday") {
+  console.log("I have to go for shopping");
+}
+if (day == "tuesday") {
+  console.log("I have an exam");
+  console.log("I have a wedding to attend");
+}
+
+// else if statements
+const day = "tuesday";
+
+if (day == "monday") {
+  console.log("Plan course structure");
+} else if (day == "tuesday") {
+  console.log("Prepare for exams");
+} else if (day == "wednesday") {
+  console.log("Write examples for coding lectures");
+} else if (day == "thursday") {
+  console.log("Watch recordings");
+} else if (day == "friday") {
+  console.log("solve assignments");
+} else if (day == "saturday") {
+  console.log("Revise all notes");
+} else if (day == "sunday") {
+  console.log("attempt contest");
+} else {
+  console.log("Please enter a valid day");
+}
+
+// Scope of a variable
+const birthYear = 1998;
+let century;
+if (birthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
+
+let firstName;
+console.log(firstName);
+console.log(lastName);
+
+// Ternary operator
+const age = 22;
+
+if (age >= 21) {
+  console.log("You can drink alcohol");
+} else {
+  console.log("You cannot drink alcohol");
+}
+
+age >= 21
+  ? console.log("You can drink alcohol")
+  : console.log("You cannot drink alcohol");
 */
+
+////////////////////////////////////////////////////////////// Feb 15 //////////////////////////////////////////////////////////////
