@@ -431,6 +431,40 @@ console.log(String.fromCharCode(47));
 
 const ch = "A";
 console.log(ch.charCodeAt(0));
-*/
 
 ////////////////////////////////////////////////////////////// Feb 16 //////////////////////////////////////////////////////////////
+
+// For Loop
+for (initialization; condition; operation) {
+  // code you want to repeat 
+}
+
+for (let i = 1; i <= 5; i++) {
+  console.log(`Level ${i}`);
+}
+
+for (let i = 5; i > 0; i--) {
+  console.log(`Level ${i}`);
+}
+
+// break
+for (let i = 1; i <= 5; i++) {
+  console.log(`Level ${i}`);
+  if (i == 3) {
+    console.log("Sorry you cannot move forward");
+    break;
+  }
+}
+
+console.log("Out of for loop");
+
+// continue
+for (let i = 1; i <= 5; i++) {
+  if (i == 3) {
+    console.log("You can skip this level");
+    continue;
+  }
+  console.log(`Level ${i}`);
+}
+*/
+////////////////////////////////////////////////////////////// Feb 18 //////////////////////////////////////////////////////////////

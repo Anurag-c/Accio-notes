@@ -119,3 +119,137 @@ rl.on("line", (input) => {
     }
   }
 });
+
+// Sum of Natural Numbers
+// Link: https://course.acciojob.com/idle?question=75a292e5-d69d-44a0-a74d-366c7c3c5e95
+rl.on("line", (N) => {
+  // write your code here
+  N = Number(N);
+  let sum = 0;
+  for (let num = 1; num <= N; num++) {
+    // sum = sum + num;
+    sum += num;
+  }
+  console.log(sum);
+
+  rl.close();
+});
+
+// Efficient way using formula
+rl.on("line", (N) => {
+  // write your code here
+  N = Number(N);
+  const sum = (N * (N + 1)) / 2;
+  console.log(sum);
+
+  rl.close();
+});
+
+// Even Sum
+// Link: https://course.acciojob.com/idle?question=c6e3351d-7e24-4eea-b683-ba262959fa84
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+  let sum = 0;
+
+  for (let num = 2; num <= n; num += 2) {
+    sum += num;
+  }
+
+  console.log(sum);
+
+  readline.close();
+});
+
+// Efficient way using formula
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+
+  // when n is odd, make it even
+  if (n % 2 == 1) {
+    n = n - 1;
+  }
+  const sum = (n * (n + 2)) / 4;
+
+  console.log(sum);
+
+  readline.close();
+});
+
+// Check Prime
+// Link: https://course.acciojob.com/idle?question=03d33e77-b47d-43ee-a075-e46ff509b0a6
+readline.question("", (n) => {
+  // your code here
+  n = Number(n);
+
+  // I did not find any number which divides n
+  let isFound = false;
+  for (let num = 2; num <= n - 1; num++) {
+    if (n % num == 0) {
+      // I found a number which divides n
+      isFound = true;
+      break;
+    }
+  }
+
+  if (isFound == true) {
+    console.log(`${n} is not a prime number`);
+  } else {
+    console.log(`${n} is a prime number`);
+  }
+
+  readline.close();
+});
+
+// Please do not make this mistake
+readline.question("", (n) => {
+  // your code here
+  n = Number(n);
+
+  for (let num = 2; num <= n - 1; num++) {
+    if (n % num == 0) {
+      console.log(`${n} is not a prime number`);
+    } else {
+      console.log(`${n} is a prime number`);
+    }
+  }
+
+  readline.close();
+});
+
+// Which angled triangle
+// Link: https://course.acciojob.com/idle?question=165c71bd-af5e-45bb-acc5-48180c164f97
+rl.on("line", (sides) => {
+  let [a, b, c] = sides.split(" ");
+  a = parseInt(a);
+  b = parseInt(b);
+  c = parseInt(c);
+
+  // Write your code here
+  /*
+  let largest;
+  if (a >= b && a >= c) {
+    largest = a;
+  }
+  if (b >= a && b >= c) {
+    largest = b;
+  }
+  if (c >= a && c >= b) {
+    largest = c;
+  }
+  */
+
+  const largest = Math.max(a, b, c);
+  const sum = a ** 2 + b ** 2 + c ** 2;
+  const twice = 2 * largest ** 2;
+  if (twice < sum) {
+    console.log(1); // acute
+  } else if (twice > sum) {
+    console.log(3); // obtuse
+  } else {
+    console.log(2); // right-angle
+  }
+
+  rl.close();
+});
