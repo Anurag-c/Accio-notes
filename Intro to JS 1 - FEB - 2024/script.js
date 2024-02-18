@@ -466,5 +466,20 @@ for (let i = 1; i <= 5; i++) {
   }
   console.log(`Level ${i}`);
 }
-*/
+
 ////////////////////////////////////////////////////////////// Feb 18 //////////////////////////////////////////////////////////////
+
+while (condition) {
+  // block of code
+}
+
+let i = 1;
+while (i <= 5) {
+  console.log(`Level ${i}`);
+  i++;
+}
+*/
+
+for (let i = 0; i < 3; i++) {
+  process.stdout.write("* ");
+}

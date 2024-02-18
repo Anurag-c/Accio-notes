@@ -253,3 +253,86 @@ rl.on("line", (sides) => {
 
   rl.close();
 });
+
+// Sum of digits
+// Link: https://course.acciojob.com/idle?question=16ae2277-0d38-4eba-9a84-d4326ea2da2e
+function SumofDigits(n) {
+  let sum = 0;
+
+  while (n > 0) {
+    // 1. extract last digit
+    const digit = n % 10;
+
+    // 2. add the digit to sum
+    sum = sum + digit;
+
+    // 3. remove last digit
+    n = parseInt(n / 10);
+  }
+
+  return sum; // understand it as console.log(sum)
+}
+
+// Reverse digits of a Number
+// Link: https://course.acciojob.com/idle?question=817d51d8-e009-4322-8e51-257b76455a4c
+readline.question("", (n) => {
+  // Write your code here
+  n = Number(n);
+  let rev = 0;
+  while (n > 0) {
+    // 1. extract last digit
+    const digit = n % 10;
+
+    // 2. Apply the reverse formula
+    rev = rev * 10 + digit;
+
+    // 3. remove last digit
+    n = parseInt(n / 10);
+  }
+
+  console.log(rev);
+  readline.close();
+});
+
+// HCF of two Numbers
+// Link: https://course.acciojob.com/idle?question=81da7d29-0653-423e-a44a-f96fc14eb8fc
+rl.on("line", (input) => {
+  const [a, b] = input.split(" ").map(Number);
+  // your code here
+
+  for (let num = Math.min(a, b); num > 0; num--) {
+    if (a % num == 0 && b % num == 0) {
+      console.log(num);
+      break;
+    }
+  }
+});
+
+// N Stars
+// Link: https://course.acciojob.com/idle?question=24eb1955-7e70-45d9-8ce8-f9d9a8268aca
+readline.question("", (n) => {
+  // Write your code here
+  for (let i = 0; i < n; i++) {
+    process.stdout.write("* ");
+  }
+
+  console.log();
+
+  for (let i = 0; i < n; i++) {
+    console.log("*");
+  }
+
+  readline.close();
+});
+
+// Variable practice 8
+// Link: https://course.acciojob.com/idle?question=ee04dfd0-ee0b-4512-ac07-46ba464cce2b
+for (let i = 1; i <= 10; i++) {
+  console.log(`8 x ${i} = ${8 * i}`);
+}
+
+let i = 1;
+while (i <= 10) {
+  console.log(`8 x ${i} = ${8 * i}`);
+  i++;
+}
