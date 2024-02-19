@@ -478,8 +478,12 @@ while (i <= 5) {
   console.log(`Level ${i}`);
   i++;
 }
-*/
 
 for (let i = 0; i < 3; i++) {
   process.stdout.write("* ");
 }
+
+let alph = "A";
+alph = alph + 1;
+console.log(alph);
+*/

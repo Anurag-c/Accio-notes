@@ -336,3 +336,142 @@ while (i <= 10) {
   console.log(`8 x ${i} = ${8 * i}`);
   i++;
 }
+
+// Right Angle Triangle Stars
+// Link: https://course.acciojob.com/idle?question=a148f7c8-e47f-45a9-bd72-8808f823ead1
+readline.question("", (n) => {
+  //Write your code here
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write("*");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Staircase
+// Link: https://course.acciojob.com/idle?question=ac6a801c-d206-4945-9e19-583eb006417f
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+
+  for (let r = 0; r < n; r++) {
+    for (let sp = 0; sp < n - r - 1; sp++) {
+      process.stdout.write(" ");
+    }
+    for (let ha = 0; ha < r + 1; ha++) {
+      process.stdout.write("#");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Star Pyramid
+// Link: https://course.acciojob.com/idle?question=e9e6daa1-9972-4e6c-a285-7a3e084a56b9
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+
+  for (let r = 0; r < n; r++) {
+    for (let sp = 0; sp < n - r - 1; sp++) {
+      process.stdout.write(" ");
+    }
+    for (let starsp = 0; starsp < r + 1; starsp++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Print Number Pattern 2
+// https://course.acciojob.com/idle?question=8e5ac095-1d55-41cc-aaa7-75f2c24f953a
+rl.on("line", (n) => {
+  // your code here
+  for (let r = 0; r < n; r++) {
+    let startNum = r + 1;
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(String(startNum));
+      startNum--;
+    }
+    console.log();
+  }
+
+  rl.close();
+});
+
+// Print Character Pattern
+// Link: https://course.acciojob.com/idle?question=687fa3e9-43fd-4000-8e0d-71330c8742e1
+readline.question("", (n) => {
+  // Write your code here
+  for (let r = 0; r < n; r++) {
+    const alph = String.fromCharCode(65 + r);
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(alph);
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// using global variable
+readline.question("", (n) => {
+  // Write your code here
+  let ascii = 65;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(String.fromCharCode(ascii));
+    }
+    ascii++;
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Armstrong Numbers in Range
+// Link: https://course.acciojob.com/idle?question=620db89b-bcf4-4913-be13-64da3b4ddbeb
+readline.question("", (line) => {
+  let [m, n] = line.split(" ").map(Number);
+
+  // Not required because m <= n as per given constraints
+  // But Just to understand we have written this
+  if (m > n) {
+    let temp = m;
+    m = n;
+    n = temp;
+  }
+
+  // Write the code here
+  for (let num = m; num <= n; num++) {
+    // 1. count no.of digits
+    let temp = num;
+    let cnt = 0;
+    while (temp > 0) {
+      temp = parseInt(temp / 10);
+      cnt++;
+    }
+
+    // 2. sum of digit to the power no.of.digits
+    temp = num; // reinitialize temp because it became 0
+    let sum = 0;
+    while (temp > 0) {
+      const digit = temp % 10;
+      sum += digit ** cnt;
+      temp = parseInt(temp / 10);
+    }
+
+    // 3. check for armstrong
+    if (sum == num) {
+      console.log(num);
+    }
+  }
+
+  readline.close();
+});
