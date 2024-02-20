@@ -475,3 +475,130 @@ readline.question("", (line) => {
 
   readline.close();
 });
+
+// Calculate nCr
+// Link: https://course.acciojob.com/idle?question=869a6e7b-e104-45df-b2b0-28a803fecc43
+function factorial(num) {
+  let fact = 1;
+  for (let i = 1; i <= num; i++) {
+    fact = fact * i;
+  }
+  return fact;
+}
+
+function calculate_nCr(n, r) {
+  // write code here
+  const n_fact = factorial(n);
+  const r_fact = factorial(r);
+  const n_r_fact = factorial(n - r);
+
+  const ans = n_fact / (r_fact * n_r_fact);
+  return ans;
+}
+
+// Frequency of digit
+// Link: https://course.acciojob.com/idle?question=e2214e07-d190-4c58-8287-52e6b136e293
+function frequencyOfDigit(n, d) {
+  // Write your code here
+  let cnt = 0;
+  while (n > 0) {
+    const digit = n % 10;
+    if (digit == d) {
+      cnt++;
+    }
+    n = parseInt(n / 10);
+  }
+
+  return cnt;
+}
+
+// Place Value Checker
+// Link: https://course.acciojob.com/idle?question=7412f7e1-3017-44fa-83a9-00b9c0781986
+function determineSecondLastDigit(n) {
+  // write code here
+  n = parseInt(n / 10);
+  const digit = n % 10;
+
+  /*
+  if (digit == 0) {
+    return true;
+  }
+  return false;
+  */
+
+  return digit == 0;
+}
+
+// Diamond Pattern
+// Link: https://course.acciojob.com/idle?question=ba892dad-d841-4f88-9d20-8f7c633f8b6b
+function printDiamond(n) {
+  // print upper star pyramid
+  const upperRows = parseInt(n / 2) + 1;
+  for (let r = 0; r < upperRows; r++) {
+    const spaces = 2 * (upperRows - r - 1);
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write(" ");
+    }
+    for (let starsp = 0; starsp < 2 * r + 1; starsp++) {
+      process.stdout.write("* ");
+    }
+
+    console.log();
+  }
+
+  // print lower star pyramid
+  const lowerRows = n - upperRows;
+  for (let r = 0; r < lowerRows; r++) {
+    for (let sp = 0; sp < 2 * (r + 1); sp++) {
+      process.stdout.write(" ");
+    }
+    const starSpaces = 2 * (lowerRows - r) - 1;
+    for (let starsp = 0; starsp < starSpaces; starsp++) {
+      process.stdout.write("* ");
+    }
+
+    console.log();
+  }
+}
+
+// Optimus Prime
+// Link: https://course.acciojob.com/idle?question=c77a4030-9552-4f23-b348-f2fdc22c330a
+function isPrime(num) {
+  let isFound = false;
+  for (let i = 2; i < num; i++) {
+    if (num % i == 0) {
+      isFound = true;
+      break;
+    }
+  }
+
+  return !isFound;
+}
+
+rl.on("line", (n) => {
+  // Your code here
+  for (let i = 2; i <= n; i++) {
+    if (isPrime(i)) {
+      console.log(i);
+    }
+  }
+});
+
+// Print Continuous Character Pattern
+// Link: https://course.acciojob.com/idle?question=d3216ae1-5d6c-42da-b63d-2d6166dc78ef
+readline.question("", (n) => {
+  readline.close();
+  // write code here
+
+  for (let row = 0; row < n; row++) {
+    let ascii = 65 + (row % 26);
+    for (let col = 0; col < row + 1; col++) {
+      if (ascii > 90) {
+        ascii = ascii - 26;
+      }
+      process.stdout.write(String.fromCharCode(ascii));
+      ascii++;
+    }
+    console.log();
+  }
+});

@@ -486,4 +486,76 @@ for (let i = 0; i < 3; i++) {
 let alph = "A";
 alph = alph + 1;
 console.log(alph);
+
+
+function function_name() {
+  /*
+  code you want to repeat
+}
+
+// Basic function usage
+function logger() {
+  console.log("Hello, I am Anurag");
+  console.log("I work at AccioJob");
+  console.log("I love teaching");
+}
+
+logger();
+
+// Functions taking inputs
+function add(a, b, c, d) {
+  a = Number(a);
+  b = Number(b);
+  c = Number(c);
+  d = Number(d);
+  console.log(a + b + c + d);
+}
+
+add(5, 8, 2, 1);
+add(2, 3, 5, 4);
+add("100", "200", "300", "400");
+
+// Output using return statement
+function add(a, b) {
+  a = Number(a);
+  b = Number(b);
+
+  return a + b;
+}
+
+const ans = add(5, 8);
+console.log(ans);
+
+const res = add(100, 200);
+console.log(res);
+
+// return terminates the function
+function add(a, b) {
+  a = Number(a);
+  return;
+
+  b = Number(b);
+  return a + b;
+}
+
+const res = add(2, 3);
+console.log(res);
+
+const ans = add(28, 32);
+console.log(ans);
+
+// Fruit processor example
+function cutPieces(numFruits) {
+  return 4 * numFruits;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutPieces(apples);
+  const orangePieces = cutPieces(oranges);
+  const ans = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of oranges`;
+  return ans;
+}
+
+const res = fruitProcessor(2, 3);
+console.log(res);
 */
