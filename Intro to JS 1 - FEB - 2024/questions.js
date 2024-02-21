@@ -602,3 +602,29 @@ readline.question("", (n) => {
     console.log();
   }
 });
+
+// Binary To Decimal
+// Link: https://course.acciojob.com/idle?question=f89c75c7-084a-4472-b293-43736a2f34ab
+// This fails if the length of string is > 16
+// because max value of number is aprrox 10^15 or 10^16
+function binToDec(s) {
+  //Write code here
+  num = Number(s);
+  let sum = 0;
+  let power = 1;
+  while (num > 0) {
+    const digit = num % 10;
+    sum += digit * power;
+    num = parseInt(num / 10);
+    power = power * 2;
+  }
+
+  return sum;
+}
+
+// we can use inbuilt JS functions
+// or you can iterate on strings (this is for later topics)
+function binToDec(s) {
+  //Write code here
+  return parseInt(s, 2);
+}

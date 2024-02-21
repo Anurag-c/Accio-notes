@@ -558,4 +558,123 @@ function fruitProcessor(apples, oranges) {
 
 const res = fruitProcessor(2, 3);
 console.log(res);
+
+const firstName = "Anurag";
+
+function second() {
+  let c = 2;
+  return 2;
+}
+
+function first() {
+  let a = 1;
+  const b = second();
+  a = a + b;
+  return a;
+}
+
+const x = first();
+console.log(x);
+
+
+// Global scope
+const a = 5;
+let firstName = "Arjun";
+const year = 2023;
+
+function test() {
+  console.log("test", a, firstName, year);
+}
+
+test();
+console.log("outside test", a, firstName, year);
+
+// Function scope
+function second() {
+  console.log(a);
+  let c = 2;
+  return 2;
+}
+
+function first() {
+  const a = 2;
+  const b = second();
+  console.log(c);
+  a = a + b;
+  return a;
+}
+
+const x = first();
+console.log(x);
+
+// Local/Block Scope
+// Var does not follow local/block scope
+const birthYear = 1998;
+if (1981 <= birthYear && birthYear <= 2000) {
+  var oldGen = true;
+}
+for (let i = 0; i < 10; i++) {
+  var lastName = "Kapoor";
+}
+
+function demo() {
+  console.log(oldGen);
+  console.log(lastName);
+  var firstName = "Anurag";
+}
+demo();
+console.log(firstName);
+
+// Hoisting
+test();
+demo();
+console.log(currYear);
+console.log(example);
+
+function test() {
+  console.log("Hi, How are you ?");
+}
+
+function demo() {
+  console.log("I am a demo function");
+}
+
+var currYear = 2024;
+let example = "some random text";
+
+// Question 1
+y = 3;
+console.log(y);
+var y = 100;
+console.log(y);
+
+// Question 2
+function example() {
+  console.log(a);
+}
+
+console.log(a);
+var a = 1;
+example();
+
+// Question 3
+function first() {
+  console.log(1);
+}
+
+first();
+
+function first() {
+  console.log(2);
+}
+
+first();
+
+// Question 4
+var test = 100;
+console.log(test);
+function test() {
+  console.log("Inside function test");
+}
+console.log(test);
 */
