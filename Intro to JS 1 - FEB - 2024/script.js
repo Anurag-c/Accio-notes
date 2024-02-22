@@ -677,4 +677,95 @@ function test() {
   console.log("Inside function test");
 }
 console.log(test);
+
+const friend1 = "Kiran";
+const friend2 = "Vipin";
+const friend3 = "Manisha";
+const friend4 = "Sandip";
+
+console.log(friend1, friend2, friend3, friend4);
+
+// Data structures help us store and access data efficiently
+
+// How to create an array
+const friends = ["Kiran", "Vipin", "Manisha", "Sandip"];
+console.log(friends);
+
+// How to access array elements
+console.log(friends[0]);
+console.log(friends[1]);
+console.log(friends[2]);
+console.log(friends[3]);
+
+// How to find the length of an array
+console.log(friends.length);
+
+// How to get the last element
+const n = friends.length;
+console.log(friends[n - 1]);
+
+// How to iterate on array
+for (let i = 0; i < n; i++) {
+  console.log(friends[i]);
+}
+
+// How to change elements
+friends[2] = "Nikita";
+console.log(friends);
+
+// const is for the arr variable not for the elements
+const arr1 = [1, 2, 3, 4];
+console.log(arr1);
+const arr2 = [5, 6, 7, 8];
+console.log(arr2);
+// arr1 = arr2; // error
+console.log(arr1);
+
+// If you want to change the entire array use let
+let arr3 = [1, 2, 3, 4];
+console.log(arr3);
+let arr4 = [5, 6, 7, 8];
+console.log(arr4);
+arr3 = arr4;
+console.log(arr3);
+
+// How to add elements at the end
+console.log(friends);
+friends.push("Sumit");
+console.log(friends);
+
+// How to remove last element from the array
+friends.pop();
+console.log(friends);
+
+// Arrays can store any datatype
+const firstName = "Anurag";
+const age = 23;
+const job = "Teacher";
+
+const myArr = [firstName, age, job, friends];
+console.log(myArr);
+console.log(myArr[0]);
+console.log(myArr[1]);
+console.log(myArr[2]);
+console.log(myArr[3]);
+
+// given myArr, find the number of friends
+console.log(myArr[3].length);
+
+// given myArr, print the 2nd indexed friend
+console.log(myArr[3][2]);
+
+// given myArr, print the last friend
+const numFriends = myArr[3].length;
+console.log(myArr[3][numFriends - 1]);
+
+// How to generate pairs
+const arr = [1, 2, 3, 4, 5];
+const n = arr.length;
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    console.log(arr[i], arr[j]);
+  }
+}
 */
