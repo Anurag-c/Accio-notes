@@ -715,3 +715,91 @@ function ArrayProblem(arr) {
 
   console.log(maxEle - minEle);
 }
+
+// 2nd Largest from array
+// Link: https://course.acciojob.com/idle?question=d5b5b101-0636-4654-bd4d-bfecce8e5d00
+
+function SecondLargest(arr, n) {
+  // Write code here
+  let firstMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > firstMax) {
+      firstMax = arr[i];
+    }
+  }
+
+  let secondMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    /*
+    // You can also write like this instead of continue
+    if (arr[i] != firstMax && arr[i] > secondMax) {
+      secondMax = arr[i];
+    }
+    */
+
+    if (arr[i] == firstMax) {
+      continue;
+    }
+
+    // you will come here only when arr[i] != firstMax due to continue
+    if (arr[i] > secondMax) {
+      secondMax = arr[i];
+    }
+  }
+
+  console.log(secondMax);
+}
+
+// Reverse an array
+// Link: https://course.acciojob.com/idle?question=944dba4b-f895-44af-8ec1-7445343e5713
+function reverseArray(arr, start, end) {
+  //Write code here
+  while (start <= end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
+
+// Sum of Array Except Self
+// Link: https://course.acciojob.com/idle?question=3cf411ff-c59c-4202-ae5c-6b0292d31764
+function sumArrayExceptSelf(nums, n) {
+  // Write your code here
+  let total = 0;
+  for (let i = 0; i < n; i++) {
+    total += nums[i];
+  }
+
+  const ans = [];
+  for (let i = 0; i < n; i++) {
+    ans.push(total - nums[i]);
+  }
+
+  return ans;
+}
+
+// Array Problem 6
+// Link: https://course.acciojob.com/idle?question=02fe1fa2-2fba-4a5f-aca0-baac93f166a3
+function ArrayProblem6(n, arr) {
+  // Write code here
+  let minDist = Infinity;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (arr[i] > 0 && arr[j] > 0 && arr[i] % 2 == 0 && arr[j] % 2 == 0) {
+        const dist = Math.abs(i - j);
+        minDist = Math.min(minDist, dist);
+      }
+    }
+  }
+
+  if (minDist == Infinity) {
+    // This will happen only when there are 0 or 1 even number
+    return -1;
+  }
+  return minDist;
+}
+
+// Efficient way - HW

@@ -768,4 +768,50 @@ for (let i = 0; i < n; i++) {
     console.log(arr[i], arr[j]);
   }
 }
+
+function reverse(arr) {
+  let rev_arr = [];
+  let n = arr.length;
+  for (let i = n - 1; i >= 0; i--) {
+    rev_arr.push(arr[i]);
+  }
+
+  // copy the element to arr
+  for (let i = 0; i < n; i++) {
+    arr[i] = rev_arr[i];
+  }
+}
+
+const arr = [1, 2, 3, 4, 5];
+console.log("Array Before reverse: ", arr);
+reverse(arr);
+console.log("Array After reverse: ", arr);
+
+let arr = [1, 3, 5, 7];
+console.log(arr);
+
+let brr = [0, 2, 4, 6];
+brr[2] = 30;
+
+brr = arr;
+arr[2] = 40;
+console.log(brr);
+
+// Pass by value
+function increment1(a) {
+  a++;
+}
+
+let a = 2;
+increment1(a);
+console.log(a);
+
+// Pass by reference
+function increment2(brr) {
+  brr[0]++;
+}
+
+let arr = [1, 3, 5, 7];
+increment2(arr);
+console.log(arr);
 */
