@@ -803,3 +803,133 @@ function ArrayProblem6(n, arr) {
 }
 
 // Efficient way - HW
+
+// Array Adding
+// Link: https://course.acciojob.com/idle?question=a426a64f-8962-4a98-9433-3200d900ad67
+function calSum(a, b, n, m) {
+  // Write your code here
+  let i = n - 1;
+  let j = m - 1;
+  let carry = 0;
+  const res = [];
+
+  while (i >= 0 || j >= 0) {
+    let sum = 0;
+    if (i >= 0) sum += a[i];
+    if (j >= 0) sum += b[j];
+    sum += carry;
+    res.push(sum % 10);
+    carry = parseInt(sum / 10);
+    i--;
+    j--;
+  }
+
+  /*
+  while (i >= 0 && j >= 0) {
+    const sum = a[i] + b[j] + carry;
+    res.push(sum % 10);
+    carry = parseInt(sum / 10);
+    i--;
+    j--;
+  }
+
+  while (i >= 0) {
+    const sum = a[i] + carry;
+    res.push(sum % 10);
+    carry = parseInt(sum / 10);
+    i--;
+  }
+
+  while (j >= 0) {
+    const sum = b[j] + carry;
+    res.push(sum % 10);
+    carry = parseInt(sum / 10);
+    j--;
+  }
+  */
+
+  // carry cannot be greater than 1
+  // because max possible sum = 9 + 9 + 1 = 19
+  if (carry == 1) {
+    res.push(1);
+  }
+
+  res.reverse();
+  return res;
+}
+
+// Buildings
+// Link: https://course.acciojob.com/idle?question=a7bdae50-cbdd-4048-a3c3-be52504b9580
+function countVisibleRoofs(heights) {
+  // Write your code here
+  const n = heights.length;
+  let cnt = 0;
+
+  for (let i = 0; i < n; i++) {
+    let leftMax = -Infinity;
+    for (let j = 0; j < i; j++) {
+      leftMax = Math.max(leftMax, heights[j]);
+    }
+
+    if (heights[i] >= leftMax) {
+      cnt++;
+    }
+  }
+
+  return cnt;
+}
+
+// Efficient way
+function countVisibleRoofs(heights) {
+  // Write your code here
+  const n = heights.length;
+  let cnt = 0;
+  let runningMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (heights[i] >= runningMax) {
+      cnt++;
+    }
+    runningMax = Math.max(heights[i], runningMax);
+  }
+
+  return cnt;
+}
+
+// Rotate array
+// Link: https://course.acciojob.com/idle?question=444d4b46-efef-467a-8833-e3fede7d22f0
+function rotateArray(arr, n, k) {
+  // Write code here
+  for (let time = 0; time < k; time++) {
+    const firstEle = arr[0];
+    for (let i = 0; i < n - 1; i++) {
+      arr[i] = arr[i + 1];
+    }
+    arr[n - 1] = firstEle;
+  }
+
+  for (let i = 0; i < n; i++) {
+    process.stdout.write(arr[i] + " ");
+  }
+}
+
+function reverseArr(arr, start, end) {
+  while (start <= end) {
+    const temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+function rotateArray(arr, n, k) {
+  // Write code here
+  k = k % n;
+  reverseArr(arr, 0, n - 1);
+  reverseArr(arr, 0, n - k - 1);
+  reverseArr(arr, n - k, n - 1);
+
+  for (let i = 0; i < n; i++) {
+    process.stdout.write(arr[i] + " ");
+  }
+}
