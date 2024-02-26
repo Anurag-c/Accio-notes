@@ -933,3 +933,162 @@ function rotateArray(arr, n, k) {
     process.stdout.write(arr[i] + " ");
   }
 }
+
+// Subarray Sum Zero
+// Link: https://course.acciojob.com/idle?question=7f096e64-5c0d-4333-b324-02e6ac91a3d7
+function zeroSubarray(arr) {
+  //Write your code here
+  const n = arr.length;
+  let isFound = false;
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum += arr[end];
+      if (sum == 0) {
+        console.log(`Subarray found from Index ${start} to ${end}`);
+        isFound = true;
+      }
+    }
+  }
+
+  if (isFound == false) {
+    console.log(-1);
+  }
+}
+
+// Subarray sum divisible by k
+// Link: https://course.acciojob.com/idle?question=fd54a321-f9b7-4772-9d78-69ffe5a0ccb8
+function subarrayDivisbleByK(arr, n, k) {
+  // your code here
+  const n = arr.length;
+  let cnt = 0;
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum += arr[end];
+      if (sum % k == 0) {
+        cnt++;
+      }
+    }
+  }
+
+  return cnt;
+}
+
+// Find Split Point
+// Link: https://course.acciojob.com/idle?question=c0af5738-5a1c-4a05-a68c-789f38a620d1
+function findSplit(arr, N) {
+  let total = 0;
+  for (let i = 0; i < N; i++) {
+    total += arr[i];
+  }
+
+  let lsum = 0;
+  for (let split = 0; split < N - 1; split++) {
+    lsum += arr[split];
+    const rsum = total - lsum;
+    if (lsum == rsum) {
+      return split;
+    }
+  }
+
+  // you will reach here only when no split possible
+  return -1;
+}
+
+function splitArray(N, arr) {
+  // Write your code here
+  const split = findSplit(arr, N);
+  if (split == -1) {
+    console.log("Not Possible");
+  } else {
+    for (let i = 0; i <= split; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+    console.log();
+    for (let i = split + 1; i < N; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+  }
+}
+
+// Find Geometric Triplets
+// Link: https://course.acciojob.com/idle?question=cefcef33-7a3f-46ea-99f4-694dd5297224
+function findGeometricTriplets(arr, n) {
+  // Write code here
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        // b^2 = ac
+        if (arr[j] ** 2 == arr[i] * arr[k]) {
+          console.log(arr[i], arr[j], arr[k]);
+        }
+      }
+    }
+  }
+}
+
+// Array Subtracting
+// Link: https://course.acciojob.com/idle?question=4ed416d3-76b0-41a6-a956-3201e2fb6079
+function shouldIConvert(a, n, b, m) {
+  if (n < m) {
+    return true;
+  }
+  if (n > m) {
+    return false;
+  }
+
+  // equal length case
+  for (let i = 0; i < n; i++) {
+    // first non equal element
+    if (a[i] != b[i]) {
+      if (a[i] < b[i]) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  return false;
+}
+
+function findSubtraction(a, n, b, m) {
+  //Write your code here
+  const conversion = shouldIConvert(a, n, b, m);
+  if (conversion == true) {
+    let temp = a;
+    a = b;
+    b = temp;
+    temp = n;
+    n = m;
+    m = temp;
+  }
+
+  let i = n - 1;
+  let j = m - 1;
+  let carry = 0;
+  let res = [];
+  while (i >= 0 || j >= 0) {
+    let diff = a[i] + carry;
+    if (j >= 0) diff -= b[j];
+
+    if (diff < 0) {
+      carry = -1;
+      diff += 10;
+    } else {
+      carry = 0;
+    }
+
+    res.push(diff);
+    i--;
+    j--;
+  }
+
+  res.reverse();
+  if (conversion == true) {
+    res[0] *= -1;
+  }
+
+  return res;
+}

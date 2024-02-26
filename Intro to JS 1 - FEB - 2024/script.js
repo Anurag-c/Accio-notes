@@ -814,4 +814,27 @@ function increment2(brr) {
 let arr = [1, 3, 5, 7];
 increment2(arr);
 console.log(arr);
+
+// How to generate subarrays
+const arr = [10, 20, 30, 40];
+const n = arr.length;
+for (let start = 0; start < n; start++) {
+  //let subarr = [];
+  let subarr = "";
+  for (let end = start; end < n; end++) {
+    //subarr.push(arr[end]);
+    subarr += arr[end] + " ";
+    console.log(subarr);
+  }
+}
+
+for (let start = 0; start < n; start++) {
+  let sum = 0;
+  let subarr = "";
+  for (let end = start; end < n; end++) {
+    subarr += arr[end] + " ";
+    sum += arr[end];
+    console.log(subarr, sum);
+  }
+}
 */
