@@ -1092,3 +1092,94 @@ function findSubtraction(a, n, b, m) {
 
   return res;
 }
+
+// Print 2D Array
+// Link: https://course.acciojob.com/idle?question=9ea8dbd6-3b71-45c9-a8c3-1bfb7608ad13
+function printElements(arr, n, m) {
+  //Write your code here
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < m; c++) {
+      process.stdout.write(arr[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+// Print Matrix Column Wise
+// Link: https://course.acciojob.com/idle?question=31900452-fb2e-45cd-93b0-fb4d6afbfac0
+function printMatrixColumnwise(mat, n, m) {
+  // Write code here and print output
+  for (let c = 0; c < m; c++) {
+    for (let r = 0; r < n; r++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+  }
+}
+
+// Alternate Manner Matrix Traversal
+// Link: https://course.acciojob.com/idle?question=191ba184-3c72-468a-83fe-5100d558f7eb
+function printElementsAlternately(mat, m, n) {
+  //Write code here and print output
+  for (let r = 0; r < m; r++) {
+    if (r % 2 == 0) {
+      for (let c = 0; c < n; c++) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    } else {
+      for (let c = n - 1; c >= 0; c--) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    }
+  }
+}
+
+// Transpose of Matrix
+// Link: https://course.acciojob.com/idle?question=57e7562d-b233-42ca-89f6-c10ad5cdf579
+function matrixTranspose(mat, n) {
+  //Write your code here
+  for (let r = 1; r < n; r++) {
+    for (let c = 0; c < r; c++) {
+      const temp = mat[r][c];
+      mat[r][c] = mat[c][r];
+      mat[c][r] = temp;
+    }
+  }
+
+  return mat;
+}
+
+// Find sum of all the elements of 2-D array
+// Link: https://course.acciojob.com/idle?question=6f64e510-b7fd-44b7-9d5f-923a0995bde9
+function findSum(arr, n, m) {
+  //Write your code here
+  let sum = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < m; c++) {
+      sum += arr[r][c];
+    }
+  }
+  return sum;
+}
+
+// Largest Number At Least Twice of Others
+// Link: https://course.acciojob.com/idle?question=cb7fb253-f3f5-47ad-a261-53b8d4fdd033
+function LargestElement(nums, n) {
+  // First calculate max ele and max idx
+  let maxVal = -Infinity;
+  let maxIdx = -1;
+  for (let i = 0; i < n; i++) {
+    if (nums[i] > maxVal) {
+      maxVal = nums[i];
+      maxIdx = i;
+    }
+  }
+
+  // check whehter max element is atleast twice of all other elements
+  for (let i = 0; i < n; i++) {
+    if (maxIdx != i && 2 * nums[i] > maxVal) {
+      return -1;
+    }
+  }
+
+  return maxIdx;
+}

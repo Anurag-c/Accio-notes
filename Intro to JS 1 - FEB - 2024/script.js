@@ -837,4 +837,55 @@ for (let start = 0; start < n; start++) {
     console.log(subarr, sum);
   }
 }
+
+// 2D Arrays
+const friends1 = ["Sovan", "Naveen", "Avneet"];
+const friends2 = ["Sumit", "Nikita", "Deepak", "Kiran"];
+const friends3 = ["JavaScript", "C++"];
+
+const allFriends = [friends1, friends2, friends3];
+console.log(allFriends);
+console.log(allFriends[0]);
+console.log(allFriends[1]);
+console.log(allFriends[2]);
 */
+
+function printMatrix(mat) {
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  for (let r = 0; r < rows; r++) {
+    // const cols = mat[r].length;
+    // when you have different #cols for every row
+    for (let c = 0; c < cols; c++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+// If you want better code / abstraction you can
+// extract the smaller array creation to another function
+function createRow(n) {
+  const smallArr = [];
+  for (let i = 0; i < n; i++) {
+    smallArr.push(i + 1);
+  }
+  return smallArr;
+}
+
+function createMatrix(n) {
+  const mat = [];
+  for (let r = 0; r < n; r++) {
+    // const smallArr = createRow(n);
+    const smallArr = [];
+    for (let i = 0; i < n; i++) {
+      smallArr.push(i + 1);
+    }
+    mat.push(smallArr);
+  }
+  return mat;
+}
+
+const mat = createMatrix(5);
+printMatrix(mat);
