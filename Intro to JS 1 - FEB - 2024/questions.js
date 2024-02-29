@@ -593,8 +593,8 @@ readline.question("", (n) => {
   for (let row = 0; row < n; row++) {
     let ascii = 65 + (row % 26);
     for (let col = 0; col < row + 1; col++) {
-      if (ascii > 90) {
-        ascii = ascii - 26;
+      if (ascii == 91) {
+        ascii = 65;
       }
       process.stdout.write(String.fromCharCode(ascii));
       ascii++;
@@ -1182,4 +1182,174 @@ function LargestElement(nums, n) {
   }
 
   return maxIdx;
+}
+
+// Matrix Multiplication
+// Link: https://course.acciojob.com/idle?question=da3dfaa3-541f-4b9b-a202-30b4fb01a835
+function printMultiplication(a, b, n) {
+  // Write your code here
+  const rows1 = n;
+  const cols1 = n;
+  const rows2 = n;
+  const cols2 = n;
+
+  // 1. create a empty resultant matrix
+  // rows1 x cols2
+  const res = [];
+  for (let r = 0; r < rows1; r++) {
+    const smallArr = [];
+    for (let c = 0; c < cols2; c++) {
+      smallArr.push(0);
+    }
+    res.push(smallArr);
+  }
+
+  // 2. multiply the matrices
+  // res[r][c] = Sum (a[r][k] * b[k][c]), k = 0 to cols1 - 1
+  for (let r = 0; r < rows1; r++) {
+    for (let c = 0; c < cols2; c++) {
+      for (let k = 0; k < cols1; k++) {
+        res[r][c] += a[r][k] * b[k][c];
+      }
+    }
+  }
+
+  for (let r = 0; r < rows1; r++) {
+    for (let c = 0; c < cols2; c++) {
+      process.stdout.write(res[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+// Alt Matrix Sum
+// Link: https://course.acciojob.com/idle?question=04a591ba-305a-4bd7-a4b2-9a06ac187837
+function alternateMatrixSum(mat, n) {
+  // Write your code here
+  let bsum = 0;
+  let wsum = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if ((r + c) % 2 == 0) {
+        bsum += mat[r][c];
+      } else {
+        wsum += mat[r][c];
+      }
+    }
+  }
+
+  console.log(bsum);
+  console.log(wsum);
+}
+
+// Diagonal Difference!
+// Link: https://course.acciojob.com/idle?question=8a6cbf35-d128-459b-a7ba-9e269d2af40a
+function diagonalDifference(mat, n) {
+  // Write your code here
+  let i = 0;
+  let j = 0;
+  let diag = 0;
+  while (i < n && j < n) {
+    diag += mat[i][j];
+    i++;
+    j++;
+  }
+
+  i = 0;
+  j = n - 1;
+  let adiag = 0;
+  while (i < n && j >= 0) {
+    adiag += mat[i][j];
+    i++;
+    j--;
+  }
+
+  console.log(Math.abs(adiag - diag));
+}
+
+function diagonalDifference(mat, n) {
+  let diag = 0;
+  let adiag = 0;
+
+  for (let r = 0; r < n; r++) {
+    diag += mat[r][r];
+    adiag += mat[r][n - r - 1];
+  }
+
+  console.log(Math.abs(adiag - diag));
+}
+
+// Spirally traversing a matrix
+// Link: https://course.acciojob.com/idle?question=5f714d43-3f91-4c47-b41b-203207e63522
+function spirallyTraverse(mat) {
+  // Write your code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+  const total = rows * cols;
+
+  let minR = 0; // top wall
+  let maxR = rows - 1; // bottom wall
+  let minC = 0; // left wall
+  let maxC = cols - 1; // right wall
+  let cnt = 0;
+
+  while (cnt < total) {
+    // 1. Top wall (minR, minC to maxC)
+    for (let c = minC; c <= maxC && cnt < total; c++) {
+      process.stdout.write(mat[minR][c] + " ");
+      cnt++;
+    }
+    minR++;
+
+    // 2. right wall (maxC, minR to maxR)
+    for (let r = minR; r <= maxR && cnt < total; r++) {
+      process.stdout.write(mat[r][maxC] + " ");
+      cnt++;
+    }
+    maxC--;
+
+    // 3. bottom wall (maxR, maxC to minC)
+    for (let c = maxC; c >= minC && cnt < total; c--) {
+      process.stdout.write(mat[maxR][c] + " ");
+      cnt++;
+    }
+    maxR--;
+
+    // 4. left wall (minC, maxR to minR)
+    for (let r = maxR; r >= minR && cnt < total; r--) {
+      process.stdout.write(mat[r][minC] + " ");
+      cnt++;
+    }
+    minC++;
+  }
+}
+
+// A Contest
+// Link: https://course.acciojob.com/idle?question=0363c617-a2d0-41a5-a2a3-f5736d1c36f7
+function printFindParticipants(arr, n, k) {
+  // Write your code here
+  const kthPartScore = arr[k - 1];
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] >= kthPartScore && arr[i] > 0) {
+      cnt++;
+    }
+  }
+
+  console.log(cnt);
+}
+
+// Subarray Problem 3
+// Link: https://course.acciojob.com/idle?question=0298655b-b264-421a-906d-32443ebe3e55
+function largestAltitude(gain) {
+  //Write your code here
+  let sum = 0;
+  let maxAlt = 0;
+  const n = gain.length;
+  for (let i = 0; i < n; i++) {
+    sum += gain[i];
+    maxAlt = Math.max(sum, maxAlt);
+  }
+
+  return maxAlt;
 }
