@@ -1353,3 +1353,215 @@ function largestAltitude(gain) {
 
   return maxAlt;
 }
+
+// Find The Way
+// Link: https://course.acciojob.com/idle?question=60d37a31-7584-48eb-baad-ee073ffc7acf
+function findTheWay(matrix) {
+  //Write code here
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  let i = 0;
+  let j = 0;
+  let facing = 0;
+
+  while (true) {
+    // 1. turning right should happen only on 1
+    if (matrix[i][j] == 1) {
+      matrix[i][j] = 0;
+      facing = (facing + 1) % 4;
+    }
+
+    // 2. move forward should happen in both 0, 1
+    if (facing == 0) {
+      j++;
+    } else if (facing == 1) {
+      i++;
+    } else if (facing == 2) {
+      j--;
+    } else {
+      i--;
+    }
+
+    // 3. Check whether you are outside, and return lastbox
+    if (i == -1) {
+      return [0, j];
+    } else if (j == cols) {
+      return [i, cols - 1];
+    } else if (i == rows) {
+      return [rows - 1, j];
+    } else if (j == -1) {
+      return [i, 0];
+    }
+  }
+}
+
+// Maxima Minima
+// Link: https://course.acciojob.com/idle?question=834a5e9e-9b0c-45db-b0e1-375bafb999ea
+function findMinRow(mat, row) {
+  const cols = mat[0].length;
+  let minEle = Infinity;
+  for (let c = 0; c < cols; c++) {
+    minEle = Math.min(mat[row][c], minEle);
+  }
+
+  return minEle;
+}
+
+function findMaxCol(mat, col) {
+  const rows = mat.length;
+  let maxEle = -Infinity;
+  for (let r = 0; r < rows; r++) {
+    maxEle = Math.max(maxEle, mat[r][col]);
+  }
+
+  return maxEle;
+}
+
+// O(N^3)
+function maximaMinima(mat) {
+  //Write code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const minR = findMinRow(mat, r);
+      const maxC = findMaxCol(mat, c);
+      if (minR == mat[r][c] && maxC == mat[r][c]) {
+        return mat[r][c];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// Optimal => O(N^2)
+function maximaMinima(mat) {
+  //Write code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  const minRow = [];
+  const maxCol = [];
+
+  for (let r = 0; r < rows; r++) {
+    const minEle = findMinRow(mat, r);
+    minRow.push(minEle);
+  }
+
+  for (let c = 0; c < cols; c++) {
+    const maxEle = findMaxCol(mat, c);
+    maxCol.push(maxEle);
+  }
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const minR = minRow[r];
+      const maxC = maxCol[c];
+      if (minR == mat[r][c] && maxC == mat[r][c]) {
+        return mat[r][c];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// Diagonal Traversal of a Matrix
+// Link: https://course.acciojob.com/idle?question=c6c26827-a9b9-478e-bafb-77ab8d37bc88
+function diagonalTraversal(mat, n) {
+  // your code here
+  const res = [];
+  for (let c = n - 1; c >= 1; c--) {
+    let i = 0;
+    let j = c;
+    while (i < n && j < n) {
+      res.push(mat[i][j]);
+      i++;
+      j++;
+    }
+  }
+
+  for (let r = 0; r < n; r++) {
+    let i = r;
+    let j = 0;
+    while (i < n && j < n) {
+      res.push(mat[i][j]);
+      i++;
+      j++;
+    }
+  }
+
+  return res;
+}
+
+// Toeplitz Matrix
+// Link: https://course.acciojob.com/idle?question=fa4a91e3-218d-473b-8d33-65fb2af3e145
+function isToeplitzMatrix(matrix, m, n) {
+  for (let i = 0; i < m - 1; i++) {
+    for (let j = 0; j < n - 1; j++) {
+      // Check the respective diagonal element is equal / not
+      if (matrix[i][j] != matrix[i + 1][j + 1]) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+// Subarray Problem 1
+// Link: https://course.acciojob.com/idle?question=aaa5a80f-db4e-4cca-a438-ff25b1aadebf
+function solve(arr, n, s) {
+  // Write your code here
+  let found = false;
+  for (let start = 0; start < 10; start++) {
+    let sum = 0;
+    for (let end = start; end < 10; end++) {
+      sum += arr[end];
+      if (sum == s && end - start + 1 == n) {
+        console.log("YES");
+        found = true;
+        break;
+      }
+    }
+  }
+
+  if (!found) {
+    console.log("NO");
+  }
+}
+
+// Boundary Traversal of matrix
+// Link: https://course.acciojob.com/idle?question=20df8834-ee3c-4414-9d44-16e3e22d266e
+function boundaryTraversal(m, n, matrix) {
+  // Write your code here
+  let total = 2 * (m + n - 2);
+  // edge cases where our total formula fails
+  if (m == 1) total = n;
+  if (n == 1) total = m;
+
+  let cnt = 0;
+
+  for (let c = 0; c < n && cnt < total; c++) {
+    console.log(matrix[0][c]);
+    cnt++;
+  }
+
+  for (let r = 1; r < m && cnt < total; r++) {
+    console.log(matrix[r][n - 1]);
+    cnt++;
+  }
+
+  for (let c = n - 2; c >= 0 && cnt < total; c--) {
+    console.log(matrix[m - 1][c]);
+    cnt++;
+  }
+
+  for (let r = m - 2; r >= 1 && cnt < total; r--) {
+    console.log(matrix[r][0]);
+    cnt++;
+  }
+}
