@@ -1,3 +1,4 @@
+/*
 // Values
 console.log("Hi I am Anurag");
 console.log("Hello world");
@@ -54,9 +55,235 @@ let p = 1;
 let q = 2;
 let r = 3;
 console.log(p, q, r);
+
+
+let p = 1, q = "two", r = 3;
+console.log(p, q, r);
+
+
+////////////////////////////////////////////////////////////////////////
+
+// Data types
+// Number
+let year = 2001;
+let primeNumber = 13.123;
+let currYear = 2024;
+console.log(year);
+console.log(primeNumber);
+console.log(currYear);
+console.log(typeof year);
+console.log(typeof 134578);
+console.log(typeof primeNumber);
+
+// String
+let myName = "Anurag";
+let sentence = "Quick brown fox jumped over the river";
+console.log(sentence);
+console.log(myName);
+console.log(2001, "2001", typeof 2001, typeof "2001");
+console.log(typeof myName);
+console.log(typeof sentence);
+console.log(typeof "abdskbdia123468sflfshr");
+
+// Boolean
+let canDrinkAlcohol = false;
+let isPrime = true;
+let canDrive = "false";
+console.log(canDrinkAlcohol);
+console.log(isPrime);
+console.log(canDrive);
+console.log(typeof canDrinkAlcohol);
+console.log(typeof isPrime);
+console.log(typeof canDrive);
+
+// undefined
+let someVariable;
+console.log(someVariable);
+console.log(typeof someVariable);
+// console.log(firstName); // error : Not defined
+
+// null (Fact / bug in JS)
+console.log(null);
+console.log(typeof null); // expected: null, actual: object
+
+// Dynamically typed language
+let example = "Hello world";
+console.log(example, typeof example);
+example = 123;
+console.log(example, typeof example);
+example = true;
+console.log(example, typeof example);
+example = "how are you";
+console.log(example, typeof example);
+
+// Other ways to create variables
+let superHero1 = "SpiderMan";
+console.log(superHero1);
+superHero1 = "Hulk";
+console.log(superHero1);
+
+const superHero2 = "IronMan";
+console.log(superHero2);
+
+/*
+// const variables cannot be changed (immutable)
+superHero2 = "BlackPanther";
+console.log(superHero2);
+
+
+/*
+// const variables cannot be undefined
+const superHero3;
+console.log(superHero3);
+
+
+// var is similar to let
+// Difference is discussed during functions lecture
+// Hoisting
+var superHero4 = "BatMan";
+console.log(superHero4);
+superHero4 = "AntMan";
+console.log(superHero4);
+
+var superHero5;
+console.log(superHero5);
+
+// Arithmetic operators (Are for numbers)
+const currYear = 2024;
+const ageAnurag = currYear - 2001; // 2024 - 2001 = 23
+const ageOmkar = currYear - 2000; // 2024 - 2000 = 24
+const ageIshan = currYear - 1999; // 2024 - 1999 = 25;
+console.log(ageAnurag, ageOmkar, ageIshan);
+console.log(ageAnurag * 2); // 23 * 2 = 46
+console.log(ageIshan / 2); // 25 / 2 = 12.5
+console.log(ageAnurag + 5); // 23 + 5 = 28
+
+// parseInt and toFixed
+const largeFraction = 152.46578239127;
+console.log(largeFraction);
+console.log(parseInt(largeFraction));
+console.log(parseInt(12.789));
+console.log(largeFraction.toFixed(2));
+console.log(largeFraction.toFixed(4));
+console.log((123.789).toFixed(1));
+
+// exponential operator
+// a ** b => a power b
+console.log(2 ** 3); // 2 power 3 = 8
+console.log(7 ** 5); // 7 power 5 = 16807
+console.log(8 ** 10); // 8 power 10 = 1073741824
+console.log(16 ** (1 / 2)); // 16 power 1/2 = 4
+console.log(27 ** (1 / 3)); // 27 power 1/3 = 3
+console.log(17 ** (1 / 3)); // 17 power 1/3 = 2.57
+
+// Modulo operator (remanider)
+console.log(11 % 3);
+console.log(19 % 4);
+// even = 0, odd = 1
+console.log(12 % 2); // 0
+console.log(13 % 2); // 1
+
+// Addition also works with strings
+const firstName = "Ranbir";
+const lastName = "kapoor";
+const fullName = firstName + " " + lastName;
+console.log(firstName, lastName); // these are two values
+console.log(fullName); // single value
+
+// Making string dynamic based on data
+const name = "Ritu";
+const birthYear = 2000;
+const job = "Mechanical Engineer";
+const age = 2024 - birthYear;
+
+console.log("Hi I am " + name + ", " + age + " years old, working as a " + job);
+
+// String template literals (Easy / Efficient)
+console.log(`Hi I am ${name}, ${age} years old, working as a ${job}`);
+
+// Assignment operators
+let num = 10 + 5; // num = 15
+console.log(num);
+
+num += 10; // num = num + 10 => num = 15 + 10 = 25
+console.log(num);
+
+num *= 2; // num = num * 2 => num = 25 * 2 = 50
+console.log(num);
+
+num /= 10; // num = num / 10 => num = 50 / 10 = 5
+console.log(num);
+
+// num **= 2; // num = num ** 2 => num = 5 ** 2 = 25
+// console.log(num);
+
+num -= 8; // num = num - 8 => num = 5 - 8 = -3
+console.log(num);
+
+// post increment, decrement
+num++; // num = num + 1 => num = -3 + 1 = -2
+console.log(num);
+
+num--; // num = num - 1 => num = -2 - 1 = -3
+console.log(num);
+
+// pre increment, decrement
+++num; // num = num + 1 => num = -3 + 1 = -2
+console.log(num);
+
+--num; // num = num - 1 => num = -2 - 1 = -3
+console.log(num);
 */
 
-let p = 1,
-  q = "two",
-  r = 3;
-console.log(p, q, r);
+// Comparision operators
+const currYear = 2024;
+const ageAnurag = currYear - 2000; // 2024 - 2000 = 24
+const ageOmkar = currYear - 2000; // 2024 - 2000 = 24
+const ageIshan = currYear - 1999; // 2024 - 1999 = 25;
+console.log(ageAnurag, ageOmkar, ageIshan);
+
+// Is Anurag older than Omkar ?
+console.log(ageAnurag > ageOmkar);
+
+// Is Anurag older than or equal to Omkar ?
+console.log(ageAnurag >= ageOmkar);
+
+// Is Omkar younger than Ishan ?
+console.log(ageOmkar < ageIshan);
+
+// Is Omkar younger than or equal to Ishan ?
+console.log(ageOmkar <= ageIshan);
+
+// Is Anurag equal to Omkar ?
+console.log(ageAnurag == ageOmkar);
+
+// Is Omkar equal to Ishan ?
+console.log(ageOmkar == ageIshan);
+
+// Is Omkar not equal to Ishan ?
+console.log(ageOmkar != ageIshan);
+
+// Operator precedence (Bracket are imp)
+// Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
+const average = (ageAnurag + ageOmkar) / 2;
+console.log(average);
+
+// pre increment (first inc, then assign)
+// pre -> before
+let x = 5;
+const val1 = ++x;
+console.log(x);
+console.log(val1);
+
+// post increment (first assign, then inc)
+// post -> after
+let y = 5;
+const val2 = y++;
+console.log(y);
+console.log(val2);
+
+const v1 = 10.5;
+const v2 = 12.5;
+const v3 = 12.15;
+const avg = (v1 + v2 + v3) / 3;
+console.log(parseInt(avg));
