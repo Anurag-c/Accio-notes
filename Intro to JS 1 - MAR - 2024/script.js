@@ -233,7 +233,6 @@ console.log(num);
 
 --num; // num = num - 1 => num = -2 - 1 = -3
 console.log(num);
-*/
 
 // Comparision operators
 const currYear = 2024;
@@ -282,8 +281,115 @@ const val2 = y++;
 console.log(y);
 console.log(val2);
 
-const v1 = 10.5;
-const v2 = 12.5;
-const v3 = 12.15;
-const avg = (v1 + v2 + v3) / 3;
-console.log(parseInt(avg));
+/////////////////////////////////////////////////////////////////////////////////
+
+// Type conversion
+const birthYear = "2001";
+
+// what will be the year after 22 years ?
+console.log(birthYear + 22); // 200122
+
+// String to Number
+console.log(Number(birthYear) + 22);
+
+// Number to String
+console.log(String(23), 23);
+console.log(Number("a1234nurag")); // NaN
+console.log(typeof NaN);
+console.log(String(NaN)); // => "NaN"
+
+// false
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(""));
+console.log(Boolean(NaN));
+
+// all other values will give true
+console.log(Boolean(1));
+console.log(Boolean("anu1234rag"));
+
+// Type Coercion
+// String + Number => String + String (Only addition works)
+// String - Number => Number - Number (All other operators)
+console.log("I am " + 22 + " years old");
+console.log("23" + 10 + 5);
+console.log(5 + 10 + "23");
+console.log(10 + "23" + 5);
+console.log("23" - "10" + 5);
+console.log("23" * 2);
+console.log("23" / 2);
+
+// == vs ===
+console.log("10" == 10, "10" === 10);
+console.log("10" == "10", "10" === "10");
+console.log(1 == true, 1 === true);
+
+// If Statement
+const age = 20;
+
+if (age < 18) {
+  console.log("Sorry you cannot get license");
+} else {
+  console.log("You can get license");
+}
+
+console.log("remaining lines of code");
+console.log("remaining lines of code");
+console.log("remaining lines of code");
+
+const day = "monday";
+
+if (day == "monday") {
+  console.log("I have a doctor appointment");
+}
+
+if (day == "monday") {
+  console.log("I have to go for shopping");
+}
+
+if (day == "tuesday") {
+  console.log("I have assignments");
+  console.log("I have exam");
+} else {
+  console.log("I dont know what to do");
+}
+
+// else if statements
+const day = "abcd";
+
+if (day == "monday") {
+  console.log("Plan course structure");
+} else if (day == "tuesday") {
+  console.log("Prepare for exams");
+} else if (day == "wednesday") {
+  console.log("Write examples for coding lectures");
+} else if (day == "thursday") {
+  console.log("Watch recordings");
+} else if (day == "friday") {
+  console.log("solve assignments");
+} else if (day == "saturday") {
+  console.log("Revise all notes");
+} else if (day == "sunday") {
+  console.log("attempt contest");
+} else {
+  console.log("Please enter a valid day");
+}
+
+const age = 22;
+let canDrinkAlcohol;
+
+if (age >= 21) {
+  canDrinkAlcohol = true;
+} else {
+  canDrinkAlcohol = false;
+}
+
+console.log(canDrinkAlcohol);
+
+// ternary operator
+// much helpul in React
+age >= 21
+  ? console.log("Can Drink Alcohol")
+  : console.log("Cannot drink Alcohol");
+*/

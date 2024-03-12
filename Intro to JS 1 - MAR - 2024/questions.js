@@ -53,16 +53,16 @@ readline.question("", (input) => {
 // Link: https://course.acciojob.com/idle?question=ee04dfd0-ee0b-4512-ac07-46ba464cce2b
 const num = 8;
 let i = 1;
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
-console.log(`${num} X ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
+console.log(`${num} x ${i} = ${num * i++}`);
 
 // Variable Practice Question 5
 // Link: https://course.acciojob.com/idle?question=d2ab1301-e24c-47e3-abed-3421163ba5a8
@@ -71,3 +71,81 @@ const v2 = 12.5;
 const v3 = 12.15;
 const avg = (v1 + v2 + v3) / 3;
 console.log(parseInt(avg));
+
+// Conditional Problem 1
+// Link: https://course.acciojob.com/idle?question=208cee53-a998-404f-a455-5307d71abacd
+readline.question("", (n) => {
+  // write code here
+  if (n == 28) {
+    console.log("i am young");
+  } else {
+    console.log("i am not young");
+  }
+
+  readline.close();
+});
+
+// Conditional Problem 2
+// Link: https://course.acciojob.com/idle?question=2f5bfb63-8713-432e-90e3-789ee00bc337
+rl.on("line", (input) => {
+  // Write your code here
+  if (input < 30) {
+    console.log("less important");
+  } else {
+    console.log("more important");
+  }
+  rl.close();
+});
+
+// Conditional Problem 3
+// Link: https://course.acciojob.com/idle?question=fa2265ac-6e4a-480f-b428-5056768d05f0
+readline.question("", (n) => {
+  // write code here
+  if (n > 1) {
+    console.log("You entered more");
+  } else {
+    console.log("You entered less");
+  }
+  readline.close();
+});
+
+// Conditional Problem 5
+// Link: https://course.acciojob.com/idle?question=38436ae2-5f85-4b5c-82ad-f5bd437c5e73
+rl.on("line", (n) => {
+  // Your code here
+  if (n % 6 == 0) {
+    console.log("Divisible");
+  } else {
+    console.log("Not divisible");
+  }
+});
+
+// Verify Cube
+// Link: https://course.acciojob.com/idle?question=ad87c003-dc8d-4ea3-b416-de0ed0c6788e
+readline.question("", (n) => {
+  let [a, b] = n.split(" ");
+  a = Number(a);
+  b = Number(b);
+  //Write your code here
+
+  const LHS = (a + b) ** 3;
+  const RHS = a ** 3 + b ** 3 + 3 * a * a * b + 3 * a * b ** 2;
+
+  console.log(LHS);
+  console.log(RHS);
+  if (LHS == RHS) {
+    console.log("VERIFIED");
+  } else {
+    console.log("NOT VERIFIED");
+  }
+
+  readline.close();
+});
+
+// Variable Practice Question 4
+// Link: https://course.acciojob.com/idle?question=68211524-103e-4140-af84-17773aa301d9
+const a = 1042;
+const b = 7;
+const quo = parseInt(a / b);
+const rem = a % b;
+console.log(quo, rem);
