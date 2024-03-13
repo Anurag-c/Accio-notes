@@ -392,7 +392,7 @@ console.log(canDrinkAlcohol);
 age >= 21
   ? console.log("Can Drink Alcohol")
   : console.log("Cannot drink Alcohol");
-*/
+
 ///////////////////////////////////////////////////////////////
 
 // logical operators
@@ -416,3 +416,4 @@ console.log("a".charCodeAt(0));
 console.log("z".charCodeAt(0));
 console.log(">".charCodeAt(0));
 console.log("-".charCodeAt(0));
+*/
