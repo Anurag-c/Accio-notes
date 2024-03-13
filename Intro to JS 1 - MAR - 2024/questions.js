@@ -241,3 +241,25 @@ rl.on("line", (x) => {
     rl.close();
   });
 });
+
+// Number of Days
+// Link: https://course.acciojob.com/idle?question=00d33e88-7041-4dae-afe7-08671b57034a
+readline.question("", (month) => {
+  //Write your code here
+  if (
+    month == 1 ||
+    month == 3 ||
+    month == 5 ||
+    month == 7 ||
+    month == 8 ||
+    month == 10 ||
+    month == 12
+  ) {
+    console.log(31);
+  } else if (month == 2) {
+    console.log(28);
+  } else {
+    console.log(30);
+  }
+  readline.close();
+});
