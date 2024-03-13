@@ -217,3 +217,27 @@ rl.on("line", (input) => {
     }
   }
 });
+
+// Quadrants
+// Link: https://course.acciojob.com/idle?question=c878e8a7-f476-4303-a251-5e878a60a736
+rl.on("line", (x) => {
+  rl.on("line", (y) => {
+    //write code here
+    // blue -> +ve and red -> -ve
+    // blue, blue -> chamber 1
+    // red, blue -> chamber 2
+    // red, red -> chamber 3
+    // blue, red -> chamber 4
+    if (x > 0 && y > 0) {
+      console.log(1);
+    } else if (x < 0 && y > 0) {
+      console.log(2);
+    } else if (x < 0 && y < 0) {
+      console.log(3);
+    } else {
+      console.log(4);
+    }
+
+    rl.close();
+  });
+});
