@@ -393,3 +393,26 @@ age >= 21
   ? console.log("Can Drink Alcohol")
   : console.log("Cannot drink Alcohol");
 */
+///////////////////////////////////////////////////////////////
+
+// logical operators
+const age = 16;
+const A = age >= 20;
+const B = age < 30;
+
+console.log(!A); // NOT A
+console.log(A && B); // A AND B
+console.log(A || B); // A OR B
+console.log(!A && B); // NOT A AND B
+console.log(A || !B); // A OR NOT B
+
+// ASCII Values
+console.log(String.fromCharCode(45));
+console.log(String.fromCharCode(62));
+console.log(String.fromCharCode(100));
+console.log("A".charCodeAt(0));
+console.log("Z".charCodeAt(0));
+console.log("a".charCodeAt(0));
+console.log("z".charCodeAt(0));
+console.log(">".charCodeAt(0));
+console.log("-".charCodeAt(0));
