@@ -341,3 +341,80 @@ rl.on("line", (sides) => {
 
   rl.close();
 });
+
+// Check Prime
+// Link: https://course.acciojob.com/idle?question=03d33e77-b47d-43ee-a075-e46ff509b0a6
+readline.question("", (N) => {
+  N = Number(N);
+
+  let isFound = false;
+  for (let num = 2; num <= N - 1; num++) {
+    if (N % num == 0) {
+      isFound = true;
+      break;
+    }
+  }
+
+  // Take the decision after the entire process using flag variable
+  if (isFound == true) {
+    console.log(`${N} is not a prime number`);
+  } else {
+    console.log(`${N} is a prime number`);
+  }
+
+  readline.close();
+});
+
+// Sum of digits
+// Link: https://course.acciojob.com/idle?question=16ae2277-0d38-4eba-9a84-d4326ea2da2e
+function SumofDigits(num) {
+  let sum = 0;
+  while (num != 0) {
+    // 1. extract last digit
+    const lastDigit = num % 10;
+    // 2. remove last digit
+    num = parseInt(num / 10);
+
+    // 3. calculate sum
+    sum += lastDigit;
+  }
+
+  return sum; // console.log(sum);
+}
+
+// Reverse digits of a Number
+// Link: https://course.acciojob.com/idle?question=817d51d8-e009-4322-8e51-257b76455a4c
+readline.question("", (num) => {
+  //Write your code here
+  let rev = 0;
+  num = Number(num);
+  while (num != 0) {
+    // 1. extract last digit
+    const lastDigit = num % 10;
+    // 2. remove last digit
+    num = parseInt(num / 10);
+
+    // 3. calculate rev
+    rev = rev * 10 + lastDigit;
+  }
+
+  console.log(rev);
+
+  readline.close();
+});
+
+// N Stars
+// Link: https://course.acciojob.com/idle?question=24eb1955-7e70-45d9-8ce8-f9d9a8268aca
+readline.question("", (n) => {
+  // Write your code here
+  n = Number(n);
+  for (let i = 0; i < n; i++) {
+    process.stdout.write("* ");
+  }
+  console.log();
+  for (let i = 0; i < n; i++) {
+    console.log("*");
+  }
+
+  readline.close();
+});

@@ -463,7 +463,7 @@ for (let num = 1; num <= 5; num++) {
 
   console.log(`Level ${num}`);
 }
-*/
+
 
 for (let num = 1; num <= 5; num++) {
   console.log(`Level ${num}`);
@@ -477,3 +477,21 @@ for (let num = 1; num <= 5; num++) {
 console.log("Outside for loop");
 console.log("Outside for loop");
 console.log("Outside for loop");
+
+// while loop
+let num = 1;
+while (num <= 5) {
+  console.log(`Level ${num}`);
+  num++;
+}
+*/
+
+// process.stdout.write
+const n = 3;
+for (let i = 0; i < n; i++) {
+  process.stdout.write("* ");
+}
+console.log();
+for (let i = 0; i < n; i++) {
+  console.log("*");
+}
