@@ -418,3 +418,135 @@ readline.question("", (n) => {
 
   readline.close();
 });
+
+// Right Angle Triangle Stars
+// Link: https://course.acciojob.com/idle?question=a148f7c8-e47f-45a9-bd72-8808f823ead1
+readline.question("", (n) => {
+  //Write your code here
+  n = Number(n);
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write("*");
+    }
+    console.log();
+  }
+  readline.close();
+});
+
+// Staircase
+// Link: https://course.acciojob.com/idle?question=ac6a801c-d206-4945-9e19-583eb006417f
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+
+  for (let r = 0; r < n; r++) {
+    const hashes = r + 1;
+    const spaces = n - hashes;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write(" ");
+    }
+    for (let ha = 0; ha < hashes; ha++) {
+      process.stdout.write("#");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Star Pyramid
+// Link: https://course.acciojob.com/idle?question=e9e6daa1-9972-4e6c-a285-7a3e084a56b9
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+
+  for (let r = 0; r < n; r++) {
+    const starSpaces = r + 1;
+    const spaces = n - starSpaces;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write(" ");
+    }
+    for (let starsp = 0; starsp < starSpaces; starsp++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Print Number Pattern 2
+// Link: https://course.acciojob.com/idle?question=8e5ac095-1d55-41cc-aaa7-75f2c24f953a
+rl.on("line", (n) => {
+  // your code here
+  for (let r = 0; r < n; r++) {
+    let num = r + 1;
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(String(num));
+      num--;
+    }
+    console.log();
+  }
+
+  rl.close();
+});
+
+// Print Character Pattern
+// Link: https://course.acciojob.com/idle?question=687fa3e9-43fd-4000-8e0d-71330c8742e1
+readline.question("", (n) => {
+  // Write your code here
+  for (let r = 0; r < n; r++) {
+    const alph = String.fromCharCode(65 + r);
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(alph);
+    }
+    console.log();
+  }
+  readline.close();
+});
+
+// Armstrong Numbers in Range
+// Link: https://course.acciojob.com/idle?question=620db89b-bcf4-4913-be13-64da3b4ddbeb
+readline.question("", (line) => {
+  let [m, n] = line.split(" ").map(Number);
+
+  // Write the code here
+  for (let num = m; num <= n; num++) {
+    // 1. Find no.of digits
+    let cnt = 0;
+    let temp = num;
+    while (temp != 0) {
+      temp = parseInt(temp / 10);
+      cnt++;
+    }
+
+    // 2. Find sum of (digit) ^ numDigits
+    let sum = 0;
+    temp = num;
+    while (temp != 0) {
+      const lastDigit = temp % 10;
+      temp = parseInt(temp / 10);
+      sum += lastDigit ** cnt;
+    }
+
+    // 3. check armstrong
+    if (sum == num) {
+      console.log(num);
+    }
+  }
+
+  readline.close();
+});
+
+// HCF of two Numbers
+// Link: https://course.acciojob.com/idle?question=81da7d29-0653-423e-a44a-f96fc14eb8fc
+rl.on("line", (input) => {
+  const [a, b] = input.split(" ").map(Number);
+  // your code here
+  for (let num = Math.min(a, b); num > 0; num--) {
+    if (a % num == 0 && b % num == 0) {
+      console.log(num);
+      break;
+    }
+  }
+});
