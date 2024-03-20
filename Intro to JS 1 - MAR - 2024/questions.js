@@ -550,3 +550,128 @@ rl.on("line", (input) => {
     }
   }
 });
+
+// Function Problem 1
+// Link: https://course.acciojob.com/idle?question=922be2a0-a552-456c-9f9e-5c41b514d200
+function fun() {
+  // write code here
+  console.log("I am another function");
+}
+
+fun();
+
+// Function Problem 2
+// Link: https://course.acciojob.com/idle?question=b27b4039-2b8b-4834-9a6b-f8622057be7a
+function fun(n, m) {
+  // write code here
+  console.log(n + m);
+}
+
+// Function Problem 3
+// Link: https://course.acciojob.com/idle?question=922be2a0-a552-456c-9f9e-5c41b514d200
+function fun(n) {
+  // write code here
+  for (let i = 0; i < 5; i++) {
+    n++;
+  }
+  return n;
+}
+
+// Calculate nCr
+// Link: https://course.acciojob.com/idle?question=869a6e7b-e104-45df-b2b0-28a803fecc43
+function factorial(num) {
+  let fact = 1;
+  for (let i = 1; i <= num; i++) {
+    fact = fact * i;
+  }
+  return fact;
+}
+
+function calculate_nCr(n, r) {
+  // write code here
+  const nFact = factorial(n);
+  let rFact = factorial(r);
+  let nrFact = factorial(n - r);
+
+  const nCr = nFact / (rFact * nrFact);
+  return nCr;
+}
+
+// Frequency of digit
+// Link: https://course.acciojob.com/idle?question=e2214e07-d190-4c58-8287-52e6b136e293
+function frequencyOfDigit(n, d) {
+  // Write your code here
+  let cnt = 0;
+  while (n != 0) {
+    const lastDigit = n % 10;
+    n = parseInt(n / 10);
+    if (lastDigit == d) {
+      cnt++;
+    }
+  }
+
+  return cnt;
+}
+
+// Place Value Checker
+// Link: https://course.acciojob.com/idle?question=7412f7e1-3017-44fa-83a9-00b9c0781986
+function determineSecondLastDigit(n) {
+  // write code here
+  n = parseInt(n / 10);
+  const secondLast = n % 10;
+  return secondLast == 0;
+}
+
+// Binary To Decimal
+// Link: https://course.acciojob.com/idle?question=f89c75c7-084a-4472-b293-43736a2f34ab
+function binToDec(s) {
+  //Write code here
+  return parseInt(s, 2);
+}
+
+// Diamond Pattern
+// Link: https://course.acciojob.com/idle?question=ba892dad-d841-4f88-9d20-8f7c633f8b6b
+function pyramid(rows) {
+  for (let r = 0; r < rows - 1; r++) {
+    const spaces = rows - r - 1;
+    const stars = 2 * r + 1;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write("  ");
+    }
+    for (let st = 0; st < stars; st++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+}
+
+function invPyramid(rows) {
+  for (let r = rows - 1; r >= 0; r--) {
+    const spaces = rows - r - 1;
+    const stars = 2 * r + 1;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write("  ");
+    }
+    for (let st = 0; st < stars; st++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+}
+
+rl.on("line", (line) => {
+  input.push(line);
+}).on("close", () => {
+  let t = Number(input[0]);
+  let index = 1;
+
+  while (t > 0) {
+    let n = Number(input[index]);
+    // Write your code here
+    pyramid(parseInt(n / 2) + 1);
+    invPyramid(parseInt(n / 2) + 1);
+
+    t--;
+    index++;
+  }
+});

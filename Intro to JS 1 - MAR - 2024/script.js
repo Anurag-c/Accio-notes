@@ -484,7 +484,6 @@ while (num <= 5) {
   console.log(`Level ${num}`);
   num++;
 }
-*/
 
 // process.stdout.write
 const n = 3;
@@ -495,3 +494,57 @@ console.log();
 for (let i = 0; i < n; i++) {
   console.log("*");
 }
+
+
+function logger() {
+  console.log("Hi I am Anurag");
+  console.log("I work at AccioJob");
+  console.log("I love teaching");
+}
+
+logger();
+
+//// assume 100 lines code
+console.log(".....100 lines.....");
+
+logger();
+
+/// assume 1000 lines code
+console.log(".....1000 lines");
+
+logger();
+
+
+// How to pass parameters
+function add(a, b) {
+  const c = a + b;
+  console.log(c);
+}
+
+add(12, 13);
+add(21, 32);
+add(10, 20);
+*/
+
+function addNew(a, b) {
+  const c = a + b;
+  return c;
+}
+
+function multiply(a, b) {
+  const c = a * b;
+  return c;
+}
+
+const p = 10;
+const q = 20;
+const r = 30;
+const s = 40;
+
+// (p + q) * (r + s)
+// op1 * op2
+const op1 = addNew(p, q);
+const op2 = addNew(r, s);
+const ans = multiply(op1, op2);
+console.log(ans);
+// console.log(multiply(op1, op2))
