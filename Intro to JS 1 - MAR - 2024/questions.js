@@ -675,3 +675,45 @@ rl.on("line", (line) => {
     index++;
   }
 });
+
+// Palindrome Checker
+// Link: https://course.acciojob.com/idle?question=340d0f67-3062-487f-ac95-adcb744c410c
+function reverse(num) {
+  let rev = 0;
+  while (num != 0) {
+    const lastDigit = num % 10;
+    num = parseInt(num / 10);
+    rev = rev * 10 + lastDigit;
+  }
+
+  return rev;
+}
+
+readline.question("", (n) => {
+  //Write your code here and print the required output
+  if (reverse(n) == n) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+
+  readline.close();
+});
+
+// Print Continuous Character Pattern
+// Link: https://course.acciojob.com/idle?question=d3216ae1-5d6c-42da-b63d-2d6166dc78ef
+readline.question("", (n) => {
+  readline.close();
+  // write code here
+  for (let r = 0; r < n; r++) {
+    let ascii = 65 + r;
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(String.fromCharCode(ascii));
+      ascii++;
+      if (ascii == 91) {
+        ascii = 65; // reset back to A
+      }
+    }
+    console.log();
+  }
+});

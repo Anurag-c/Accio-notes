@@ -524,7 +524,6 @@ function add(a, b) {
 add(12, 13);
 add(21, 32);
 add(10, 20);
-*/
 
 function addNew(a, b) {
   const c = a + b;
@@ -548,3 +547,120 @@ const op2 = addNew(r, s);
 const ans = multiply(op1, op2);
 console.log(ans);
 // console.log(multiply(op1, op2))
+
+const firstName = "Anurag";
+
+function second() {
+  let c = 2;
+  return c;
+}
+
+function first() {
+  let a = 1;
+  const b = second();
+  a = a + b;
+  return a;
+}
+
+const x = first();
+console.log(x);
+
+
+const a = 5;
+let firstName = "Anurag";
+const year = 2023;
+
+function test() {
+  console.log("Inside test func", a, firstName, year);
+}
+
+test();
+console.log("outside test func", a, firstName, year);
+
+function second() {
+  console.log(a);
+  let c = 2;
+  return c;
+}
+
+function first() {
+  const a = 2;
+  const b = second();
+  console.log(c);
+  a = a + b;
+  return a;
+}
+
+const x = first();
+console.log(x);
+
+
+const birthYear = 1988;
+if (1981 <= birthYear && birthYear <= 1990) {
+  const oldGen = true;
+}
+console.log(oldGen);
+
+
+const birthYear = 1988;
+if (1981 <= birthYear && birthYear <= 1990) {
+  var oldGen = true;
+}
+console.log(oldGen);
+
+function test() {
+  var firstName = "anurag";
+}
+
+test();
+console.log(first);
+
+test();
+demo();
+console.log(currYear);
+console.log(example);
+
+function test() {
+  console.log("Hi, How are you ?");
+}
+
+function demo() {
+  console.log("I am a demo function");
+}
+
+var currYear = 2024;
+let example = "some random test";
+
+y = 3;
+console.log(y);
+let y = 100; // const y = 100; // var y = 100;
+console.log(y);
+
+function example() {
+  console.log(a);
+}
+
+console.log(a);
+var a = 1;
+example();
+
+
+function first() {
+  console.log(1);
+}
+
+first();
+
+function first() {
+  console.log(2);
+}
+
+first();
+*/
+
+var test = 100;
+console.log(test);
+function test() {
+  console.log("Inside function test");
+}
+console.log(test);
