@@ -656,7 +656,6 @@ function first() {
 }
 
 first();
-*/
 
 var test = 100;
 console.log(test);
@@ -664,3 +663,93 @@ function test() {
   console.log("Inside function test");
 }
 console.log(test);
+
+const friend1 = "IronMan";
+const friend2 = "SpiderMan";
+const friend3 = "JavaScript";
+const friend4 = "Hulk";
+
+console.log(friend1, friend2, friend3, friend4);
+
+// How to create an array
+const friends = ["IronMan", "SpiderMan", "JavaScript", "Hulk"];
+console.log(friends);
+
+// How to access the array elements
+console.log(friends[0]);
+console.log(friends[1]);
+console.log(friends[2]);
+console.log(friends[3]);
+// accessing out of bounds index
+// (It is not a good way to access these, please refrain from it)
+console.log(friends[4]); // undefined
+
+// Find no.of elements
+console.log(friends.length);
+
+// print last element
+const n = friends.length;
+console.log(friends[n - 1]);
+
+// print every element in a new line
+for (let i = 0; i < n; i++) {
+  console.log(friends[i]);
+}
+
+// How to change an element in the array ?
+friends[2] = "BatMan";
+console.log(friends);
+
+// Add new elements to the array
+friends.push("JavaScript");
+console.log(friends);
+
+// How to remove last element
+friends.pop();
+console.log(friends);
+
+// You can store any type of data in array
+const firstName = "Anurag";
+const age = 23;
+const job = "Teacher";
+
+const myArr = [firstName, age, job, friends];
+console.log(myArr);
+console.log(myArr[0]);
+console.log(myArr[1]);
+console.log(myArr[2]);
+console.log(myArr[3]);
+
+// given myArr, find the number of friends ?
+// we need to find the length of friends
+console.log(myArr[3].length);
+
+// given myArr, print the best friend,
+// if friends are ordered from best to worst ?
+console.log(myArr[3][0]);
+
+// given myArr, print 2nd indexed friend
+console.log(myArr[3][2]);
+
+// given myArr, print last indexed friend
+const lastIdx = myArr[3].length - 1;
+console.log(myArr[3][lastIdx]);
+*/
+
+// How to generate any 2 elements
+const arr = [16, 24, 89, 35];
+const n = arr.length;
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    console.log(i, j, arr[i], arr[j]);
+  }
+}
+
+console.log("3 element pairs");
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    for (let k = j + 1; k < n; k++) {
+      console.log(i, j, k, arr[i], arr[j], arr[k]);
+    }
+  }
+}

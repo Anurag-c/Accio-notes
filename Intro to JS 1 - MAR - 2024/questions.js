@@ -717,3 +717,98 @@ readline.question("", (n) => {
     console.log();
   }
 });
+
+// Array Problem 1
+// Link: https://course.acciojob.com/idle?question=203c6532-1438-4d70-8854-94f35fe1b0ba
+function ArrayProblem1(n, arr) {
+  // Write code here
+  let maxEle = -Infinity;
+  let maxEleIdx = -1;
+
+  for (let i = 0; i < n; i++) {
+    // If your element is greater than my element, i will update my element
+    if (arr[i] > maxEle) {
+      maxEle = arr[i];
+      maxEleIdx = i;
+    }
+  }
+
+  return maxEleIdx;
+}
+
+// Array Operations
+// Link: https://course.acciojob.com/idle?question=c2985a2b-5ee0-4569-a77b-7459b1efd8d7
+function arrayOperations(arr, n) {
+  // Write your code here
+  let maxEle = -Infinity;
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += arr[i];
+
+    // If your element is greater than my element, i will update my element
+    if (arr[i] > maxEle) {
+      maxEle = arr[i];
+    }
+  }
+
+  const average = Math.floor(sum / n);
+  console.log(sum, average, maxEle);
+}
+
+// Array Problem 5
+// Link: https://course.acciojob.com/idle?question=f98feeb1-40eb-4b6f-a600-067714166864
+function ArrayProblem(arr, k) {
+  // Write code here
+  const n = arr.length;
+  let cnt = 0;
+
+  for (let i = 0; i < n - 1; i++) {
+    if (arr[i] + arr[i + 1] == k) {
+      cnt++;
+    }
+  }
+
+  return cnt;
+}
+
+// Maximum difference between two elements in an Array
+// Link: https://course.acciojob.com/idle?question=b5a0f4ca-7b5e-4fee-9487-3ca52a582741
+function ArrayProblem(arr) {
+  // Write your code here
+  const n = arr.length;
+  let maxDiff = -Infinity;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      const diff = Math.abs(arr[i] - arr[j]);
+      if (diff > maxDiff) {
+        maxDiff = diff;
+      }
+      // maxDiff = Math.max(diff, maxDiff);
+    }
+  }
+
+  console.log(maxDiff);
+}
+
+// Efficient way
+
+// Optimus Prime
+// Link: https://course.acciojob.com/idle?question=c77a4030-9552-4f23-b348-f2fdc22c330a
+function isPrime(num) {
+  for (let i = 2; i < num; i++) {
+    if (num % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+rl.on("line", (n) => {
+  // Your code here
+  for (let num = 2; num <= n; num++) {
+    if (isPrime(num)) {
+      console.log(num);
+    }
+  }
+});
