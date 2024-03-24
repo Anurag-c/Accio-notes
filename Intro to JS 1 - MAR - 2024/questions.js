@@ -812,3 +812,83 @@ rl.on("line", (n) => {
     }
   }
 });
+
+// 2nd Largest from array
+// Link: https://course.acciojob.com/idle?question=d5b5b101-0636-4654-bd4d-bfecce8e5d00
+function SecondLargest(arr, n) {
+  // Write code here
+  let firstMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > firstMax) {
+      firstMax = arr[i];
+    }
+  }
+
+  let secondMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] != firstMax && arr[i] > secondMax) {
+      secondMax = arr[i];
+    }
+  }
+
+  console.log(secondMax);
+}
+
+// follow-up qs: thirdMax
+function ThirdLargest(arr, n) {
+  // Write code here
+  let firstMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > firstMax) {
+      firstMax = arr[i];
+    }
+  }
+
+  let secondMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] != firstMax && arr[i] > secondMax) {
+      secondMax = arr[i];
+    }
+  }
+
+  let thirdMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] != firstMax && arr[i] != secondMax && arr[i] > thirdMax) {
+      thirdMax = arr[i];
+    }
+  }
+
+  console.log(thirdMax);
+}
+
+// Reverse an array
+// Link: https://course.acciojob.com/idle?question=944dba4b-f895-44af-8ec1-7445343e5713
+function reverseArray(arr, start, end) {
+  //Write code here
+  while (start <= end) {
+    // swap(arr[start], arr[end]);
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
+
+// Sum of Array Except Self
+// Link: https://course.acciojob.com/idle?question=3cf411ff-c59c-4202-ae5c-6b0292d31764
+function sumArrayExceptSelf(nums, n) {
+  // Write your code here
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += nums[i];
+  }
+
+  const ans = [];
+  for (let i = 0; i < n; i++) {
+    ans.push(sum - nums[i]);
+  }
+
+  return ans;
+}

@@ -734,7 +734,7 @@ console.log(myArr[3][2]);
 // given myArr, print last indexed friend
 const lastIdx = myArr[3].length - 1;
 console.log(myArr[3][lastIdx]);
-*/
+
 
 // How to generate any 2 elements
 const arr = [16, 24, 89, 35];
@@ -753,3 +753,48 @@ for (let i = 0; i < n; i++) {
     }
   }
 }
+
+function reverse(arr) {
+  const rev_arr = [];
+  const n = arr.length;
+
+  for (let i = n - 1; i >= 0; i--) {
+    rev_arr.push(arr[i]);
+  }
+
+  for (let i = 0; i < n; i++) {
+    arr[i] = rev_arr[i];
+  }
+}
+
+const arr = [10, 20, 30, 40, 50];
+reverse(arr);
+console.log(arr);
+
+let arr = [1, 3, 5, 7];
+console.log(arr);
+
+let brr = [0, 2, 4, 6];
+brr[2] = 30;
+
+brr = arr;
+arr[2] = 40;
+console.log(arr);
+
+
+function incrementNum(num) {
+  num++;
+}
+
+let num = 5;
+incrementNum(num);
+console.log(num);
+
+function incrementArr(arr) {
+  arr[0]++;
+}
+
+let brr = [1, 3, 5, 7];
+incrementArr(brr);
+console.log(brr);
+*/
