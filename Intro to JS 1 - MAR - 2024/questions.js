@@ -892,3 +892,96 @@ function sumArrayExceptSelf(nums, n) {
 
   return ans;
 }
+
+// Array Adding
+// Link: https://course.acciojob.com/idle?question=a426a64f-8962-4a98-9433-3200d900ad67
+function reverseArray(arr, start, end) {
+  //Write code here
+  while (start <= end) {
+    // swap(arr[start], arr[end]);
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
+
+function calSum(a, b, n, m) {
+  // Write your code here
+  let i = n - 1;
+  let j = m - 1;
+
+  const res = [];
+  let carry = 0;
+
+  while (i >= 0 || j >= 0) {
+    let sum = 0;
+    if (i >= 0) sum += a[i];
+    if (j >= 0) sum += b[j];
+    sum += carry;
+
+    res.push(sum % 10);
+    carry = parseInt(sum / 10);
+
+    i--;
+    j--;
+  }
+
+  // leftover carry
+  if (carry == 1) {
+    res.push(1);
+  }
+
+  res.reverse(); // Inbuilt reverse method for arrays
+  // reverseArray(res, 0, res.length - 1);
+
+  return res;
+}
+
+// Buildings
+// Link: https://course.acciojob.com/idle?question=a7bdae50-cbdd-4048-a3c3-be52504b9580
+function countVisibleRoofs(heights) {
+  // Write your code here
+  const n = heights.length;
+  let runningMax = -Infinity;
+  let cnt = 0;
+
+  for (let i = 0; i < n; i++) {
+    if (runningMax <= heights[i]) {
+      cnt++;
+    }
+    runningMax = Math.max(runningMax, heights[i]);
+  }
+
+  return cnt;
+}
+
+// Rotate array
+// Link: https://course.acciojob.com/idle?question=444d4b46-efef-467a-8833-e3fede7d22f0
+function reverseArray(arr, start, end) {
+  //Write code here
+  while (start <= end) {
+    // swap(arr[start], arr[end]);
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
+
+function rotateArray(arr, n, k) {
+  // Write code here
+  k = k % n;
+
+  reverseArray(arr, 0, n - 1);
+  reverseArray(arr, 0, n - k - 1);
+  reverseArray(arr, n - k, n - 1);
+
+  for (let i = 0; i < n; i++) {
+    process.stdout.write(arr[i] + " ");
+  }
+}
