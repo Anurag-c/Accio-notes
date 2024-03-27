@@ -797,4 +797,18 @@ function incrementArr(arr) {
 let brr = [1, 3, 5, 7];
 incrementArr(brr);
 console.log(brr);
+
+// How to generate subarrays
+const arr = [10, 20, 30, 40];
+const n = arr.length;
+
+for (let start = 0; start < n; start++) {
+  let subarr = "";
+  let sum = 0;
+  for (let end = start; end < n; end++) {
+    subarr += arr[end] + " ";
+    sum += arr[end];
+    console.log(start, end, subarr, sum);
+  }
+}
 */
