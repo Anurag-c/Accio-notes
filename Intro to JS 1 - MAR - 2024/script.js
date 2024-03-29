@@ -811,4 +811,64 @@ for (let start = 0; start < n; start++) {
     console.log(start, end, subarr, sum);
   }
 }
+
+
+const friends1 = ["abhay", "bhavesh", "devesh"];
+const friends2 = ["Ishan", "kanchan", "omkar", "jaisai"];
+const friends3 = ["Javascript", "C++"];
+
+const allFriends = [friends1, friends2, friends3];
+console.log(allFriends);
+console.log(allFriends[0]);
+console.log(allFriends[1]);
+console.log(allFriends[2]);
+
+function printMatrix(matrix) {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      process.stdout.write(matrix[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+function buildMatrix(rows, cols) {
+  const matrix = [];
+  for (let r = 0; r < rows; r++) {
+    // 1. make smaller array
+    const smallArr = [];
+    for (let c = 0; c < cols; c++) {
+      smallArr.push(c + 1);
+    }
+
+    // 2. add it to bigger array (matrix)
+    matrix.push(smallArr);
+  }
+
+  return matrix;
+}
+
+const matrix = buildMatrix(10, 10);
+printMatrix(matrix);
+
+// how to iterate on lower traingle
+const matrix = [
+  [1, 2, 3, 4, 5],
+  [1, 2, 3, 4, 5],
+  [1, 2, 3, 4, 5],
+  [1, 2, 3, 4, 5],
+  [1, 2, 3, 4, 5],
+];
+const rows = matrix.length;
+const cols = matrix[0].length;
+
+for (let r = 0; r < rows; r++) {
+  for (let c = 0; c <= r; c++) {
+    process.stdout.write(matrix[r][c] + " ");
+  }
+  console.log();
+}
 */

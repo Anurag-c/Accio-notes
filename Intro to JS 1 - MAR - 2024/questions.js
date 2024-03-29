@@ -1190,3 +1190,95 @@ function findSubtraction(a, n, b, m) {
 
   return res;
 }
+
+// Print Matrix Column Wise
+// Link: https://course.acciojob.com/idle?question=31900452-fb2e-45cd-93b0-fb4d6afbfac0
+function printMatrixColumnwise(mat, n, m) {
+  // Write code here and print output
+
+  // rows = n, cols = m;
+  for (let c = 0; c < m; c++) {
+    for (let r = 0; r < n; r++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+  }
+}
+
+// Alternate Manner Matrix Traversal
+// Link: https://course.acciojob.com/idle?question=191ba184-3c72-468a-83fe-5100d558f7eb
+function printElementsAlternately(mat, m, n) {
+  // M rows and N columns
+  for (let r = 0; r < m; r++) {
+    if (r % 2 == 0) {
+      for (let c = 0; c < n; c++) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    } else {
+      for (let c = n - 1; c >= 0; c--) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    }
+  }
+}
+
+// Transpose of Matrix
+// Link: https://course.acciojob.com/idle?question=57e7562d-b233-42ca-89f6-c10ad5cdf579
+function matrixTranspose(mat, n) {
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c <= r; c++) {
+      let temp = mat[r][c];
+      mat[r][c] = mat[c][r];
+      mat[c][r] = temp;
+    }
+  }
+
+  return mat;
+}
+
+// Matrix Multiplication
+// Link: https://course.acciojob.com/idle?question=da3dfaa3-541f-4b9b-a202-30b4fb01a835
+function printMultiplication(matrix1, matrix2, n) {
+  // Write your code here
+  const A = matrix1;
+  const B = matrix2;
+  const rowsA = n;
+  const colsA = n;
+  const rowsB = n;
+  const colsB = n;
+
+  // 1. check whether you can multiply
+  if (colsA != rowsB) {
+    return;
+  }
+
+  // 2. now you can multiply hence initialize a result matrix
+  const C = [];
+  const rowsC = rowsA;
+  const colsC = colsB;
+  for (let r = 0; r < rowsC; r++) {
+    const smallArr = [];
+    for (let c = 0; c < colsC; c++) {
+      smallArr.push(0);
+    }
+    C.push(smallArr);
+  }
+
+  // 3. multiplication phase (fill each empty box)
+  for (let r = 0; r < rowsC; r++) {
+    for (let c = 0; c < colsC; c++) {
+      // C[r][c] = sum(A[r][k] * B[k][c]);
+      // k < rowsB (because colsA == rowsB)
+      for (let k = 0; k < colsA; k++) {
+        C[r][c] += A[r][k] * B[k][c];
+      }
+    }
+  }
+
+  // 4. print the result
+  for (let r = 0; r < rowsC; r++) {
+    for (let c = 0; c < colsC; c++) {
+      process.stdout.write(C[r][c] + " ");
+    }
+    console.log();
+  }
+}
