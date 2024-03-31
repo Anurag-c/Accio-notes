@@ -1282,3 +1282,212 @@ function printMultiplication(matrix1, matrix2, n) {
     console.log();
   }
 }
+
+// Spirally traversing a matrix
+// Link: https://course.acciojob.com/idle?question=5f714d43-3f91-4c47-b41b-203207e63522
+function spirallyTraverse(mat) {
+  // Write your code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  let minR = 0;
+  let maxR = rows - 1;
+  let minC = 0;
+  let maxC = cols - 1;
+  let cnt = 0;
+  const totalEle = rows * cols;
+
+  while (cnt < totalEle) {
+    // 1. Top wall (minR, c = minC to maxC)
+    for (let c = minC; c <= maxC && cnt < totalEle; c++) {
+      process.stdout.write(mat[minR][c] + " ");
+      cnt++;
+    }
+    minR++;
+
+    // 2. Right wall (r = minR to maxR, maxC)
+    for (let r = minR; r <= maxR && cnt < totalEle; r++) {
+      process.stdout.write(mat[r][maxC] + " ");
+      cnt++;
+    }
+    maxC--;
+
+    // 3. Bottom wall (r = maxR, c = maxC to minC)
+    for (let c = maxC; c >= minC && cnt < totalEle; c--) {
+      process.stdout.write(mat[maxR][c] + " ");
+      cnt++;
+    }
+    maxR--;
+
+    // 4. Left wall (r = maxR to minR, minC)
+    for (let r = maxR; r >= minR && cnt < totalEle; r--) {
+      process.stdout.write(mat[r][minC] + " ");
+      cnt++;
+    }
+    minC++;
+  }
+}
+
+// you can also simply decrement totalEle instead of cnt variable
+function spirallyTraverse(mat) {
+  // Write your code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  let minR = 0;
+  let maxR = rows - 1;
+  let minC = 0;
+  let maxC = cols - 1;
+  let totalEle = rows * cols;
+
+  while (totalEle > 0) {
+    // 1. Top wall (minR, c = minC to maxC)
+    for (let c = minC; c <= maxC && totalEle > 0; c++) {
+      process.stdout.write(mat[minR][c] + " ");
+      totalEle--;
+    }
+    minR++;
+
+    // 2. Right wall (r = minR to maxR, maxC)
+    for (let r = minR; r <= maxR && totalEle > 0; r++) {
+      process.stdout.write(mat[r][maxC] + " ");
+      totalEle--;
+    }
+    maxC--;
+
+    // 3. Bottom wall (r = maxR, c = maxC to minC)
+    for (let c = maxC; c >= minC && totalEle > 0; c--) {
+      process.stdout.write(mat[maxR][c] + " ");
+      totalEle--;
+    }
+    maxR--;
+
+    // 4. Left wall (r = maxR to minR, minC)
+    for (let r = maxR; r >= minR && totalEle > 0; r--) {
+      process.stdout.write(mat[r][minC] + " ");
+      totalEle--;
+    }
+    minC++;
+  }
+}
+
+// Alt Matrix Sum
+// Link: https://course.acciojob.com/idle?question=04a591ba-305a-4bd7-a4b2-9a06ac187837
+function alternateMatrixSum(mat, n) {
+  let bsum = 0;
+  let wsum = 0;
+
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if ((r + c) % 2 == 0) {
+        bsum += mat[r][c];
+      } else {
+        wsum += mat[r][c];
+      }
+    }
+  }
+
+  console.log(bsum);
+  console.log(wsum);
+}
+
+// Diagonal Difference!
+// https://course.acciojob.com/idle?question=8a6cbf35-d128-459b-a7ba-9e269d2af40a
+function diagonalDifference(mat, n) {
+  // Write your code here
+  let diag = 0;
+  let adiag = 0;
+  for (let r = 0; r < n; r++) {
+    diag += mat[r][r];
+    adiag += mat[r][n - r - 1];
+  }
+
+  console.log(Math.abs(diag - adiag));
+}
+
+// Other way
+function diagonalDifference(mat, n) {
+  // Write your code here
+  let diag = 0;
+  let i = 0;
+  let j = 0;
+  while (i < n && j < n) {
+    diag += mat[i][j];
+    i++;
+    j++;
+  }
+
+  let adiag = 0;
+  i = 0;
+  j = n - 1;
+  while (i < n && j >= 0) {
+    adiag += mat[i][j];
+    i++;
+    j--;
+  }
+
+  console.log(Math.abs(diag - adiag));
+}
+
+// Sum of upper and lower triangles
+// Link: https://course.acciojob.com/idle?question=d39c3375-6cfe-47a6-9c75-9f0acf8ae916
+function triangleSums(n, matrix) {
+  // your code here
+  let lsum = 0;
+  let usum = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if (r >= c) {
+        lsum += matrix[r][c];
+      }
+      if (r <= c) {
+        usum += matrix[r][c];
+      }
+    }
+  }
+
+  console.log(usum, lsum);
+}
+
+// Toeplitz Matrix
+// https://course.acciojob.com/idle?question=fa4a91e3-218d-473b-8d33-65fb2af3e145
+function isToeplitzMatrix(matrix, m, n) {
+  // write code here
+  for (let r = 0; r < m; r++) {
+    for (let c = 0; c < n; c++) {
+      if (r + 1 < m && c + 1 < n && matrix[r][c] != matrix[r + 1][c + 1]) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+// Rotate a Matrix by 90 Degree
+// Link: https://course.acciojob.com/idle?question=c25f271e-74d5-47ef-9a0b-db0e9a12d6a1
+function matrixTranspose(mat, n) {
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c <= r; c++) {
+      let temp = mat[r][c];
+      mat[r][c] = mat[c][r];
+      mat[c][r] = temp;
+    }
+  }
+
+  return mat;
+}
+
+function rotateImage(matrix) {
+  // Question says N x N matrix
+  const n = matrix.length;
+  matrixTranspose(matrix, n);
+
+  for (let r = 0; r < n; r++) {
+    // reverse is inbulit array function in js
+    // you can also code reverse on your own as well
+    matrix[r].reverse();
+  }
+
+  return matrix;
+}
