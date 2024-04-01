@@ -1491,3 +1491,145 @@ function rotateImage(matrix) {
 
   return matrix;
 }
+
+// Find The Way
+// Link: https://course.acciojob.com/idle?question=60d37a31-7584-48eb-baad-ee073ffc7acf
+function findTheWay(matrix) {
+  //Write code here
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  let i = 0;
+  let j = 0;
+  let facing = 0;
+
+  while (true) {
+    // 1. if the cell is 1
+    if (matrix[i][j] == 1) {
+      matrix[i][j] = 0;
+      facing = (facing + 1) % 4;
+    }
+
+    // 2. move forward
+    if (facing == 0) {
+      j++;
+    } else if (facing == 1) {
+      i++;
+    } else if (facing == 2) {
+      j--;
+    } else if (facing == 3) {
+      i--;
+    }
+
+    // 3. check whether you are out and return lastbox
+    if (i == -1) {
+      return [0, j];
+    } else if (j == cols) {
+      return [i, cols - 1];
+    } else if (i == rows) {
+      return [rows - 1, j];
+    } else if (j == -1) {
+      return [i, 0];
+    }
+  }
+}
+
+// Maxima Minima
+// Link: https://course.acciojob.com/idle?question=834a5e9e-9b0c-45db-b0e1-375bafb999ea
+function findMaxCol(matrix, c) {
+  const rows = matrix.length;
+  let maxEle = -Infinity;
+  for (let r = 0; r < rows; r++) {
+    maxEle = Math.max(maxEle, matrix[r][c]);
+  }
+  return maxEle;
+}
+
+function findMinRow(matrix, r) {
+  const cols = matrix[0].length;
+  let minEle = Infinity;
+  for (let c = 0; c < cols; c++) {
+    minEle = Math.min(minEle, matrix[r][c]);
+  }
+  return minEle;
+}
+
+// please change taking input to
+// matrix.push(line.trim().split(' ').map(Number));
+function maximaMinima(matrix) {
+  //Write code here
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const minR = findMinRow(matrix, r);
+      const maxC = findMaxCol(matrix, c);
+      if (matrix[r][c] == minR && matrix[r][c] == maxC) {
+        return matrix[r][c];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// Optimal
+function maximaMinima(matrix) {
+  //Write code here
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  // 1. precomputation
+  const minRow = [];
+  for (let r = 0; r < rows; r++) {
+    const val = findMinRow(matrix, r);
+    minRow.push(val);
+  }
+
+  const maxCol = [];
+  for (let c = 0; c < cols; c++) {
+    const val = findMaxCol(matrix, c);
+    maxCol.push(val);
+  }
+
+  // 2. problem solution, utilize the precomputed results
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const minR = minRow[r];
+      const maxC = maxCol[c];
+      if (matrix[r][c] == minR && matrix[r][c] == maxC) {
+        return matrix[r][c];
+      }
+    }
+  }
+
+  return -1;
+}
+
+function diagonalTraversal(mat, n) {
+  // your code here
+  const res = [];
+
+  for (let c = n - 1; c >= 0; c--) {
+    let row = 0;
+    let col = c;
+    while (row < n && col < n) {
+      res.push(mat[row][col]);
+      row++;
+      col++;
+    }
+  }
+
+  for (let r = 1; r < n; r++) {
+    let row = r;
+    let col = 0;
+    while (row < n && col < n) {
+      res.push(mat[row][col]);
+      row++;
+      col++;
+    }
+  }
+
+  return res;
+}
