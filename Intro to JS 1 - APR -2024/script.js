@@ -206,4 +206,109 @@ console.log(22 < 22);
 console.log(22 <= 22);
 console.log(23 > 23);
 console.log(23 >= 23);
+
+
+///////////////////////////////////////////////////////
+
+// String to Number
+const birthYear = "2001";
+const birthYearNum = Number(birthYear);
+console.log(typeof birthYear, typeof birthYearNum);
+
+// find the year after 23 years ?
+console.log(birthYear + 23);
+console.log(birthYearNum + 23);
+console.log(Number("1234.45")); // 1234.45
+console.log(parseInt("1234.45")); // 1234
+console.log(Number("1234abcd")); // NaN
+console.log(parseInt("1234abcd")); // 1234
+console.log(parseInt("1x23edc5")); // 1
+console.log(typeof NaN); // number
+
+// Number to String
+const a = 23;
+const b = String(a);
+console.log(String(23), 23);
+console.log(a, b, typeof a, typeof b);
+
+// false
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(""));
+console.log(Boolean(NaN));
+
+// any other values will give true
+console.log(Boolean(123));
+console.log(Boolean("abcd"));
+
+console.log(String(true)); // "true"
+console.log(String(false)); // "false"
+console.log(Number(true)); // 1
+console.log(Number(false)); // 0
+
+// Type Coercion
+console.log("23" + 10 + 5);
+console.log(10 + 5 + "23");
+console.log(5 + "23" + 10);
+console.log("23" - "10" + 5);
+console.log("23" * 2);
+console.log(false - 12); // 0 - 12 = -12
+console.log(12 - true); // 12 - 1 = 11
+
+
+// If statement
+const age = 21;
+// const age = 16;
+console.log("before IF");
+if (age >= 18) {
+  console.log("I can get drivers license");
+}
+console.log("After IF");
+
+// If else statement
+// const age = 21;
+const age = 16;
+console.log("before If else");
+
+if (age >= 18) {
+  console.log("I can get driver's license");
+} else {
+  console.log("Sorry you cannot take driver's license");
+}
+
+console.log("After If else");
 */
+
+// Else if statement
+const day = "abcd";
+
+if (day == "monday") {
+  console.log("Plan course structure");
+} else if (day == "tuesday") {
+  console.log("Prepare for exams");
+} else if (day == "wednesday") {
+  console.log("Write examples for coding lectures");
+} else if (day == "thursday") {
+  console.log("Watch recordings");
+} else if (day == "friday") {
+  console.log("solve assignments");
+} else if (day == "saturday") {
+  console.log("Revise all notes");
+} else if (day == "sunday") {
+  console.log("attempt contest");
+} else {
+  console.log("Please enter a valid day");
+}
+
+// ternary operator
+const age = 18;
+if (age >= 21) {
+  console.log("Can drink alcohol");
+} else {
+  console.log("Cannot drink alcohol");
+}
+
+age >= 21
+  ? console.log("Can drink alcohol")
+  : console.log("Cannot drink alcohol");
