@@ -278,7 +278,6 @@ if (age >= 18) {
 }
 
 console.log("After If else");
-*/
 
 // Else if statement
 const day = "abcd";
@@ -312,3 +311,32 @@ if (age >= 21) {
 age >= 21
   ? console.log("Can drink alcohol")
   : console.log("Cannot drink alcohol");
+*/
+
+// logical operators
+const age = 16;
+const A = age >= 20;
+const B = age < 30;
+
+// 1) NOT(!) A
+console.log(!A);
+// 2) A and(&&) B
+console.log(A && B);
+// 3) A or(||) B
+console.log(A || B);
+// 4) (NOT A) and B
+console.log(!A && B);
+// 5) A OR (NOT B)
+console.log(A || !B);
+
+// ASCII to Character
+console.log(String.fromCharCode(97));
+console.log(String.fromCharCode(45));
+
+// Character to ASCII
+console.log("A".charCodeAt(0));
+console.log("Z".charCodeAt(0));
+console.log("a".charCodeAt(0));
+console.log("z".charCodeAt(0));
+console.log("-".charCodeAt(0));
+console.log("1".charCodeAt(0));
