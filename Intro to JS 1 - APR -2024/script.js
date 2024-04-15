@@ -311,7 +311,7 @@ if (age >= 21) {
 age >= 21
   ? console.log("Can drink alcohol")
   : console.log("Cannot drink alcohol");
-*/
+
 
 // logical operators
 const age = 16;
@@ -340,3 +340,49 @@ console.log("a".charCodeAt(0));
 console.log("z".charCodeAt(0));
 console.log("-".charCodeAt(0));
 console.log("1".charCodeAt(0));
+
+
+// For loop
+console.log("Level 1");
+console.log("Level 2");
+console.log("Level 3");
+console.log("Level 4");
+console.log("Level 5");
+
+for (let num = 1; num <= 10; num++) {
+  console.log(`Level ${num}`);
+}
+
+console.log("Level 5");
+console.log("Level 4");
+console.log("Level 3");
+console.log("Level 2");
+console.log("Level 1");
+
+for (let num = 10; num > 0; num--) {
+  console.log(`Level ${num}`);
+}
+
+// break
+for (let num = 1; num <= 5; num++) {
+  if (num == 3) {
+    console.log("Sorry you cannot proceed to next level");
+    break;
+  }
+
+  console.log(`Level ${num}`);
+}
+console.log("outside for loop");
+
+// continue
+for (let num = 1; num <= 5; num++) {
+  if (num == 3) {
+    console.log("You can skip this level");
+    continue;
+  }
+
+  console.log(`Level ${num}`);
+}
+
+console.log("outside for loop");
+*/

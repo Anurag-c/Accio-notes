@@ -265,3 +265,155 @@ rl.on("line", (input) => {
     }
   }
 });
+
+// Which angled triangle
+// Link: https://course.acciojob.com/idle?question=165c71bd-af5e-45bb-acc5-48180c164f97
+rl.on("line", (sides) => {
+  let [a, b, c] = sides.split(" ");
+  a = parseInt(a);
+  b = parseInt(b);
+  c = parseInt(c);
+
+  // Write your code here
+  /*
+  let largest;
+  if (a >= b && a >= c) {
+    largest = a;
+  } else if (b >= a && b >= c) {
+    largest = b;
+  } else if (c >= a && c >= b) {
+    largest = c;
+  }
+  */
+
+  const largest = Math.max(a, b, c);
+  const LHS = 2 * largest ** 2;
+  const RHS = a ** 2 + b ** 2 + c ** 2;
+
+  if (LHS < RHS) {
+    console.log(1);
+  } else if (LHS > RHS) {
+    console.log(3);
+  } else {
+    console.log(2);
+  }
+
+  rl.close();
+});
+
+// Sum of Natural Numbers
+// Link: https://course.acciojob.com/idle?question=75a292e5-d69d-44a0-a74d-366c7c3c5e95
+rl.on("line", (N) => {
+  // write your code here
+  N = Number(N);
+
+  let sum = 0;
+  for (let num = 1; num <= N; num++) {
+    sum += num;
+  }
+  console.log(sum);
+  rl.close();
+});
+
+// simple / efficient
+rl.on("line", (N) => {
+  // write your code here
+  N = Number(N);
+  const sum = (N * (N + 1)) / 2;
+  console.log(sum);
+  rl.close();
+});
+
+// Even Sum
+// Link: https://course.acciojob.com/idle?question=c6e3351d-7e24-4eea-b683-ba262959fa84
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+  let sum = 0;
+  for (let num = 2; num <= n; num += 2) {
+    sum += num; // sum = sum + num;
+  }
+  console.log(sum);
+
+  readline.close();
+});
+
+// Iterate over all numbers until n and consider only even numbers out of them
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+  let sum = 0;
+  for (let num = 1; num <= n; num++) {
+    if (num % 2 == 0) {
+      sum += num; // sum = sum + num;
+    }
+  }
+  console.log(sum);
+
+  readline.close();
+});
+
+// simple / efficient
+readline.question("", (n) => {
+  n = parseInt(n);
+  // Write your code here
+  if (n % 2 == 1) {
+    n = n - 1;
+  }
+
+  const sum = (n * (n + 2)) / 4;
+  console.log(sum);
+
+  readline.close();
+});
+
+// Check Prime
+// Link: https://course.acciojob.com/idle?question=03d33e77-b47d-43ee-a075-e46ff509b0a6
+readline.question("", (n) => {
+  // your code here
+  n = Number(n);
+  let flag = true; // guessing that n is a prime
+
+  // try to prove that n is not a prime
+  for (let num = 2; num < n; num++) {
+    if (n % num == 0) {
+      flag = false;
+      break;
+    }
+  }
+
+  if (flag) {
+    console.log(`${n} is a prime number`);
+  } else {
+    console.log(`${n} is not a prime number`);
+  }
+
+  readline.close();
+});
+
+// HCF of two Numbers
+// Link: https://course.acciojob.com/idle?question=81da7d29-0653-423e-a44a-f96fc14eb8fc
+rl.on("line", (input) => {
+  const [a, b] = input.split(" ").map(Number);
+  // your code here
+  let ans = 1;
+  for (let num = 1; num <= Math.min(a, b); num++) {
+    if (a % num == 0 && b % num == 0) {
+      ans = num;
+    }
+  }
+
+  console.log(ans);
+});
+
+// iterate from back
+rl.on("line", (input) => {
+  const [a, b] = input.split(" ").map(Number);
+  // your code here
+  for (let num = Math.min(a, b); num >= 1; num--) {
+    if (a % num == 0 && b % num == 0) {
+      console.log(num);
+      break;
+    }
+  }
+});
