@@ -417,3 +417,82 @@ rl.on("line", (input) => {
     }
   }
 });
+
+// Factorial with loop
+// Link: https://course.acciojob.com/idle?question=a93bddb1-78e4-4ad6-a018-275668ecc3e4
+readline.question("", (n) => {
+  readline.close();
+  // Write your code here
+
+  let prod = 1;
+  for (let num = 1; num <= n; num++) {
+    prod = prod * num; // prod *= num;
+  }
+
+  console.log(prod);
+});
+
+// Power of a Number
+// Link: https://course.acciojob.com/idle?question=0f925a63-cce8-449c-983d-bfc2bacada93
+rl.on("line", (line) => {
+  const [a, b] = line.split(" ").map(Number);
+  // write code here
+  // console.log(a ** b);
+
+  let prod = 1;
+  for (let i = 0; i < b; i++) {
+    prod = prod * a;
+  }
+  console.log(prod);
+});
+
+// Sum of digits
+// Link: https://course.acciojob.com/idle?question=16ae2277-0d38-4eba-9a84-d4326ea2da2e
+function SumofDigits(n) {
+  let sum = 0;
+  while (n != 0) {
+    // 1. extract last digit
+    const lastDigit = n % 10;
+
+    // 2. remove last digit
+    n = parseInt(n / 10);
+
+    // 3. calculation
+    sum += lastDigit;
+  }
+
+  return sum; // console.log(sum);
+}
+
+// Reverse digits of a Number
+// Link: https://course.acciojob.com/idle?question=817d51d8-e009-4322-8e51-257b76455a4c
+readline.question("", (n) => {
+  //Write your code here
+  let rev = 0;
+  while (n != 0) {
+    const lastDigit = n % 10;
+    n = parseInt(n / 10);
+    rev = rev * 10 + lastDigit;
+  }
+
+  console.log(rev);
+
+  readline.close();
+});
+
+// N stars
+// Link: https://course.acciojob.com/idle?question=24eb1955-7e70-45d9-8ce8-f9d9a8268aca
+readline.question("", (n) => {
+  // Write your code here
+  for (let i = 0; i < n; i++) {
+    process.stdout.write("* ");
+  }
+
+  console.log();
+
+  for (let i = 0; i < n; i++) {
+    console.log("*");
+  }
+
+  readline.close();
+});

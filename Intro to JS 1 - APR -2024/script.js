@@ -385,4 +385,34 @@ for (let num = 1; num <= 5; num++) {
 }
 
 console.log("outside for loop");
+
+
+// while loop
+let num = 1;
+
+while (num <= 5) {
+  console.log(`Level ${num}`);
+  num++;
+}
 */
+
+/*
+// Infinite loops
+while (num <= 5) {
+  console.log(`Level ${num}`);
+  continue;
+  num++;
+}
+
+while (num <= 5) {
+  console.log(`Level ${num}`);
+}
+*/
+
+for (let i = 0; i < 3; i++) {
+  process.stdout.write("* ");
+}
+console.log();
+for (let i = 0; i < 3; i++) {
+  console.log("*");
+}
