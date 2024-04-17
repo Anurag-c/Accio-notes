@@ -256,7 +256,6 @@ console.log("23" * 2);
 console.log(false - 12); // 0 - 12 = -12
 console.log(12 - true); // 12 - 1 = 11
 
-
 // If statement
 const age = 21;
 // const age = 16;
@@ -312,6 +311,7 @@ age >= 21
   ? console.log("Can drink alcohol")
   : console.log("Cannot drink alcohol");
 
+//////////////////////////////////////////////////////////////
 
 // logical operators
 const age = 16;
@@ -341,6 +341,7 @@ console.log("z".charCodeAt(0));
 console.log("-".charCodeAt(0));
 console.log("1".charCodeAt(0));
 
+///////////////////////////////////////////////////////////////////
 
 // For loop
 console.log("Level 1");
@@ -386,6 +387,7 @@ for (let num = 1; num <= 5; num++) {
 
 console.log("outside for loop");
 
+/////////////////////////////////////////////////////////////////////
 
 // while loop
 let num = 1;
@@ -407,8 +409,8 @@ while (num <= 5) {
 while (num <= 5) {
   console.log(`Level ${num}`);
 }
-*/
 
+// psw
 for (let i = 0; i < 3; i++) {
   process.stdout.write("* ");
 }
@@ -416,3 +418,4 @@ console.log();
 for (let i = 0; i < 3; i++) {
   console.log("*");
 }
+*/

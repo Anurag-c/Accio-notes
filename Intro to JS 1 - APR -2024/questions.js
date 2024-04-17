@@ -496,3 +496,176 @@ readline.question("", (n) => {
 
   readline.close();
 });
+
+// Palindrome number
+// Link: https://course.acciojob.com/idle?question=340d0f67-3062-487f-ac95-adcb744c410c
+readline.question("", (n) => {
+  //Write your code here and print the required output
+
+  // original number gets lost hence store in a separate variable
+  let rev = 0;
+  let temp = n;
+  while (temp != 0) {
+    const lastDigit = temp % 10;
+    temp = parseInt(temp / 10);
+    rev = rev * 10 + lastDigit;
+  }
+
+  if (n == rev) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+
+  readline.close();
+});
+
+// Right Angle Triangle Stars
+// Link: https://course.acciojob.com/idle?question=a148f7c8-e47f-45a9-bd72-8808f823ead1
+readline.question("", (n) => {
+  //Write your code here
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write("*");
+    }
+    console.log();
+  }
+
+  readline.close();
+});
+
+// Staircase
+// Link: https://course.acciojob.com/idle?question=ac6a801c-d206-4945-9e19-583eb006417f
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+  for (let r = 0; r < n; r++) {
+    const hashes = r + 1;
+    const spaces = n - hashes;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write(" ");
+    }
+
+    for (let ha = 0; ha < hashes; ha++) {
+      process.stdout.write("#");
+    }
+
+    console.log();
+  }
+  readline.close();
+});
+
+// Star Pyramid
+// Link: https://course.acciojob.com/idle?question=e9e6daa1-9972-4e6c-a285-7a3e084a56b9
+readline.question("", (n) => {
+  n = parseInt(n);
+  //write code here
+  for (let r = 0; r < n; r++) {
+    const starSpaces = r + 1;
+    const spaces = n - starSpaces;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write(" ");
+    }
+
+    for (let starsp = 0; starsp < starSpaces; starsp++) {
+      process.stdout.write("* ");
+    }
+
+    console.log();
+  }
+  readline.close();
+});
+
+// Print Number Pattern 2
+// Link: https://course.acciojob.com/idle?question=8e5ac095-1d55-41cc-aaa7-75f2c24f953a
+rl.on("line", (n) => {
+  // your code here
+  for (let r = 0; r < n; r++) {
+    let start = r + 1;
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(String(start));
+      start--;
+    }
+    console.log();
+  }
+
+  rl.close();
+});
+
+// Print Character Pattern
+// Link: https://course.acciojob.com/idle?question=687fa3e9-43fd-4000-8e0d-71330c8742e1
+// Method 1
+readline.question("", (n) => {
+  // Write your code here
+  let ch = "A";
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(ch);
+    }
+    console.log();
+    // ch++;
+    const ascii = ch.charCodeAt(0);
+    ch = String.fromCharCode(ascii + 1);
+  }
+  readline.close();
+});
+
+// Method 2
+readline.question("", (n) => {
+  // Write your code here
+  let ascii = 65;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(String.fromCharCode(ascii));
+    }
+    console.log();
+    ascii++;
+  }
+  readline.close();
+});
+
+// Method 3
+readline.question("", (n) => {
+  // Write your code here
+  for (let r = 0; r < n; r++) {
+    const ascii = 65 + r;
+    for (let c = 0; c < r + 1; c++) {
+      process.stdout.write(String.fromCharCode(ascii));
+    }
+    console.log();
+  }
+  readline.close();
+});
+
+// Armstrong numbers in range
+// Link: https://course.acciojob.com/idle?question=620db89b-bcf4-4913-be13-64da3b4ddbeb
+readline.question("", (line) => {
+  let [m, n] = line.split(" ").map(Number);
+
+  // Write the code here
+  for (let num = m; num <= n; num++) {
+    // 1. Find no.of digits
+    let temp = num;
+    let cnt = 0;
+    while (temp != 0) {
+      temp = parseInt(temp / 10);
+      cnt++;
+    }
+
+    // 2. sum of (digit ^ numDigits)
+    temp = num;
+    let sum = 0;
+    while (temp != 0) {
+      const lastDigit = temp % 10;
+      temp = parseInt(temp / 10);
+      sum += lastDigit ** cnt;
+    }
+
+    // 3. If armstrong print that number
+    if (sum == num) {
+      console.log(num);
+    }
+  }
+
+  readline.close();
+});
