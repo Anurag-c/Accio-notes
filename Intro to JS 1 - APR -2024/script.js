@@ -418,4 +418,47 @@ console.log();
 for (let i = 0; i < 3; i++) {
   console.log("*");
 }
+
+
+function printer() {
+  console.log("Hi I am Anurag");
+  console.log("I work at AccioJob");
+  console.log("I love teaching");
+}
+
+console.log(printer);
+console.log(typeof printer);
+printer();
+
+// passing parameters to a function
+function add(a, b) {
+  console.log(a + b);
+}
+
+add(2, 3);
+add(10, 20);
+add(100, 150);
+
+
+// returning results from a function
+function addNew(a, b) {
+  const c = a + b;
+  return c;
+}
+
+const res = addNew(10, 20);
+console.log(res);
+
+addNew(100, 150);
+
+function printer() {
+  console.log("Hi I am Anurag");
+  return;
+  console.log("I work at AccioJob");
+  console.log("I love teaching");
+}
+
+const ans = printer();
 */
+
+diamond(11);

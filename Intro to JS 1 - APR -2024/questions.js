@@ -669,3 +669,214 @@ readline.question("", (line) => {
 
   readline.close();
 });
+
+// Function Problem 1
+// Link: https://course.acciojob.com/idle?question=13a54748-3053-4959-a051-b14a4634770c
+function fun() {
+  // write code here
+  console.log("I am another function");
+}
+
+fun();
+
+// Fuction Problem 2
+// Link: https://course.acciojob.com/idle?question=b27b4039-2b8b-4834-9a6b-f8622057be7a
+function fun(n, m) {
+  // write code here
+  console.log(n + m);
+}
+
+// Function Problem 3
+// Link: https://course.acciojob.com/idle?question=922be2a0-a552-456c-9f9e-5c41b514d200
+function fun(n) {
+  // write code here
+  for (let i = 0; i < 5; i++) {
+    n++;
+  }
+
+  return n;
+}
+
+// Super Hero
+// Link: https://course.acciojob.com/idle?question=4b50de0b-5e1c-4477-8a34-82fa7d292044
+function ModifyName(name) {
+  // write code here
+  return `${name} is a Super Hero`;
+}
+
+// Calculate nCr
+// Link: https://course.acciojob.com/idle?question=869a6e7b-e104-45df-b2b0-28a803fecc43
+// DRY not followed
+function calculate_nCr(n, r) {
+  // write code here
+  let nFact = 1;
+  for (let i = 1; i <= n; i++) {
+    nFact = nFact * i;
+  }
+
+  let rFact = 1;
+  for (let i = 1; i <= r; i++) {
+    rFact = rFact * i;
+  }
+
+  let nMinusRFact = 1;
+  for (let i = 1; i <= n - r; i++) {
+    nMinusRFact = nMinusRFact * i;
+  }
+
+  const nCr = nFact / (rFact * nMinusRFact);
+  return nCr;
+}
+
+// Good code
+function factorial(num) {
+  let fact = 1;
+  for (let i = 1; i <= num; i++) {
+    fact = fact * i;
+  }
+  return fact;
+}
+
+function calculate_nCr(n, r) {
+  // write code here
+  const nFact = factorial(n);
+  const rFact = factorial(r);
+  const nMinusRFact = factorial(n - r);
+  const nCr = nFact / (rFact * nMinusRFact);
+  return nCr;
+}
+
+// Armstrong numbers in range
+// Link: https://course.acciojob.com/idle?question=620db89b-bcf4-4913-be13-64da3b4ddbeb
+// Good way of writing
+function cntDigits(num) {
+  let temp = num;
+  let cnt = 0;
+  while (temp != 0) {
+    temp = parseInt(temp / 10);
+    cnt++;
+  }
+  return cnt;
+}
+
+function checkArmstrong(num) {
+  const cnt = cntDigits(num);
+  let temp = num;
+  let sum = 0;
+  while (temp != 0) {
+    const lastDigit = temp % 10;
+    temp = parseInt(temp / 10);
+    sum += lastDigit ** cnt;
+  }
+
+  if (sum == num) {
+    return true;
+  }
+
+  return false;
+}
+
+readline.question("", (line) => {
+  let [m, n] = line.split(" ").map(Number);
+
+  // Write the code here
+  for (let num = m; num <= n; num++) {
+    const check = checkArmstrong(num);
+    if (check == true) {
+      console.log(num);
+    }
+  }
+
+  readline.close();
+});
+
+// Place Value Checker
+// Link: https://course.acciojob.com/idle?question=7412f7e1-3017-44fa-83a9-00b9c0781986
+function determineSecondLastDigit(n) {
+  // write code here
+  n = parseInt(n / 10); // remove last digit
+  const secondLast = n % 10; // extract digit;
+  /*
+  if(secondLast == 0) {
+    return true;
+  }
+  else return false;
+  */
+  return secondLast == 0;
+}
+
+// Frequency of digit
+// Link: https://course.acciojob.com/idle?question=e2214e07-d190-4c58-8287-52e6b136e293
+function frequencyOfDigit(n, d) {
+  // Write your code here
+  let temp = n;
+  let cnt = 0;
+  while (temp != 0) {
+    const lastDigit = temp % 10;
+    temp = parseInt(temp / 10);
+    if (lastDigit == d) {
+      cnt++;
+    }
+  }
+
+  return cnt;
+}
+
+// Diamond Pattern
+// Link: https://course.acciojob.com/idle?question=ba892dad-d841-4f88-9d20-8f7c633f8b6b
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function upperPyramid(n) {
+  // run unitl one lesser row to avoid duplicate lines
+  for (let r = 0; r < n - 1; r++) {
+    const spaces = n - r - 1;
+    const stars = 2 * r + 1;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write("  ");
+    }
+    for (let st = 0; st < stars; st++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+}
+
+function lowerPyramid(n) {
+  for (let r = n - 1; r >= 0; r--) {
+    const spaces = n - r - 1;
+    const stars = 2 * r + 1;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write("  ");
+    }
+    for (let st = 0; st < stars; st++) {
+      process.stdout.write("* ");
+    }
+    console.log();
+  }
+}
+
+function diamond(n) {
+  const half = parseInt(n / 2) + 1;
+  upperPyramid(half); // remember upper pyramid runs one lesser row
+  lowerPyramid(half);
+}
+
+let input = [];
+rl.on("line", (line) => {
+  input.push(line);
+}).on("close", () => {
+  let t = Number(input[0]);
+  let index = 1;
+
+  while (t > 0) {
+    let n = Number(input[index]);
+    // Write your code here
+    diamond(n);
+    t--;
+    index++;
+  }
+});
