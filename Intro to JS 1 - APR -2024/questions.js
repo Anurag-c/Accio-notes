@@ -880,3 +880,23 @@ rl.on("line", (line) => {
     index++;
   }
 });
+
+// Print Continuous Character Pattern
+// Link: https://course.acciojob.com/idle?question=d3216ae1-5d6c-42da-b63d-2d6166dc78ef
+readline.question("", (n) => {
+  readline.close();
+  // write code here
+  for (let r = 0; r < n; r++) {
+    let ascii = 65 + (r % 26);
+    for (let c = 0; c < r + 1; c++) {
+      // reset the ascii back to 65
+      if (ascii == 91) {
+        ascii = 65;
+      }
+
+      process.stdout.write(String.fromCharCode(ascii));
+      ascii++;
+    }
+    console.log();
+  }
+});

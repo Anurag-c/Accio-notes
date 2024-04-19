@@ -419,7 +419,9 @@ for (let i = 0; i < 3; i++) {
   console.log("*");
 }
 
+//////////////////////////////////////////////
 
+// functions
 function printer() {
   console.log("Hi I am Anurag");
   console.log("I work at AccioJob");
@@ -438,7 +440,6 @@ function add(a, b) {
 add(2, 3);
 add(10, 20);
 add(100, 150);
-
 
 // returning results from a function
 function addNew(a, b) {
@@ -459,6 +460,134 @@ function printer() {
 }
 
 const ans = printer();
-*/
 
-diamond(11);
+const firstName = "Anurag";
+
+function second() {
+  let c = 2;
+  return c;
+}
+
+function first() {
+  let a = 1;
+  const b = second();
+  a = a + b;
+  return a;
+}
+
+const x = first();
+console.log(x);
+
+// global scope
+const a = 5;
+let firstName = "Anurag";
+const year = 2023;
+
+function test() {
+  console.log("Inside test func ", a, firstName, year);
+}
+
+test();
+console.log("Outside test func ", a, firstName, year);
+
+// function scope
+function second() {
+  console.log(a);
+  let c = 2;
+  return c;
+}
+
+function first() {
+  let a = 2;
+  const b = second();
+  a = a + b;
+  return a;
+}
+
+const x = first();
+console.log(x);
+
+
+// block / local scope
+const birthYear = 1988;
+if (1981 <= birthYear && birthYear <= 1990) {
+  const oldGen = true;
+}
+console.log(oldGen);
+
+// how to correct the above
+const birthYear = 1988;
+let oldGen;
+if (1981 <= birthYear && birthYear <= 1990) {
+  oldGen = true;
+}
+console.log(oldGen);
+
+// var with block scope
+const birthYear = 1988;
+if (1981 <= birthYear && birthYear <= 1990) {
+  var oldGen = true;
+}
+console.log(oldGen);
+
+// var with function scope
+function test() {
+  var firstName = "anurag";
+}
+
+test();
+console.log(firstName);
+
+
+// hoisting
+test();
+demo();
+console.log(currYear);
+console.log(example);
+
+function test() {
+  console.log("Hi, How are you ?");
+}
+
+function demo() {
+  console.log("I am a demo function");
+}
+
+var currYear = 2023;
+let example = "some random example";
+
+// q1
+y = 3;
+console.log(y);
+var y = 100;
+console.log(y);
+
+// q2
+function example() {
+  console.log(a);
+}
+
+console.log(a);
+var a = 1;
+example();
+
+// q3
+function first() {
+  console.log(1);
+}
+
+first();
+
+function first() {
+  console.log(2);
+}
+
+first();
+
+// q4
+var console.log(test);
+function test() {
+  console.log("Inside the function");
+}
+console.log(test);
+*/
