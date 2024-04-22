@@ -900,3 +900,109 @@ readline.question("", (n) => {
     console.log();
   }
 });
+
+// Optimus Prime
+// Link: https://course.acciojob.com/idle?question=c77a4030-9552-4f23-b348-f2fdc22c330a
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+
+  for (let i = 2; i < num; i++) {
+    if (num % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+rl.on("line", (n) => {
+  // Your code here
+  for (let num = 1; num <= n; num++) {
+    if (isPrime(num)) {
+      console.log(num);
+    }
+  }
+});
+
+// Crazy Numbers
+// Link: https://course.acciojob.com/idle?question=affc66cb-d061-4933-b572-22f8b0b9e3c6
+readline.question("", (n) => {
+  numberPattern(parseInt(n));
+  readline.close();
+});
+
+function numberPattern(n) {
+  // your code here
+  let num = 1;
+  for (let r = 0; r < n; r++) {
+    const spaces = n - r - 1;
+    const numbers = r + 1;
+    for (let sp = 0; sp < spaces; sp++) {
+      process.stdout.write(" ");
+    }
+    for (let nu = 0; nu < numbers; nu++) {
+      process.stdout.write(String(num));
+      num++;
+      if (num == 10) {
+        num = 1; // reset back to 1
+      }
+    }
+    console.log();
+  }
+}
+
+// Binary To Decimal
+// Link: https://course.acciojob.com/idle?question=f89c75c7-084a-4472-b293-43736a2f34ab
+function binToDec(s) {
+  //Write code here
+  return parseInt(s, 2);
+}
+
+// Array Problem 1 (Max ele and index)
+// Link: https://course.acciojob.com/idle?question=203c6532-1438-4d70-8854-94f35fe1b0ba
+function ArrayProblem1(n, arr) {
+  // Write code here
+  let maxEle = -Infinity;
+  let idx = -1;
+
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > maxEle) {
+      maxEle = arr[i];
+      idx = i;
+    }
+  }
+
+  return idx;
+}
+
+// Maximum difference between two elements in an Array
+// Link: https://course.acciojob.com/idle?question=b5a0f4ca-7b5e-4fee-9487-3ca52a582741
+function ArrayProblem(arr) {
+  // Write your code here
+  let maxEle = -Infinity;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = i + 1; j < n; j++) {
+      const diff = Math.abs(arr[i] - arr[j]);
+      if (diff > maxEle) {
+        maxEle = diff;
+      }
+    }
+  }
+  console.log(maxEle);
+}
+
+// Efficient/Optimal
+function ArrayProblem(arr) {
+  // Write your code here
+  let maxEle = -Infinity; // as low as possible
+  let minEle = Infinity; // as high as possible
+  const n = arr.length;
+
+  for (let i = 0; i < n; i++) {
+    maxEle = Math.max(arr[i], maxEle);
+    minEle = Math.min(arr[i], minEle);
+  }
+
+  console.log(maxEle - minEle);
+}

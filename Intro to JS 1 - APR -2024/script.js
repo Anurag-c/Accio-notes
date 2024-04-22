@@ -590,4 +590,94 @@ function test() {
   console.log("Inside the function");
 }
 console.log(test);
+
+// Arrays - 1
+const f1 = "Anjay";
+const f2 = "Abhishek";
+const f3 = "Aryan";
+const f4 = "Priya";
+const f5 = "JavaScript";
+
+// 1) how to create an array
+const friends = ["Anjay", "Abhishek", "Aryan", "Priya"];
+console.log(friends);
+
+// 2) accessing through index
+console.log(friends[0]);
+console.log(friends[1]);
+console.log(friends[2]);
+console.log(friends[3]);
+
+// 3) number of elements
+console.log(friends.length);
+
+// 4) find the last element
+const n = friends.length;
+console.log(friends[n - 1]);
+
+// 5) printing all elements in the array
+for (let i = 0; i < n; i++) {
+  console.log(friends[i]);
+}
+
+// 6) changing an element in the array
+console.log("Before: ", friends);
+friends[1] = "Tarun";
+friends[0] = "Roshan";
+console.log("After: ", friends);
+
+// 7) adding elements at the back
+console.log("Before: ", friends);
+friends.push("Anjay");
+friends.push("JavaScript");
+console.log("After: ", friends);
+
+// 8) arrays can store any data type
+function print() {
+  console.log("hello");
+  return 10;
+}
+
+const firstName = "Anurag";
+const age = 23;
+const job = "Teacher";
+
+const myArr = [firstName, age, job, friends, print, print()];
+console.log(myArr);
+console.log(myArr[0]);
+console.log(myArr[1]);
+console.log(myArr[2]);
+console.log(myArr[3]);
+console.log(myArr[4]);
+console.log(myArr[4]());
+console.log(myArr[5]);
+
+// given myArr, print the number of friends you have
+console.log(myArr[3].length);
+
+// given myArr, print the second friend
+console.log(myArr[3][1]);
+
+// given myArr, get the last friend
+const numFrnds = myArr[3].length;
+console.log(myArr[3][numFrnds - 1]);
+
+// How to generate pairs / triplets
+const arr = [20, 10, 30, 40, 50];
+const n = arr.length;
+
+// i < n or i < n - 1 or i <= n - 2 will give same output
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    console.log(arr[i], arr[j]);
+  }
+}
+
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    for (let k = j + 1; k < n; k++) {
+      console.log(arr[i], arr[j], arr[k]);
+    }
+  }
+}
 */
