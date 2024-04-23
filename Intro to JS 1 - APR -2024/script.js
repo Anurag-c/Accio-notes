@@ -681,3 +681,14 @@ for (let i = 0; i < n; i++) {
   }
 }
 */
+
+let arr = [1, 3, 5, 7];
+console.log(arr);
+
+let brr = [0, 2, 3, 6];
+brr[2] = 30;
+
+brr = arr;
+arr[2] = 40;
+console.log(arr);
+console.log(brr);

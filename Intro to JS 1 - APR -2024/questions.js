@@ -1006,3 +1006,144 @@ function ArrayProblem(arr) {
 
   console.log(maxEle - minEle);
 }
+
+// Array Problem 6
+// Link: https://course.acciojob.com/idle?question=02fe1fa2-2fba-4a5f-aca0-baac93f166a3
+function ArrayProblem6(n, arr) {
+  // Write code here
+  let minDis = Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] % 2 != 0) {
+      continue;
+    }
+    for (let j = i + 1; j < n; j++) {
+      if (arr[i] > 0 && arr[i] % 2 == 0 && arr[j] > 0 && arr[j] % 2 == 0) {
+        minDis = Math.min(minDis, j - i);
+      }
+    }
+  }
+
+  // if none of the pairs are positive even
+  if (minDis == Infinity) {
+    return -1;
+  }
+  return minDis;
+}
+
+// efficient / optimal
+function ArrayProblem6(n, arr) {
+  // Write code here
+  let prevEvenNumIdx = -1;
+  let minDis = Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > 0 && arr[i] % 2 == 0) {
+      // check if prev even number exists and then update dis
+      if (prevEvenNumIdx != -1) {
+        minDis = Math.min(minDis, i - prevEvenNumIdx);
+      }
+      prevEvenNumIdx = i;
+    }
+  }
+
+  // if none of the pairs are positive even
+  if (minDis == Infinity) {
+    return -1;
+  }
+  return minDis;
+}
+
+// Sorted Insert Position
+// Link: https://course.acciojob.com/idle?question=be428ee1-8e73-4bcc-975f-af6f6c629d27
+function searchInsert(arr, tar) {
+  // Write code here
+  const n = arr.length;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] >= tar) {
+      return i;
+    }
+  }
+
+  // you will reach here only when all ele < tar
+  // [1, 2, 3, 4, 5] and insert(6)
+  return n;
+}
+
+// Array Problem 5
+// Link: https://course.acciojob.com/idle?question=f98feeb1-40eb-4b6f-a600-067714166864
+function ArrayProblem(arr, k) {
+  // Write code here
+  const n = arr.length;
+  let cnt = 0;
+  for (let i = 0; i < n - 1; i++) {
+    if (arr[i] + arr[i + 1] == k) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+
+// Last occurrence in unsorted array
+// Link: https://course.acciojob.com/idle?question=079f6ebf-4868-4e4a-b75e-651967ef5ab9
+function findIndex(key, arr) {
+  //Your code goes here
+  const n = arr.length;
+  for (let i = n - 1; i >= 0; i--) {
+    if (arr[i] == key) {
+      console.log(i);
+      return;
+    }
+  }
+}
+
+// 2nd Largest from array
+// Link: https://course.acciojob.com/idle?question=d5b5b101-0636-4654-bd4d-bfecce8e5d00
+function SecondLargest(arr, n) {
+  // Write code here
+  let firstMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    firstMax = Math.max(firstMax, arr[i]);
+  }
+
+  let secondMax = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] != firstMax) {
+      secondMax = Math.max(secondMax, arr[i]);
+    }
+  }
+
+  console.log(secondMax);
+}
+
+// writing in a modular way
+function findMax(arr, n, firstMax, secondMax) {
+  let maxEle = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] != firstMax && arr[i] != secondMax) {
+      maxEle = Math.max(maxEle, arr[i]);
+    }
+  }
+  return maxEle;
+}
+
+function SecondLargest(arr, n) {
+  // Write code here
+  const firstMax = findMax(arr, n, -Infinity, -Infinity);
+  const secondMax = findMax(arr, n, firstMax, -Infinity);
+  const thirdMax = findMax(arr, n, firstMax, secondMax);
+
+  console.log(secondMax);
+}
+
+// Reverse an array
+// Link: https://course.acciojob.com/idle?question=944dba4b-f895-44af-8ec1-7445343e5713
+function reverseArray(arr, start, end) {
+  //Write code here
+  while (start <= end) {
+    const temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
