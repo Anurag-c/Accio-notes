@@ -692,3 +692,19 @@ brr = arr;
 arr[2] = 40;
 console.log(arr);
 console.log(brr);
+
+function incrementNum(num) {
+  num++;
+}
+
+let num = 5;
+incrementNum(num);
+console.log(num);
+
+function incrementArr(arr) {
+  arr[0]++;
+}
+
+let brr = [1, 3, 5, 7];
+incrementArr(brr);
+console.log(brr);

@@ -1147,3 +1147,98 @@ function reverseArray(arr, start, end) {
     end--;
   }
 }
+
+// Buildings
+// Link: https://course.acciojob.com/idle?question=a7bdae50-cbdd-4048-a3c3-be52504b9580
+function countVisibleRoofs(heights) {
+  // Write your code here
+  const n = heights.length;
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    let isHidden = false;
+    // compare with every building on left
+    for (let j = 0; j < i; j++) {
+      if (heights[j] > heights[i]) {
+        // you found a taller building on left hence you are hidden
+        isHidden = true;
+      }
+    }
+
+    if (isHidden == false) {
+      cnt++;
+    }
+  }
+
+  return cnt;
+}
+
+// optimal / efficient
+function countVisibleRoofs(heights) {
+  // Write your code here
+  const n = heights.length;
+  let cnt = 0;
+  let tallestOnLeft = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (heights[i] >= tallestOnLeft) {
+      cnt++;
+    }
+    tallestOnLeft = Math.max(tallestOnLeft, heights[i]);
+  }
+
+  return cnt;
+}
+
+// Array Adding
+// Link: https://course.acciojob.com/idle?question=a426a64f-8962-4a98-9433-3200d900ad67
+function calSum(a, b, n, m) {
+  // Write your code here
+  let i = n - 1;
+  let j = m - 1;
+  const res = [];
+  let carry = 0;
+
+  while (i >= 0 || j >= 0) {
+    let sum = 0;
+    if (i >= 0) sum += a[i];
+    if (j >= 0) sum += b[j];
+    sum += carry;
+
+    res.push(sum % 10);
+    carry = parseInt(sum / 10);
+    i--;
+    j--;
+  }
+
+  if (carry == 1) {
+    res.push(1);
+  }
+
+  res.reverse();
+  return res;
+}
+
+// Rotate array
+// Link: https://course.acciojob.com/idle?question=444d4b46-efef-467a-8833-e3fede7d22f0
+function reverseArray(arr, start, end) {
+  //Write code here
+  while (start <= end) {
+    const temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+}
+
+function rotateArray(arr, n, k) {
+  // Write code here
+  k = k % n;
+  reverseArray(arr, 0, n - 1);
+  reverseArray(arr, 0, n - k - 1);
+  reverseArray(arr, n - k, n - 1);
+
+  for (let i = 0; i < n; i++) {
+    process.stdout.write(arr[i] + " ");
+  }
+}
