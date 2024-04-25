@@ -680,7 +680,6 @@ for (let i = 0; i < n; i++) {
     }
   }
 }
-*/
 
 let arr = [1, 3, 5, 7];
 console.log(arr);
@@ -708,3 +707,50 @@ function incrementArr(arr) {
 let brr = [1, 3, 5, 7];
 incrementArr(brr);
 console.log(brr);
+*/
+
+const arr = [10, 20, 30, 40];
+const n = arr.length;
+
+// If you just want to print use prefix string as subarr
+for (let start = 0; start < n; start++) {
+  let subarr = "";
+  for (let end = start; end < n; end++) {
+    subarr += arr[end] + " ";
+    console.log(start, end, subarr);
+  }
+}
+
+// generate sum of every subarray
+for (let start = 0; start < n; start++) {
+  let sum = 0;
+  for (let end = start; end < n; end++) {
+    sum += arr[end];
+    console.log(start, end, sum);
+  }
+}
+
+// If you want all subarrays in a bigger array
+// use prefix array [] as the subarr
+function makeCopy(arr) {
+  const newarr = [];
+  const n = arr.length;
+  for (let i = 0; i < n; i++) {
+    newarr.push(arr[i]);
+  }
+  return newarr;
+}
+
+const ans = [];
+for (let start = 0; start < n; start++) {
+  const subarr = [];
+  for (let end = start; end < n; end++) {
+    subarr.push(arr[end]);
+    // push the new array of subarr
+    const copy = Array.from(subarr);
+    // const copy = makeCopy(subarr);
+    ans.push(copy);
+  }
+}
+
+console.log(ans);

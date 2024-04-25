@@ -1242,3 +1242,171 @@ function rotateArray(arr, n, k) {
     process.stdout.write(arr[i] + " ");
   }
 }
+
+// Angry Professor
+// Link: https://course.acciojob.com/idle?question=4045b80f-75cb-498f-90d4-1280790e7b6e
+function AngryProfessor(arr, n, k) {
+  // count how many students are on time
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] <= 0) {
+      cnt++;
+    }
+  }
+
+  // fewer than k students on time => cancelled => yes
+  if (cnt < k) {
+    console.log("YES");
+  } else {
+    console.log("NO");
+  }
+}
+
+// FACING THE SUN (here equal heights cant be seen)
+// Link: https://course.acciojob.com/idle?question=163324ba-e963-404d-bcf0-5ab5117ac516
+function facingSun(n, arr) {
+  let cnt = 0;
+  let tallestOnLeft = -Infinity;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > tallestOnLeft) {
+      cnt++;
+    }
+    tallestOnLeft = Math.max(tallestOnLeft, arr[i]);
+  }
+
+  return cnt;
+}
+
+// Sum of Array Except Self
+// Link: https://course.acciojob.com/idle?question=3cf411ff-c59c-4202-ae5c-6b0292d31764
+function sumArrayExceptSelf(nums, n) {
+  // Write your code here
+  let total = 0;
+  for (let i = 0; i < n; i++) {
+    total += nums[i];
+  }
+
+  const res = [];
+  for (let i = 0; i < n; i++) {
+    res.push(total - nums[i]);
+  }
+
+  return res;
+}
+
+// Subarray Sum Zero
+// Link: https://course.acciojob.com/idle?question=7f096e64-5c0d-4333-b324-02e6ac91a3d7
+function zeroSubarray(arr) {
+  //Write your code here
+  const n = arr.length;
+  let isFound = false; // assume we did not find a 0 sum subarr
+
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum += arr[end];
+      if (sum == 0) {
+        isFound = true;
+        console.log(`Subarray found from Index ${start} to ${end}`);
+      }
+    }
+  }
+
+  if (isFound == false) {
+    console.log(-1);
+  }
+}
+
+// Find Split Point
+// Link: https://course.acciojob.com/idle?question=c0af5738-5a1c-4a05-a68c-789f38a620d1
+function sum(arr, start, end) {
+  let sum = 0;
+  for (let i = start; i <= end; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+function findSplitPoint(N, arr) {
+  // Write your code here
+  for (let split = 0; split < N - 1; split++) {
+    const lsum = sum(arr, 0, split);
+    const rsum = sum(arr, split + 1, N - 1);
+    if (lsum == rsum) {
+      return split;
+    }
+  }
+
+  return -1;
+}
+
+// optimal way
+function findSplitPoint(N, arr) {
+  // Write your code here
+  let total = 0;
+  for (let i = 0; i < N; i++) {
+    total += arr[i];
+  }
+
+  let lsum = 0;
+  for (let split = 0; split < N - 1; split++) {
+    lsum += arr[split];
+    const rsum = total - lsum;
+    if (lsum == rsum) {
+      return split;
+    }
+  }
+
+  return -1;
+}
+
+function splitArray(N, arr) {
+  const split = findSplitPoint(N, arr);
+  if (split == -1) {
+    console.log("Not Possible");
+  } else {
+    for (let i = 0; i <= split; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+    console.log();
+    for (let i = split + 1; i < N; i++) {
+      process.stdout.write(arr[i] + " ");
+    }
+  }
+}
+
+// Find Geometric Triplets
+// Link: https://course.acciojob.com/idle?question=cefcef33-7a3f-46ea-99f4-694dd5297224
+function findGeometricTriplets(arr, n) {
+  // Write code here
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        // b^2 = ac
+        if (arr[j] ** 2 == arr[i] * arr[k]) {
+          console.log(arr[i], arr[j], arr[k]);
+        }
+      }
+    }
+  }
+}
+
+// Subarray Division (Hackerrank)
+// Link: https://www.hackerrank.com/challenges/the-birthday-bar/problem?isFullScreen=true
+function birthday(s, d, m) {
+  // Write your code here
+  const n = s.length;
+  let cnt = 0;
+
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum += s[end];
+      if (sum == d && end - start + 1 == m) {
+        cnt++;
+      }
+    }
+  }
+
+  return cnt;
+}
