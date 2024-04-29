@@ -707,7 +707,7 @@ function incrementArr(arr) {
 let brr = [1, 3, 5, 7];
 incrementArr(brr);
 console.log(brr);
-*/
+
 
 const arr = [10, 20, 30, 40];
 const n = arr.length;
@@ -754,3 +754,65 @@ for (let start = 0; start < n; start++) {
 }
 
 console.log(ans);
+
+// 2D Arrays
+const friends1 = ["Soham", "Tarun", "Abhishek"];
+const friends2 = ["Priya", "Debargha", "Anjay", "Shashank"];
+const friends3 = ["C++", "JavaScript"];
+
+const allFriends = [friends1, friends2, friends3];
+console.log(allFriends);
+console.log(allFriends[0]);
+console.log(allFriends[1]);
+console.log(allFriends[2]);
+
+console.log(allFriends[1][2]);
+console.log(allFriends[2][0]);
+
+console.log(friends1);
+allFriends[0][0] = "Vaibhav";
+console.log(allFriends[0]);
+console.log(friends1);
+
+
+const rows = allFriends.length;
+const cols = allFriends[0].length;
+
+console.log(rows);
+console.log(cols);
+*/
+
+// How to travel and print a print
+function printMatrix(matrix) {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      process.stdout.write(matrix[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+function buildMatrix(rows, cols) {
+  const matrix = [];
+  for (let r = 0; r < rows; r++) {
+    // build the smaller array for every row
+    const smallArr = [];
+    // matrix.push(smallArr)
+    // you can also push smallArr here instead after building
+    // because changes done to smallArr are reflected
+    // in matrix as well because both are looking at
+    // same address
+    for (let c = 0; c < cols; c++) {
+      smallArr.push(c + 1);
+    }
+    matrix.push(smallArr);
+  }
+
+  return matrix;
+}
+
+const matrix = buildMatrix(6, 6);
+printMatrix(matrix);

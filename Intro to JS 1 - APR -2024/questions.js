@@ -1410,3 +1410,61 @@ function birthday(s, d, m) {
 
   return cnt;
 }
+
+// Print Matrix Column Wise
+// Link: https://course.acciojob.com/idle?question=31900452-fb2e-45cd-93b0-fb4d6afbfac0
+function printMatrixColumnwise(mat, n, m) {
+  // Write code here and print output
+  for (let c = 0; c < m; c++) {
+    for (let r = 0; r < n; r++) {
+      process.stdout.write(mat[r][c] + " ");
+    }
+  }
+}
+
+// Alternate Manner Matrix Traversal
+// Link: https://course.acciojob.com/idle?question=191ba184-3c72-468a-83fe-5100d558f7eb
+function printElementsAlternately(mat, m, n) {
+  //Write code here and print output
+  for (let r = 0; r < m; r++) {
+    if (r % 2 == 0) {
+      for (let c = 0; c < n; c++) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    } else {
+      for (let c = n - 1; c >= 0; c--) {
+        process.stdout.write(mat[r][c] + " ");
+      }
+    }
+  }
+}
+
+// Transpose of Matrix
+// https://course.acciojob.com/idle?question=57e7562d-b233-42ca-89f6-c10ad5cdf579
+// using additional space
+function matrixTranspose(mat, n) {
+  //Write your code here
+  const trans = [];
+  for (let c = 0; c < n; c++) {
+    const smallArr = [];
+    for (let r = 0; r < n; r++) {
+      smallArr.push(mat[r][c]);
+    }
+    trans.push(smallArr);
+  }
+
+  return trans;
+}
+
+function matrixTranspose(mat, n) {
+  //Write your code here
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c <= r; c++) {
+      let temp = mat[r][c];
+      mat[r][c] = mat[c][r];
+      mat[c][r] = temp;
+    }
+  }
+
+  return mat;
+}
