@@ -1468,3 +1468,175 @@ function matrixTranspose(mat, n) {
 
   return mat;
 }
+
+// Matrix Multiplication
+// Link: https://course.acciojob.com/idle?question=da3dfaa3-541f-4b9b-a202-30b4fb01a835
+function printMultiplication(a, b, n) {
+  const rowsA = n;
+  const rowsB = n;
+  const colsA = n;
+  const colsB = n;
+
+  if (colsA != rowsB) {
+    return;
+  }
+
+  // 1) create an empty rowsA x colsB matrix
+  const res = [];
+  for (let r = 0; r < rowsA; r++) {
+    const smallArr = [];
+    for (let c = 0; c < colsB; c++) {
+      smallArr.push(0);
+    }
+    res.push(smallArr);
+  }
+
+  // res[r][c] = a[r][?] * b[?][c]
+  // 2) fill the res matrix with multiplied values
+  for (let r = 0; r < rowsA; r++) {
+    for (let c = 0; c < colsB; c++) {
+      // k < rowsB also works because colsA = rowsB
+      for (let k = 0; k < colsA; k++) {
+        res[r][c] += a[r][k] * b[k][c];
+      }
+    }
+  }
+
+  // 3) print the matrix
+  for (let r = 0; r < rowsA; r++) {
+    for (let c = 0; c < colsB; c++) {
+      process.stdout.write(res[r][c] + " ");
+    }
+    console.log();
+  }
+}
+
+// Spirally traversing a matrix
+// Link: https://course.acciojob.com/idle?question=5f714d43-3f91-4c47-b41b-203207e63522
+function spirallyTraverse(mat) {
+  // Write your code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  let minR = 0;
+  let maxR = rows - 1;
+  let minC = 0;
+  let maxC = cols - 1;
+  let totalEle = rows * cols;
+
+  while (totalEle > 0) {
+    // 1) Top wall (minR, minC to maxC)
+    for (let c = minC; c <= maxC && totalEle > 0; c++) {
+      process.stdout.write(mat[minR][c] + " ");
+      totalEle--;
+    }
+    minR++;
+
+    // 2) Right wall (minR to maxR, maxC)
+    for (let r = minR; r <= maxR && totalEle > 0; r++) {
+      process.stdout.write(mat[r][maxC] + " ");
+      totalEle--;
+    }
+    maxC--;
+
+    // 3) bottom wall (maxR, maxC to minC)
+    for (let c = maxC; c >= minC && totalEle > 0; c--) {
+      process.stdout.write(mat[maxR][c] + " ");
+      totalEle--;
+    }
+    maxR--;
+
+    // 4) left wall (maxR to minR, minC)
+    for (let r = maxR; r >= minR && totalEle > 0; r--) {
+      process.stdout.write(mat[r][minC] + " ");
+      totalEle--;
+    }
+    minC++;
+  }
+}
+
+// Toeplitz Matrix
+// Link: https://course.acciojob.com/idle?question=fa4a91e3-218d-473b-8d33-65fb2af3e145
+function isToeplitzMatrix(matrix, m, n) {
+  // write code here
+  for (let r = 0; r < m; r++) {
+    for (let c = 0; c < n; c++) {
+      if (r + 1 < m && c + 1 < n && matrix[r][c] != matrix[r + 1][c + 1]) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+// Diagonal Difference
+// Link: https://course.acciojob.com/idle?question=8a6cbf35-d128-459b-a7ba-9e269d2af40a
+function diagonalDifference(mat, n) {
+  let i = 0;
+  let j = 0;
+  let diag = 0;
+  while (i < n && j < n) {
+    diag += mat[i][j];
+    i++;
+    j++;
+  }
+
+  i = 0;
+  j = n - 1;
+  let adiag = 0;
+  while (i < n && j >= 0) {
+    adiag += mat[i][j];
+    i++;
+    j--;
+  }
+
+  console.log(Math.abs(diag - adiag));
+}
+
+// other way
+function diagonalDifference(mat, n) {
+  let diag = 0;
+  let adiag = 0;
+  for (let r = 0; r < n; r++) {
+    diag += mat[r][r];
+    adiag += mat[r][n - r - 1];
+  }
+
+  console.log(Math.abs(diag - adiag));
+}
+
+// Alt Matrix Sum
+// Link: https://course.acciojob.com/idle?question=04a591ba-305a-4bd7-a4b2-9a06ac187837
+function alternateMatrixSum(mat, n) {
+  // Write your code here
+  let bsum = 0;
+  let wsum = 0;
+
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if ((r + c) % 2 == 0) {
+        bsum += mat[r][c];
+      } else {
+        wsum += mat[r][c];
+      }
+    }
+  }
+  console.log(bsum);
+  console.log(wsum);
+}
+
+// Sum of upper and lower triangles
+// Link: https://course.acciojob.com/idle?question=d39c3375-6cfe-47a6-9c75-9f0acf8ae916
+function triangleSums(n, matrix) {
+  // your code here
+  let upper = 0;
+  let lower = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if (r >= c) lower += matrix[r][c];
+      if (r <= c) upper += matrix[r][c];
+    }
+  }
+  console.log(upper, lower);
+}
