@@ -1640,3 +1640,183 @@ function triangleSums(n, matrix) {
   }
   console.log(upper, lower);
 }
+
+// Find The Way
+// Link: https://course.acciojob.com/idle?question=60d37a31-7584-48eb-baad-ee073ffc7acf
+function findTheWay(matrix) {
+  //Write code here
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  let i = 0;
+  let j = 0;
+  let facing = 0;
+
+  while (true) {
+    // 1. if the matrix cell is 1
+    if (matrix[i][j] == 1) {
+      facing = (facing + 1) % 4;
+      matrix[i][j] = 0;
+    }
+
+    // 2. move forward in any case either 1 or 0
+    if (facing == 0) j++;
+    else if (facing == 1) i++;
+    else if (facing == 2) j--;
+    else if (facing == 3) i--;
+
+    // 3. check for exit cell
+    if (i == -1) return [0, j];
+    else if (j == -1) return [i, 0];
+    else if (i == rows) return [i - 1, j];
+    else if (j == cols) return [i, j - 1];
+  }
+}
+
+// Maxima Minima
+// Link: https://course.acciojob.com/idle?question=834a5e9e-9b0c-45db-b0e1-375bafb999ea
+function findMinRow(mat, r) {
+  const cols = mat[0].length;
+  let minEle = Infinity;
+  for (let c = 0; c < cols; c++) {
+    minEle = Math.min(minEle, mat[r][c]);
+  }
+  return minEle;
+}
+
+function findMaxCol(mat, c) {
+  const rows = mat.length;
+  let maxEle = -Infinity;
+  for (let r = 0; r < rows; r++) {
+    maxEle = Math.max(maxEle, mat[r][c]);
+  }
+  return maxEle;
+}
+
+function maximaMinima(mat) {
+  //Write code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const minR = findMinRow(mat, r);
+      const maxC = findMaxCol(mat, c);
+      if (mat[r][c] == minR && mat[r][c] == maxC) {
+        return mat[r][c];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// optimized
+function maximaMinima(mat) {
+  //Write code here
+  const rows = mat.length;
+  const cols = mat[0].length;
+
+  // 1) precomputation
+  const minRow = [];
+  for (let r = 0; r < rows; r++) {
+    const val = findMinRow(mat, r);
+    minRow.push(val);
+  }
+
+  const maxCol = [];
+  for (let c = 0; c < cols; c++) {
+    const val = findMaxCol(mat, c);
+    maxCol.push(val);
+  }
+
+  // 2) your logic now uses stored computations
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const minR = minRow[r];
+      const maxC = maxCol[c];
+      if (mat[r][c] == minR && mat[r][c] == maxC) {
+        return mat[r][c];
+      }
+    }
+  }
+
+  return -1;
+}
+
+// matrix.push(line.trim().split(' ').map(Number));
+
+// Array Subtracting
+// Link: https://course.acciojob.com/idle?question=4ed416d3-76b0-41a6-a956-3201e2fb6079
+function isSwapReq(arr1, n1, arr2, n2) {
+  if (n1 < n2) return true;
+  else if (n1 > n2) return false;
+
+  // when n1 == n2
+  for (let i = 0; i < n1; i++) {
+    if (arr1[i] != arr2[i]) {
+      if (arr1[i] < arr2[i]) return true;
+      else return false;
+    }
+  }
+
+  // you will reach here if arr1 == arr2
+  // in this case no swap required hence false
+  return false;
+}
+
+function findSubtraction(arr1, n1, arr2, n2) {
+  //Write your code here
+  // 1) swap arrays if arr1 < arr2
+  const swap = isSwapReq(arr1, n1, arr2, n2);
+  if (swap == true) {
+    let temp = arr1;
+    arr1 = arr2;
+    arr2 = temp;
+    temp = n1;
+    n1 = n2;
+    n2 = temp;
+  }
+
+  // 2) perform subtraction as usual
+  let i = n1 - 1;
+  let j = n2 - 1;
+  let carry = 0;
+  const res = [];
+  while (i >= 0 || j >= 0) {
+    let diff = arr1[i] + carry;
+    if (j >= 0) diff -= arr2[j];
+
+    // if borrow required there will be carry of -1
+    if (diff < 0) {
+      diff += 10;
+      carry = -1;
+    } else carry = 0;
+
+    res.push(diff);
+    i--;
+    j--;
+  }
+
+  res.reverse();
+
+  // 3) if there was a swap then multiply -1
+  if (swap == true) res[0] *= -1;
+
+  return res;
+}
+
+// Subarray sum divisible by k
+// Link: https://course.acciojob.com/idle?question=fd54a321-f9b7-4772-9d78-69ffe5a0ccb8
+function subarrayDivisbleByK(arr, n, k) {
+  let cnt = 0;
+  for (let start = 0; start < n; start++) {
+    let sum = 0;
+    for (let end = start; end < n; end++) {
+      sum += arr[end];
+      if (sum % k == 0) cnt++;
+    }
+  }
+
+  return cnt;
+}
